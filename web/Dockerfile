@@ -9,14 +9,14 @@ RUN apt-get update -qq && apt-get -y install \
     mysql-client
 
 # rails用のディレクトリを作成
-RUN mkdir /myapp
+RUN mkdir /Longinus
 
 # ローカルマシン(Mac)からコンテナの中にファイルをコピー
-COPY Gemfile /myapp
-COPY Gemfile.lock /myapp
+COPY Gemfile /Longinus
+COPY Gemfile.lock /Longinus
 
 # 作業ディレクトリを指定
-WORKDIR /myapp
+WORKDIR /Longinus
 
 # 上でコピーしたGemfileに従ってGemをインストール
 RUN gem install bundler && bundle install
