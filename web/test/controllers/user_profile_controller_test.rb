@@ -1,13 +1,13 @@
 require 'test_helper'
 
-class StaticPagesControllerTest < ActionDispatch::IntegrationTest
+class UserProfileControllerTest < ActionDispatch::IntegrationTest
   test "should get home" do
-    get static_pages_home_url
+    get user_profile_home_url
     assert_response :success
   end
 
   test "should get help" do
-    get static_pages_help_url
+    get user_profile_help_url
     assert_response :success
   end
 
