@@ -12,7 +12,6 @@ services:
   db:
     image: postgres:latest
     volumes:
-      - ./db/data:/var/lib/postgres
-      - ./db/conf:/etc/postgres/conf.d
+      - ./db:/var/lib/postgresql/data
     expose:
       - "3306"
