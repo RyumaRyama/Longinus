@@ -1,18 +1,18 @@
 version: '3'
+volumes:
+  db:
+    driver: local
 services:
+  db:
+    image: postgres:10.5
+    volumes:
+      - ./db:/var/lib/postgresql/data
   web:
     build: ./web
+    command: bundle exec rails s -p 3000 -b '0.0.0.0'
     ports:
       - "3000:3000"
     depends_on:
       - db
     volumes:
       - ./web:/Longinus
-    command: bundle exec rails s -p 3000 -b '0.0.0.0'
-  db:
-    image: postgres:latest
-    volumes:
-      - ./db/data:/var/lib/postgres
-      - ./db/conf:/etc/postgres/conf.d
-    expose:
-      - "3306"
