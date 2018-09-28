@@ -17,9 +17,8 @@
 default: &default
   adapter: postgresql
   encoding: unicode
-  host: db
   username: postgres
-  password:
+  host: db
   # For details on connection pooling, see Rails configuration guide
   # http://guides.rubyonrails.org/configuring.html#database-pooling
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
@@ -82,7 +81,8 @@ test:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
 production:
-  <<: *default
-  database: Longinus_production
-  username: Longinus
-  password: <%= ENV['LONGINUS_DATABASE_PASSWORD'] %>
+  url: <%= ENV['DATABASE_URL'] %>
+  # <<: *default
+  # database: Longinus_production
+  # username: Longinus
+  # password: <%= ENV['LONGINUS_DATABASE_PASSWORD'] %>
