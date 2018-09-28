@@ -11,13 +11,12 @@ RUN apt-get update -qq && apt-get -y install \
 RUN mkdir /Longinus
 
 # ローカルマシン(Mac)からコンテナの中にファイルをコピー
-COPY Gemfile /Longinus
-COPY Gemfile.lock /Longinus
+COPY . /Longinus
 
 # 作業ディレクトリを指定
 WORKDIR /Longinus
 
-RUN bundle lock --add-platform x86-mingw32 x86-mswin32 x64-mingw32 java
-
 # 上でコピーしたGemfileに従ってGemをインストール
 RUN gem install bundler && bundle install
+
+CMD ["rails", "s", "-b", "0.0.0.0"]
