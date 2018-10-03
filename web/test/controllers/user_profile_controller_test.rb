@@ -11,4 +11,9 @@ class UserProfileControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
+  test "should get kame" do
+    get user_profile_home_url
+    assert_response :success
+  end
+  
 end
