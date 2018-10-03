@@ -11,4 +11,9 @@ class UserProfileControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
+  test "should get ryama" do
+    get user_profile_help_url
+    assert_response :success
+  end
+
 end
