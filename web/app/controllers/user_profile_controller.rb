@@ -4,4 +4,7 @@ class UserProfileController < ApplicationController
 
   def help
   end
+
+  def gussy
+  end
 end
