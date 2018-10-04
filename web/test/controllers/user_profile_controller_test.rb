@@ -20,5 +20,10 @@ class UserProfileControllerTest < ActionDispatch::IntegrationTest
     get user_profile_home_url
     assert_response :success
   end
+
+  test "should get gussy" do
+    get user_profile_home_url
+    assert_response :success
+  end
   
 end
