@@ -5,6 +5,9 @@ class UserProfileController < ApplicationController
   def help
   end
 
+  def ryama
+  end
+  
   def kame
   end
 
