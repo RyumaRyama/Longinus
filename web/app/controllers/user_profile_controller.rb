@@ -4,4 +4,8 @@ class UserProfileController < ApplicationController
 
   def help
   end
+
+  def kame
+  end
+
 end
