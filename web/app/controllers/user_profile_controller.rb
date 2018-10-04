@@ -7,4 +7,8 @@ class UserProfileController < ApplicationController
 
   def ryama
   end
+  
+  def kame
+  end
+
 end
