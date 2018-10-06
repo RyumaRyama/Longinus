@@ -5,10 +5,16 @@ class UserProfileController < ApplicationController
   def help
   end
 
-  def ryama
-  end
-  
   def kame
   end
 
+  def ryama
+  end
+
+  def gussy
+  end
+
+  def show
+    @user = User.find(params[:id])
+  end
 end
