@@ -9,9 +9,6 @@ class UserIntroductionTest < ActiveSupport::TestCase
                      password: "foobar", password_confirmation: "foobar")
 
     @user_introduction = UserIntroduction.new(user_id: @user.id,  category_id: @category.id, element_id: @element.id)
-    # @user_introduction_relation_category = @category.user_introductions.buildi(user_id: 1, element_id: 1)
-    # @user_introduction_relation_element = @element.user_introductions.build(user_id: 1, category_id: 1)
-    # @user_introduction_relation_user = @user.user_introductions.build(element_id: 1, category_id: 1)
   end
 
   test "should be valid" do
