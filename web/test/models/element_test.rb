@@ -24,4 +24,10 @@ class ElementTest < ActiveSupport::TestCase
     @element.name = "a" * 31
     assert_not @element.valid?
   end
+
+  #test "name should be unique" do
+  #  duplicate_element = @element.dup
+  #  @element.save
+  #  assert_not duplicate_element.valid?
+  #end
 end
