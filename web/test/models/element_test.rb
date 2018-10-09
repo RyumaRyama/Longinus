@@ -2,8 +2,8 @@ require 'test_helper'
 
 class ElementTest < ActiveSupport::TestCase
   def setup
-    @category = Category.new(id:1, name: "food")
-    @element = @category.elements.build(name: "ice")
+    @category = Category.new(id:2, name: "sport")
+    @element = @category.elements.build(name: "cycling")
   end
 
   test "should be valid" do
@@ -25,9 +25,9 @@ class ElementTest < ActiveSupport::TestCase
     assert_not @element.valid?
   end
 
-  #test "name should be unique" do
-  #  duplicate_element = @element.dup
-  #  @element.save
-  #  assert_not duplicate_element.valid?
-  #end
+  test "name should be unique" do
+    duplicate_element = @element.dup
+    @element.save
+    assert_not duplicate_element.valid?
+  end
 end
