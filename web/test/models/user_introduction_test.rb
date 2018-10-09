@@ -8,7 +8,7 @@ class UserIntroductionTest < ActiveSupport::TestCase
     @user = User.new(id:1, name: "John Titer", email: "John@example.com",
                      password: "foobar", password_confirmation: "foobar")
 
-    @user_introduction = UserIntroduction.new(user_id: @user.id,  category_id: @category.id, element_id: @element.id)
+    @user_introduction = UserIntroduction.new(user_id: @user.id, category_id: @category.id, element_id: @element.id)
   end
 
   test "should be valid" do
