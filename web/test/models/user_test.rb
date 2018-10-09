@@ -55,4 +55,12 @@ class UserTest < ActiveSupport::TestCase
     @user.password = @user.password_confirmation = "a" * 5
     assert_not @user.valid?
   end
+
+  test "associated user_introductions should be destroyed" do
+    @user.save
+    @user.user_introductions.create!(category_id: 1, element_id: 1)
+    assert_difference 'UserIntroduction.count', -1 do
+      @user.destroy
+    end
+  end
 end
