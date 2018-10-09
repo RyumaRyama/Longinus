@@ -2,5 +2,7 @@
 
 one:
   id: 1
-  name: food
+  user: 1
+  category: 1
+  element: 1
 
