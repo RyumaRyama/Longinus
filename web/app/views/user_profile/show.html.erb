@@ -2,52 +2,76 @@
 <html lang="ja">
 
 <head>
-  <meta charset="UTF-8">
-  <title>プロトタイプ</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <link href="https://fonts.googleapis.com/css?family=Amatic+SC:700" rel="stylesheet">
+    <meta charset="UTF-8">
+    <title><%= @user.name %></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css?family=Amatic+SC:700" rel="stylesheet">
+    <style type="text/css">
+        .user-icon{
+            border-radius:50%;
+            width:300px;
+            height:300px;
+        }
+        .user-info{
+            font-family: 'Amatic SC', cursive;
+            text-align:center;
+        }
+        .user-sns dt{
+            font-size:30px;
+        }
+        .user-sns dd{
+            font-size:26px;
+        }
+        .card{
+            margin:20px;
+        }
+        .card-body{
+            font-size:30px;
+        }
+    </style>
 </head>
 
 <body>
-<div class="header text-center" style="font-family: 'Amatic SC', cursive;">
-  <h1><%= @user.name %>'s hobby</h1>
-  <hr class="my-4">
-</div>
-<div class="card-deck">
-  <div class="card text-center">
-    <div class="card-header">
-      <h5 class="card-title">スポーツ</h5>
+    <div class="header text-center" style="font-family: 'Amatic SC', cursive;">
+        <h1><%= @user.name %> introduction</h1>
+        <hr class="my-4">
     </div>
-    <div class="card-body">
-      <ul>
-        <li>サッカー</li>
-        <li>バスケ</li>
-      </ul>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 col-lg-4 col-xl-4">
+                <img class="user-icon" src="https://1.bp.blogspot.com/-HdrrDLMxxGs/Ws2uzOpk8yI/AAAAAAABLRY/9Td_5zg6Nf4eOkMiTbVdJ8qwuAfHfCltwCLcBGAs/s800/figure_dance.png">
+                <div class="user-info">
+                    <h1><%= @user.name %></h1>
+                    <dl class="user-sns">
+                        <dt>Twitter</dt>
+                        <dd>@</dd>
+                        <dt>Instagram</dt>
+                        <dd>@</dd>
+                    </dl>
+                </div>
+            </div>
+            <% category = [] %>
+            <% UserIntroduction.where(user_id: @user.id).each do |data| %>
+                <% category << data.category_id unless category.include?(data.category_id) %>
+            <% end %>
+
+            <% category.each do |category_id| %>
+                <div class="card text-center">
+                    <div class="card-header">
+                      <h5 class="card-title"><%= Category.find(category_id).name %></h5>
+                    </div>
+                    <div class="card-body">
+                        <ul>
+                            <% UserIntroduction.where(user_id: @user.id, category_id: category_id).each do |data| %>
+                                <li><%= Element.find(data.element_id).name %></li>
+                            <% end %>
+                        </ul>
+                    </div>
+                </div>
+            <% end %>
+        </div>
     </div>
-  </div>
-  <div class="card text-center">
-    <div class="card-header">
-      <h5 class="card-title">音楽</h5>
-    </div>
-    <div class="card-body">
-      <ul>
-        <li>ポルカドットスティングレイ</li>
-        <li>サーモン</li>
-      </ul>
-    </div>
-  </div>
-  <div class="card text-center">
-    <div class="card-header">
-      <h5 class="card-title">ゲーム</h5>
-    </div>
-    <div class="card-body">
-      <ul>
-        <li>バンドリ</li>
-        <li>二ーアオートマタ</li>
-      </ul>
-    </div>
-  </div>
-</div>
+
 </body>
 
 </html>

@@ -5,5 +5,11 @@
 <%=link_to 'KAME',{ :controller => "user_profile", :action => "kame" },{ :class => "btn btn-outline-primary" }%>
 <%=link_to 'RYAMA',{ :controller => "user_profile", :action => "ryama" },{ :class => "btn btn-outline-primary" }%>
 <%=link_to 'GUSSY',{ :controller => "user_profile", :action => "gussy" },{ :class => "btn btn-outline-primary" }%>
+
+<!-- データベースから名前を取得してボタンを出力 -->
+<% User.all.each do |user| %>
+  <%=link_to user.name, user_profile_path(id: user.id), { :class => "btn btn-outline-primary" }%>
+<% end %>
+
 <h2>ユーザー登録</h2>
 <%=link_to 'Start ホビコム!',"https://goo.gl/forms/fTk0pecag02QIjQS2",{ :class => "btn btn-primary" }%>
