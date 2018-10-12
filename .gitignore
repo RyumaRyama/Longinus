@@ -1,4 +1,3 @@
-db
 .idea/
 ./web/Longinus_test.sqlite3
 ./web/Longinus_development.sqlite3
