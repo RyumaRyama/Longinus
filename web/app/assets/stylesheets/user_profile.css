@@ -1,0 +1,26 @@
+.user-icon {
+    border-radius: 50%;
+    width: 300px;
+    height: 300px;
+}
+
+.user-info {
+    font-family: 'Amatic SC', cursive;
+    text-align: center;
+}
+
+.user-sns dt {
+    font-size: 30px;
+}
+
+.user-sns dd {
+    font-size: 26px;
+}
+
+.card {
+    margin: 20px;
+}
+
+.card-body {
+    font-size: 30px;
+}

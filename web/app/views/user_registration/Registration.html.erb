@@ -1,0 +1,68 @@
+<h1 class="title">ホビコム登録フォーム</h1>
+<p>こちらは、ホビコム登録フォームです。このフォームに登録すると後日ホビコムにユーザーページが追加されます。<span style="color:red;">* 必須</span></p>
+<div class="container">
+    <form class="">
+        <div class="user_data">
+            <div class="user_name obj-left">
+                <h3>ユーザーネーム<span style="color:red">*</span></h3>
+                <input type="text" id="user_name">
+            </div>
+            <div class="user_mail obj-right">
+                <h3>メールアドレス<span style="color:red">*</span></h3>
+                <input type="email" id="mail">
+            </div>
+            <div class="password">
+                <div class="password_1st obj-left">
+                    <h3>パスワード　　<span style="color:red">*</span></h3>
+                    <input type="password" id="password">
+                </div>
+                <div class="pass_check obj-right">
+                    <h3>パスワード再確認<span style="color:red">*</span></h3>
+                    <input type="password" id="password_check">
+                </div>
+            </div>
+            <div class="user_sns">
+                <div class="twitter obj-left" style="padding-right:34px;">
+                    <h3>Twitter</h3>
+                    <input type="text" id="id_twitter">
+                </div>
+                <div class="Instagram obj-right">
+                    <h3>Instagram</h3>
+                    <input type="text" id="id_instagram">
+                </div>
+            </div>
+        </div>
+        <div class="hobby_data">
+            <h2>趣味の追加</h2>
+            <p>趣味をご自由にご記入ください。趣味が複数ある場合は、「更に趣味を追加」ボタンをクリックして追加してください<span style="color:red;">* 必須</span></p>
+            <div class="choice obj-left" style="padding-right:28px;">
+                <h3>ジャンル選択<span style="color:red">*</span></h3>
+                <select name="Genre">
+                    <option value="sports">スポーツ</option>
+                    <option value="game">ゲーム</option>
+                    <option value="music">音楽</option>
+                </select>
+
+            </div>
+            <div class="ans obj-right">
+                <h3>趣味解答欄<span style="color:red">*</span></h3>
+                <input type="text" id="hobby_1">
+            </div>
+            <div class="add-button">
+                <button class="disabled btn btn-outline-primary">更に趣味を追加</button>
+            </div>
+        </div>
+        <br><br>
+        <input type="button"  class="btn btn-primary" value="送信">
+    </form>
+</div>
+<style type="text/css">
+    .obj-left{
+        display:inline-block;
+        float:left;
+    }
+    .obj-right{
+        margin-left:30%;
+        display:inline-block;
+    }
+</style>
