@@ -20,19 +20,28 @@ class UserProfileController < ApplicationController
 
   def new
     @user = User.new
+    @category = Category.new
+    @element = @category.elements.build()
   end
 
   def create
    @user = User.new(user_parames)
-   #@category = Category.new(category_params)
-   #@element = @category.elements.build(element_params)
+   @category = Category.new(category_params)
    # FIX:慣習的によろしくないかも
-   #@user_introduction = UserIntroduction.new(user_id: @user.id, category_id: @category.id,
-   #                                          element_id: @element.id)
-
-   if @user.save # and @category.save and @element.save and @user_introduction.save
+   if @category.valid? and @user.valid?
+     @user.save
+     @category.save
+     @element = @category.elements.build(element_params)
+     if @element.valid?
+       @element.save
+       @user_introduction = UserIntroduction.new(
+         user_id: @user.id,
+         category_id: @category.id,
+         element_id: @element.id)
+       @user_introduction.save if @user_introduction.valid?
+     end
      flash[:success] = "Welcome to the hobbycom!"
-     redirect_to @user
+     redirect_to user_profile_path(id:@user.id)
    else
      render 'new'
    end
