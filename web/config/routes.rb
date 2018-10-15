@@ -5,7 +5,8 @@ Rails.application.routes.draw do
   get 'user_profile/ryama'
   get 'user_profile/kame'
   get 'user_profile/gussy'
-  get 'signup'  => 'user_profile#new'
+  get '/signup',  to: 'user_profile#new'
+  post '/signup', to: 'user_profile#create',:as => 'user'
   resources :user_profile
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
