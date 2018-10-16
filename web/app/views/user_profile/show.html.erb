@@ -34,8 +34,9 @@
 <body>
     <div class="header text-center" style="font-family: 'Amatic SC', cursive;">
         <h1><%= @user.name %> introduction</h1>
-        <hr class="my-4">
+        <%= link_to "HOME", root_path, { :class => "btn btn-outline-primary" } %>
     </div>
+    <hr class="my-4">
     <div class="container">
         <div class="row">
             <div class="col-md-4 col-lg-4 col-xl-4">
