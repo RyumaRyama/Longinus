@@ -9,6 +9,9 @@
 - **アイスブレイク、ツイプロ、マッチングアプリ**とは違って、
 - **どんな特殊な趣味でも大丈夫で、公表する必要がないこと**が備わっています。
 
+## タスク管理(Trello)
+https://trello.com/b/a4KJh85n/task-board
+
 ## Environment
 - Ruby 2.5.1
 - Rails 5.2.1
