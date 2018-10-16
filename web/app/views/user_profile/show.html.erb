@@ -34,14 +34,16 @@
 <body>
     <div class="header text-center" style="font-family: 'Amatic SC', cursive;">
         <h1><%= @user.name %> introduction</h1>
-        <hr class="my-4">
+        <%= link_to "HOME", root_path, { :class => "btn btn-outline-primary" } %>
     </div>
+    <hr class="my-4">
     <div class="container">
         <div class="row">
             <div class="col-md-4 col-lg-4 col-xl-4">
-                <img class="user-icon" src="https://1.bp.blogspot.com/-HdrrDLMxxGs/Ws2uzOpk8yI/AAAAAAABLRY/9Td_5zg6Nf4eOkMiTbVdJ8qwuAfHfCltwCLcBGAs/s800/figure_dance.png">
+              <img class="user-icon" src="https://1.bp.blogspot.com/-HdrrDLMxxGs/Ws2uzOpk8yI/AAAAAAABLRY/9Td_5zg6Nf4eOkMiTbVdJ8qwuAfHfCltwCLcBGAs/s800/figure_dance.png">
+              <!--
                 <div class="user-info">
-                    <h1><%= @user.name %></h1>
+                    <h1><#%= @user.name %></h1>
                     <dl class="user-sns">
                         <dt>Twitter</dt>
                         <dd>@</dd>
@@ -49,6 +51,7 @@
                         <dd>@</dd>
                     </dl>
                 </div>
+              -->
             </div>
             <% category = [] %>
             <% UserIntroduction.where(user_id: @user.id).each do |data| %>
