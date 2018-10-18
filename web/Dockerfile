@@ -4,8 +4,16 @@ FROM ruby:2.5.1
 # 必要なものをインストール
 RUN apt-get update -qq && apt-get -y install \
     build-essential \
-    libpq-dev \
-    nodejs
+    libpq-dev 
+
+## install nodejs
+RUN curl -s -L git.io/nodebrew | perl - setup
+ENV PATH /root/.nodebrew/current/bin:$PATH
+RUN nodebrew install-binary v8.7.0
+RUN nodebrew use v8.7.0
+
+## install yarn
+RUN npm install yarn -g
 
 # rails用のディレクトリを作成
 RUN mkdir /Longinus
