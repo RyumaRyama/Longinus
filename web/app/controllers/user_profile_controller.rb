@@ -34,11 +34,6 @@ class UserProfileController < ApplicationController
      @element = @category.elements.build(element_params)
      if @element.valid?
        @element.save
-       @user_introduction = UserIntroduction.new(
-         user_id: @user.id,
-         category_id: @category.id,
-         element_id: @element.id)
-       @user_introduction.save if @user_introduction.valid?
      end
      flash[:success] = "Welcome to the hobbycom!"
      redirect_to user_profile_path(id:@user.id)
