@@ -7,7 +7,7 @@ class User {
   password_digest : string
 }
 
-class ElementUsers {
+class ElementsUsers {
   element_id : int
   user_id : int
 }
@@ -17,8 +17,8 @@ class Element {
   name : string
 }
 
-ElementUsers  "多" o-- "1"  User 
-ElementUsers  "多" o-- "1"  Element 
+ElementsUsers  "多" o-- "1"  User 
+ElementsUsers  "多" o-- "1"  Element 
 Element "多" *--* "多" User
 
 @enduml
