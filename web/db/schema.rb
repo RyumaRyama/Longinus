@@ -18,19 +18,17 @@ ActiveRecord::Schema.define(version: 2018_10_19_120121) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "categories_users", id: false, force: :cascade do |t|
-    t.integer "category_id", null: false
-    t.integer "user_id", null: false
-    t.index ["category_id"], name: "index_categories_users_on_category_id"
-    t.index ["user_id"], name: "index_categories_users_on_user_id"
-  end
-
   create_table "elements", force: :cascade do |t|
-    t.integer "category_id"
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["category_id"], name: "index_elements_on_category_id"
+  end
+
+  create_table "elements_users", id: false, force: :cascade do |t|
+    t.integer "element_id", null: false
+    t.integer "user_id", null: false
+    t.index ["element_id"], name: "index_elements_users_on_element_id"
+    t.index ["user_id"], name: "index_elements_users_on_user_id"
   end
 
   create_table "user_introductions", force: :cascade do |t|
