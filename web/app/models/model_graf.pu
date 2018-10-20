@@ -6,26 +6,19 @@ class User {
   email  : string
   password_digest : string
 }
-class UserIntroduction {
-  id : int
-  user_id : int
-  category_id : int
+
+class ElementUsers {
   element_id : int
-}
-class Category {
-  id : int
-  name : string
+  user_id : int
 }
 
 class Element {
   id : int
-  category_id : int
-  name : int
+  name : string
 }
 
-UserIntroduction  <--  User 
-UserIntroduction  <--  Element
-UserIntroduction  <--  Category
-Element  <-r-  Category
+ElementUsers  "多" o-- "1"  User 
+ElementUsers  "多" o-- "1"  Element 
+Element "多" *--* "多" User
 
 @enduml
