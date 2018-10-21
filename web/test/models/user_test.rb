@@ -70,6 +70,7 @@ class UserTest < ActiveSupport::TestCase
 
   # has_and_belongs_to_many test
   # https://github.com/rails/rails/issues/21041
+
   test "test_assign_habtm_by_objects" do
     @user.elements = Element.all
     assert_equal 2, @user.elements.size
