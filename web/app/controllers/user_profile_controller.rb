@@ -33,7 +33,7 @@ class UserProfileController < ApplicationController
      @user.elements << Element.find_by(element_params)
      flash[:success] = "Welcome to the hobbycom!"
      redirect_to user_profile_path(id:@user.id)
-   elsif @user.valid? and Element.exists?(element_params)   # Elementが既に存在する場合
+   elsif @user.valid? and Element.exists?(name: @element.name)     # Elementが既に存在する場合
      @user.save
      @user.elements << Element.find_by(element_params)
      flash[:success] = "Welcome to the hobbycom!"
