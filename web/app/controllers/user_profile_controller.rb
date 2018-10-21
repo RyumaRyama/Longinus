@@ -20,26 +20,22 @@ class UserProfileController < ApplicationController
 
   def new
     @user = User.new
-    @category = Category.new
-    @element = @category.elements.build()
+    @element = Element.new
   end
 
   def create
-   @user = User.new(user_parames)
-   @category = Category.new(category_params)
-   # FIX:慣習的によろしくないかも
-   if @category.valid? and @user.valid?
+   @user = User.new(user_params)
+   @element = Element.new(element_params)
+
+   if @user.valid? and @element.valid?
      @user.save
-     @category.save
-     @element = @category.elements.build(element_params)
-     if @element.valid?
-       @element.save
-       @user_introduction = UserIntroduction.new(
-         user_id: @user.id,
-         category_id: @category.id,
-         element_id: @element.id)
-       @user_introduction.save if @user_introduction.valid?
-     end
+     @element.save
+     @user.elements << Element.find_by(element_params)
+     flash[:success] = "Welcome to the hobbycom!"
+     redirect_to user_profile_path(id:@user.id)
+   elsif @user.valid? and Element.exists?(name: @element.name)     # Elementが既に存在する場合
+     @user.save
+     @user.elements << Element.find_by(element_params)
      flash[:success] = "Welcome to the hobbycom!"
      redirect_to user_profile_path(id:@user.id)
    else
@@ -50,17 +46,13 @@ class UserProfileController < ApplicationController
 
   private
 
-    def user_parames
+    def user_params
       params.require(:user).permit(
           :name,
           :email,
           :password,
           :password_confirmation
       )
-    end
-
-    def category_params
-      params.require(:category).permit(:name)
     end
 
     def element_params

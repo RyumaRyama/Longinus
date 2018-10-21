@@ -2,6 +2,9 @@
 
 one:
   id: 1
-  category: 1
-  name: curry
+  name: BABYMETAL
+
+two:
+  id: 2
+  name: Roselia
 

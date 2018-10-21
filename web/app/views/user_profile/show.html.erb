@@ -53,25 +53,25 @@
                 </div>
               -->
             </div>
-            <% category = [] %>
-            <% UserIntroduction.where(user_id: @user.id).each do |data| %>
-                <% category << data.category_id unless category.include?(data.category_id) %>
-            <% end %>
+            <%# category = [] %>
+            <%# UserIntroduction.where(user_id: @user.id).each do |data| %>
+                <%# category << data.category_id unless category.include?(data.category_id) %>
+            <%# end %>
 
-            <% category.each do |category_id| %>
-                <div class="card text-center">
-                    <div class="card-header">
-                      <h5 class="card-title"><%= Category.find(category_id).name %></h5>
-                    </div>
-                    <div class="card-body">
-                        <ul>
-                            <% UserIntroduction.where(user_id: @user.id, category_id: category_id).each do |data| %>
-                                <li><%= Element.find(data.element_id).name %></li>
-                            <% end %>
-                        </ul>
-                    </div>
-                </div>
-            <% end %>
+            <%# category.each do |category_id| %>
+<!--                <div class="card text-center">-->
+<!--                    <div class="card-header">-->
+<!--                      <h5 class="card-title"><%#= Category.find(category_id).name %></h5>-->
+<!--                    </div>-->
+<!--                    <div class="card-body">-->
+<!--                        <ul>-->
+                            <%# UserIntroduction.where(user_id: @user.id, category_id: category_id).each do |data| %>
+<!--                                <li><%#= Element.find(data.element_id).name %></li>-->
+                            <%# end %>
+<!--                        </ul>-->
+<!--                    </div>-->
+<!--                </div>-->
+            <%# end %>
         </div>
     </div>
 
