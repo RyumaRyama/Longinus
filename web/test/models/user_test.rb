@@ -4,6 +4,10 @@ class UserTest < ActiveSupport::TestCase
   def setup
     @user = User.new(name: "Example User", email: "user@example.com",
                      password: "foobar", password_confirmation: "foobar")
+
+    @element_one = Element.find_by(name: "BABYMETAL")
+    @element_two = Element.find_by(name: "Roselia")
+    @elements = [@element_one,@element_two]
   end
 
   test "should be valid" do
@@ -56,11 +60,34 @@ class UserTest < ActiveSupport::TestCase
     assert_not @user.valid?
   end
 
-  test "associated user_introductions should be destroyed" do
-    @user.save
-    @user.user_introductions.create!(category_id: 1, element_id: 1)
-    assert_difference 'UserIntroduction.count', -1 do
-      @user.destroy
-    end
+  # test "associated user_introductions should be destroyed" do
+  #   @user.save
+  #   @user.user_introductions.create!(category_id: 1, element_id: 1)
+  #   assert_difference 'UserIntroduction.count', -1 do
+  #     @user.destroy
+  #   end
+  # end
+
+  # has_and_belongs_to_many test
+  # https://github.com/rails/rails/issues/21041
+  test "test_assign_habtm_by_objects" do
+    @user.elements = Element.all
+    assert_equal 2, @user.elements.size
+  end
+
+  test "test_assign_habtm_by_ids" do
+    @user.element_ids = Element.ids
+    assert_equal 2, @user.elements.size
+  end
+
+  test "test_assign_habtm_by_inserting" do
+    Element.create!(name: "ice")
+    @user.elements << Element.find_by(name: "ice")
+    assert_equal 1, @user.elements.size
+  end
+
+  test "test_assign_habtm_by_attributes" do
+    @user.update! element_ids: Element.ids
+    assert_equal 2, @user.elements.size
   end
 end

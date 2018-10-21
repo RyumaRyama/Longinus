@@ -2,18 +2,19 @@ require 'test_helper'
 
 class ElementTest < ActiveSupport::TestCase
   def setup
-    @category = Category.new(id:2, name: "sport")
-    @element = @category.elements.build(name: "cycling")
+    # @category = Category.new(id:2, name: "sport")
+    # @element = @category.elements.build(name: "cycling")
+    @element = Element.new(name: "cycling")
   end
 
   test "should be valid" do
     assert @element.valid?
   end
 
-  test "category_id should be present" do
-    @element.category_id = nil
-    assert_not @element.valid?
-  end
+  # test "category_id should be present" do
+  #   @element.category_id = nil
+  #   assert_not @element.valid?
+  # end
 
   test "name should be present" do
     @element.name = "  "
