@@ -7,7 +7,7 @@
 <!--        <h3>ユーザーネーム<span style="color:red">*</span></h3>-->
 <!--          <input type="text" id="user_name"> -->
     <%= form_for @user, :url => { :controller => :user_profile, :action => :new } do |f| %>
-      <%= render 'shared/error_messages' %>
+      <%= render 'shared/error_messages', object: f.object%>
 
       <%= f.label :name, "ユーザーネーム" %>
       <%= f.text_field :name, class: 'form-control'%>
@@ -46,9 +46,12 @@
           </select>
           -->
           <h3>趣味解答欄<span style="color:red">*</span></h3>
-          <%= fields_for @element do |e| %>
-            <%= e.text_field :name %>
-          <% end %>
+          <% 3.times do |times| %>
+            <%= fields_for "elements[]", @element  do |e| %>
+              <%= render 'shared/error_messages', object: e.object%>
+              <%= e.text_field :name %>
+            <% end %>
+          <%end %>
           <!-- 追加ボタンも一旦無効
         <div class="add-button">
           <button class="disabled btn btn-outline-primary">更に趣味を追加</button>
