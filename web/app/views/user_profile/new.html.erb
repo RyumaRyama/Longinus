@@ -35,7 +35,7 @@
       <br>
 
       <h2>趣味の追加</h2>
-        <p>趣味をご自由にご記入ください。趣味が複数ある場合は、「更に趣味を追加」ボタンをクリックして追加してください<span style="color:red;">* 必須</span></p>
+        <p>趣味をご自由にご記入ください。趣味が複数ある場合は、「更に趣味を追加」ボタンをクリックして追加してください</p>
 
           <!--
           <select name="Genre">
@@ -45,7 +45,7 @@
             <#% end %>
           </select>
           -->
-          <h3>趣味解答欄<span style="color:red">*</span></h3>
+          <h3>趣味解答欄</h3>
           <% 3.times do |times| %>
             <%= fields_for "elements[]", @element  do |e| %>
               <%= render 'shared/error_messages', object: e.object%>

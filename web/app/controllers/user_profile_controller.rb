@@ -1,3 +1,4 @@
+# coding: utf-8
 class UserProfileController < ApplicationController
   def home
   end
@@ -28,15 +29,13 @@ class UserProfileController < ApplicationController
 
     if @user.save
       element_params.each do |ep|
-        p ep
         @element = Element.new(ep)
-
         if @element.save
           @user.elements << Element.find_by(ep)
         elsif Element.exists?(name: @element.name)     # Elementが既に存在する場合
           @user.elements << Element.find_by(ep)
-        else
-          flash[:errors] = "Failed to register my hobby."
+        # else
+          # flash[:errors] = "Failed to register my hobby."
         end
       end
       flash[:success] = "Welcome to the hobbycom!"
