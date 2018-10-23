@@ -3,60 +3,20 @@
 <div class="container">
 <!--  <form class="">-->
   <div class="user_data">
-<!--      <div class="user_name obj-left">-->
-<!--        <h3>ユーザーネーム<span style="color:red">*</span></h3>-->
-<!--          <input type="text" id="user_name"> -->
     <%= form_for @user, :url => { :controller => :user_profile, :action => :new } do |f| %>
       <%= render 'shared/error_messages', object: f.object%>
 
       <%= f.label :name, "ユーザーネーム" %>
       <%= f.text_field :name, class: 'form-control'%>
-<!--      </div>-->
-<!--      <div class="user_mail obj-right">-->
-<!--        <h3>メールアドレス<span style="color:red">*</span></h3>-->
-<!--          <input type="email" id="mail"> -->
+
       <%= f.label :email, "メールアドレス" %>
       <%= f.email_field :email, class: 'form-control' %>
-<!--      </div>-->
-<!--      <div class="password">-->
-<!--        <div class="password_1st obj-left">-->
-<!--          <h3>パスワード　　<span style="color:red">*</span></h3>-->
-<!--            <input type="password" id="password"> -->
+
       <%= f.label :password, "パスワード"%>
       <%= f.password_field :password, class: 'form-control' %>
-<!--        </div>-->
-<!--        <div class="pass_check obj-right">-->
-<!--          <h3>パスワード再確認<span style="color:red">*</span></h3>-->
-<!--          <input type="password" id="password_check"> -->
+
       <%= f.label :password_confirmation, "パスワード再確認" %>
       <%= f.password_field :password_confirmation, class: 'form-control' %>
-
-      <br>
-      <br>
-
-      <h2>趣味の追加</h2>
-        <p>趣味をご自由にご記入ください。趣味が複数ある場合は、「更に趣味を追加」ボタンをクリックして追加してください</p>
-
-          <!--
-          <select name="Genre">
-            <#% Category.all.each do |categoty| %>
-              <#% name = category.name %>
-              <option value=<#%= name %>><#%= name %></option>
-            <#% end %>
-          </select>
-          -->
-          <h3>趣味解答欄</h3>
-          <% 3.times do |times| %>
-            <%= fields_for "elements[]", @element do |e| %>
-              <%= render 'shared/error_messages', object: e.object %>
-              <%= e.text_field :name %>
-            <% end %>
-          <% end %>
-          <!-- 追加ボタンも一旦無効
-        <div class="add-button">
-          <button class="disabled btn btn-outline-primary">更に趣味を追加</button>
-        </div>
-          -->
 
       <br>
       <br>
@@ -64,26 +24,6 @@
       <%= f.submit "送信", class: "btn btn-primary" %>
     <% end %>
 
-<!--        </div>-->
-<!--      </div>-->
-<!--      SNS欄は一旦コメントアウト-->
-<!--      <div class="user_sns">-->
-<!--        <div class="twitter obj-left" style="padding-right:34px;">-->
-<!--          <h3>Twitter</h3>-->
-<!--          <input type="text" id="id_twitter">-->
-<!--        </div>-->
-<!--        <div class="Instagram obj-right">-->
-<!--          <h3>Instagram</h3>-->
-<!--          <input type="text" id="id_instagram">-->
-<!--        </div>-->
-<!--      </div>-->
-<!--    </div>-->
-
-
-    <!--
-    <input type="button"  class="btn btn-primary" value="送信">
-    </form>
-    -->
   </div>
 </div>
 <style type="text/css">
