@@ -47,11 +47,11 @@
           -->
           <h3>趣味解答欄</h3>
           <% 3.times do |times| %>
-            <%= fields_for "elements[]", @element  do |e| %>
-              <%= render 'shared/error_messages', object: e.object%>
+            <%= fields_for "elements[]", @element do |e| %>
+              <%= render 'shared/error_messages', object: e.object %>
               <%= e.text_field :name %>
             <% end %>
-          <%end %>
+          <% end %>
           <!-- 追加ボタンも一旦無効
         <div class="add-button">
           <button class="disabled btn btn-outline-primary">更に趣味を追加</button>

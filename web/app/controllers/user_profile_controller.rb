@@ -22,6 +22,7 @@ class UserProfileController < ApplicationController
   def new
     @user = User.new
     @element = Element.new
+    @elements = []
   end
 
   def create
@@ -32,10 +33,10 @@ class UserProfileController < ApplicationController
         @element = Element.new(ep)
         if @element.save
           @user.elements << Element.find_by(ep)
-        elsif Element.exists?(name: @element.name)     # Elementが既に存在する場合
-          @user.elements << Element.find_by(ep)
-        # else
-          # flash[:errors] = "Failed to register my hobby."
+        else
+          if Element.exists?(name: @element.name)     # Elementが既に存在する場合
+            @user.elements << Element.find_by(ep) unless @user.elements.exists?(name: @element.name)
+          end
         end
       end
       flash[:success] = "Welcome to the hobbycom!"
