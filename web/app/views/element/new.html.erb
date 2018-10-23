@@ -1,0 +1,34 @@
+<% provide(:title, 'Sign up') %>
+<h1 class="title">ホビコム登録フォーム</h1>
+<div class="container">
+  <div class="user_data">
+
+      <h2>趣味の追加</h2>
+        <p>趣味をご自由にご記入ください。趣味が複数ある場合は、「更に趣味を追加」ボタンをクリックして追加してください</p>
+
+        <h3>趣味解答欄</h3>
+        <%= form_for @element, :url => { :controller => :element, :action => :new } do |e| %>
+          <% 10.times do |times| %>
+            <%= fields_for "elements[]", @element do |fe| %>
+              <%= render 'shared/error_messages', object: e.object %>
+              <%= fe.text_field :name %>
+            <% end %>
+          <% end %>
+          <%= e.submit "送信", class: "btn btn-primary" %>
+        <% end %>
+
+      <br>
+      <br>
+
+  </div>
+</div>
+<style type="text/css">
+  .obj-left{
+    display:inline-block;
+    float:left;
+  }
+  .obj-right{
+    margin-left:30%;
+    display:inline-block;
+  }
+</style>
