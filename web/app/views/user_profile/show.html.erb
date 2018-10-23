@@ -43,6 +43,7 @@
               <img class="user-icon" src="https://1.bp.blogspot.com/-HdrrDLMxxGs/Ws2uzOpk8yI/AAAAAAABLRY/9Td_5zg6Nf4eOkMiTbVdJ8qwuAfHfCltwCLcBGAs/s800/figure_dance.png">
             </div>
 
+	    <% if @user.elements.size > 0 %> 
             <div class="card text-center">
                 <div class="card-header">
                     <h5 class="card-title">HOBBY</h5>
@@ -55,7 +56,8 @@
                     </ul>
                 </div>
             </div>
-        </div>
+	    <% end %>
+	</div>
     </div>
 
 </body>
