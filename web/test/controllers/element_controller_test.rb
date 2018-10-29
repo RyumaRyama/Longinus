@@ -6,11 +6,6 @@ class ElementControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
-  test "should get create" do
-    get element_create_url
-    assert_response :success
-  end
-
   test "should get update" do
     get element_update_url
     assert_response :success
