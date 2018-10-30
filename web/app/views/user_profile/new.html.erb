@@ -1,29 +1,11 @@
 <% provide(:title, 'Sign up') %>
+<% provide(:button_text, 'Sign up') %>
+<% provide(:action, 'new') %>
 <h1 class="title">ホビコム登録フォーム</h1>
 <div class="container">
 <!--  <form class="">-->
   <div class="user_data">
-    <%= form_for @user, :url => { :controller => :user_profile, :action => :new } do |f| %>
-      <%= render 'shared/error_messages', object: f.object%>
-
-      <%= f.label :name, "ユーザーネーム" %>
-      <%= f.text_field :name, class: 'form-control'%>
-
-      <%= f.label :email, "メールアドレス" %>
-      <%= f.email_field :email, class: 'form-control' %>
-
-      <%= f.label :password, "パスワード"%>
-      <%= f.password_field :password, class: 'form-control' %>
-
-      <%= f.label :password_confirmation, "パスワード再確認" %>
-      <%= f.password_field :password_confirmation, class: 'form-control' %>
-
-      <br>
-      <br>
-
-      <%= f.submit "送信", class: "btn btn-primary" %>
-    <% end %>
-
+    <%= render 'form' %>
   </div>
 </div>
 <style type="text/css">

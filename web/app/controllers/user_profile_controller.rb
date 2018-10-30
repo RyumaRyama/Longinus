@@ -6,15 +6,6 @@ class UserProfileController < ApplicationController
   def help
   end
 
-  def kame
-  end
-
-  def ryama
-  end
-
-  def gussy
-  end
-
   def show
     @user = User.find(params[:id])
   end
@@ -28,9 +19,24 @@ class UserProfileController < ApplicationController
     @user = User.new(user_params)
 
     if @user.save
+      log_in @user
       redirect_to new_element_path
     else
       render 'new'
+    end
+  end
+  
+  def edit
+    @user = User.find(params[:id])
+  end
+
+  def update
+    @user = User.find(params[:id])
+    if @user.update_attributes(user_params)
+      # 更新に成功した場合を扱う。
+      redirect_to user_profile_path(id: @user.id)
+    else
+      render 'edit'
     end
   end
 
