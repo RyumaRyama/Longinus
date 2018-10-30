@@ -2,9 +2,6 @@
 <h2>説明</h2>
 <p>どんな趣味も共有できる、心の壁も取り払うことができる</p>
 <h2>最近更新したユーザー</h2>
-<%=link_to 'KAME',{ :controller => "user_profile", :action => "kame" },{ :class => "btn btn-outline-primary" }%>
-<%=link_to 'RYAMA',{ :controller => "user_profile", :action => "ryama" },{ :class => "btn btn-outline-primary" }%>
-<%=link_to 'GUSSY',{ :controller => "user_profile", :action => "gussy" },{ :class => "btn btn-outline-primary" }%>
 
 <!-- データベースから名前を取得してボタンを出力 -->
 <% User.all.each do |user| %>
