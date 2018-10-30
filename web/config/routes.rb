@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'common_elements/show'
   get 'element/new'
   get 'element/create'
   post 'element/new', to: 'element#create'
