@@ -40,6 +40,14 @@ class UserProfileController < ApplicationController
     end
   end
 
+  def elements_edit
+    @elements = User.find(params[:id]).elements
+  end
+
+  def elements_update
+
+  end
+
   private
 
     def user_params

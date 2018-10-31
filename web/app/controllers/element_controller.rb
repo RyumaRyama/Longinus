@@ -22,16 +22,6 @@ class ElementController < ApplicationController
     redirect_to user_profile_path(id: @user.id)
   end
 
-  def edit
-    # @elements = []
-    # current_user.elements.each do |e|
-    #   @elements << Element.find_by(id: e.id)
-    # end
-    # p "*"*500
-    # p @elements
-    @elements = User.find(params[:id]).elements.map
-  end
-
   def update
 
   end
