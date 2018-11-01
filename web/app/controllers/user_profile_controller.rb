@@ -41,11 +41,21 @@ class UserProfileController < ApplicationController
   end
 
   def elements_edit
-    @elements = User.find(params[:id]).elements
+    # @user = User.find(current_user.id)
+    @user = User.find(params[:id])
+    # @elements = User.find(current_user.id).elements
+    # @elements = Element.find(user_elements.ids)
+    # p @elements
+    # puts '*' * 100
   end
 
   def elements_update
-
+    @user = User.find(params[:id])
+    if @user.elements.update(params[:id])
+      redirect_to root_path
+    else
+      render 'elements_edit'
+    end
   end
 
   private

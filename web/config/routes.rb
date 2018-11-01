@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   # post 'element/new', to: 'element#create'
   # get 'element/update'
   root 'top#index'
+  get '/user_profile/:id/elements_edit', to: 'user_profile#elements_edit'
+  patch '/user_profile/:id/elements_update', to: 'user_profile#elements_update'
   get '/signup',  to: 'user_profile#new'
   post '/signup', to: 'user_profile#create',:as => 'user'
   get    '/login',   to: 'sessions#new'

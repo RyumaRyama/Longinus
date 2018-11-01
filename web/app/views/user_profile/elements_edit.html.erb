@@ -5,15 +5,16 @@
 
       <h2>趣味の編集</h2>
         <h3>趣味解答欄</h3>
-        <%= form_for @elements, :url => { :controller => :user, :action => :elements_update } do |e| %>
-          <% 10.times do |times| %>
-            <%= fields_for "elements[]", @element do |fe| %>
-              <%= render 'shared/error_messages', object: e.object %>
-              <%= fe.text_field :name %>
-            <% end %>
+        <%# @elements.each do |element| %>
+          <%= form_for @user, :url => { :controller => :user_profile, :action => :elements_update } do |f| %>
+              <%#= u.fields_for "elements[]", elements do |e| %>
+              <%= f.fields_for :elements do |fe| %>
+                <%#= render 'shared/error_messages', object: fe.object %>
+                <%= fe.text_field :name %>
+              <% end %>
+            <%= f.submit "送信", class: "btn btn-primary" %>
           <% end %>
-          <%= e.submit "送信", class: "btn btn-primary" %>
-        <% end %>
+        <%# end %>
 
       <br>
       <br>
