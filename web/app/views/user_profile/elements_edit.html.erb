@@ -10,7 +10,7 @@
               <%#= u.fields_for "elements[]", elements do |e| %>
               <%= f.fields_for :elements do |fe| %>
                 <%#= render 'shared/error_messages', object: fe.object %>
-                <%= fe.text_field :name %>
+                 <%= fe.text_field :name %>
               <% end %>
             <%= f.submit "送信", class: "btn btn-primary" %>
           <% end %>

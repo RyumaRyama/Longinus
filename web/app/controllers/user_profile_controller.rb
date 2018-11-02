@@ -43,6 +43,7 @@ class UserProfileController < ApplicationController
   def elements_edit
     # @user = User.find(current_user.id)
     @user = User.find(params[:id])
+    # 2.times { @user.elements.build }
     # @elements = User.find(current_user.id).elements
     # @elements = Element.find(user_elements.ids)
     # p @elements
@@ -51,7 +52,8 @@ class UserProfileController < ApplicationController
 
   def elements_update
     @user = User.find(params[:id])
-    if @user.elements.update(params[:id])
+    # @user.elements << Element.find_by(update_user_elements_params)
+    if @user.update_attributes(update_user_elements_params)
       redirect_to root_path
     else
       render 'elements_edit'
@@ -73,5 +75,9 @@ class UserProfileController < ApplicationController
       params.require(:elements).map do |param|
         param.permit(:name)
       end
+    end
+
+    def update_user_elements_params
+      params.require(:user).permit(elements_attributes: [:name,:id,:_destroy])
     end
 end
