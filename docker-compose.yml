@@ -2,11 +2,14 @@ version: '3'
 
 services:
   db:
-    image: postgres:10.5
+    image: mysql:5.7
+    environment:
+      MYSQL_USER: root
+      MYSQL_ROOT_PASSWORD: password
     ports:
-      - "5432:5432"
+      - '3316:3306'
     volumes:
-      - ./db:/var/lib/postgresql/data
+      - ./db:/var/lib/mysql
 
   web:
     build: ./web

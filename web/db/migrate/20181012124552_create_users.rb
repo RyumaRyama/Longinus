@@ -5,7 +5,5 @@ class CreateUsers < ActiveRecord::Migration[5.2]
       t.string :email
       t.timestamps
     end
-    
-    drop_table :users
   end
 end
