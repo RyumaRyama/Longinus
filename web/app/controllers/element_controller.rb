@@ -31,7 +31,6 @@ class ElementController < ApplicationController
     
     update_user_elements_params[:elements_attributes].each do |element|
       if element[1][:_destroy] == "1"
-        p "アッカリ～ン"*100
         @user.elements.delete(Element.find_by(id: element[1][:id]))
       end
     end
