@@ -7,7 +7,7 @@
         <p>趣味をご自由にご記入ください。趣味が複数ある場合は、「更に趣味を追加」ボタンをクリックして追加してください</p>
 
         <h3>趣味解答欄</h3>
-        <%= form_for @element, :url => { :controller => :element, :action => :new } do |e| %>
+        <%= form_for @element, :url => { :controller => :element } do |e| %>
           <% 10.times do |times| %>
             <%= fields_for "elements[]", @element do |fe| %>
               <%= render 'shared/error_messages', object: e.object %>

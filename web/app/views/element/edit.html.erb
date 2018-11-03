@@ -1,0 +1,48 @@
+<% provide(:title, 'Sign up') %>
+<h1 class="title">ホビコム登録フォーム</h1>
+<div class="container">
+  <div class="user_data">
+
+      <h2>趣味の編集</h2>
+        <h3>趣味解答欄</h3>
+        <%# @elements.each do |element| %>
+          <%= form_for @user, :url => { :controller => :element, :action => :update } do |f| %>
+              <%#= u.fields_for "elements[]", elements do |e| %>
+              <%= f.fields_for :elements do |fe| %>
+                <%#= render 'shared/error_messages', object: fe.object %>
+                <%= fe.text_field :name, readonly: true %>
+                <div class="form-group">
+                  <%= fe.label :_destroy, class: "control-label col-sm-2" %>
+                  <span class="col-sm-10">
+                    <%= fe.check_box :_destroy %>
+                  </span>
+                </div>
+              <% end %>
+
+              <h2>趣味の追加</h2>
+              <% 10.times do |times| %>
+                <%= fields_for "elements[]", @element do |fe| %>
+                  <%#= render 'shared/error_messages', object: e.object %>
+                  <%= fe.text_field :name %>
+                <% end %>
+              <% end %>
+
+            <%= f.submit "送信", class: "btn btn-primary" %>
+          <% end %>
+        <%# end %>
+
+      <br>
+      <br>
+
+  </div>
+</div>
+<style type="text/css">
+  .obj-left{
+    display:inline-block;
+    float:left;
+  }
+  .obj-right{
+    margin-left:30%;
+    display:inline-block;
+  }
+</style>
