@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  get 'common_elements/show'
   # get 'element/new'
   # get 'element/create'
   # post 'element/new', to: 'element#create'
@@ -12,7 +11,9 @@ Rails.application.routes.draw do
   get    '/login',   to: 'sessions#new'
   post   '/login',   to: 'sessions#create'
   delete '/logout',  to: 'sessions#destroy'
+  get '/user_profile/:id/common_elements', to: 'common_elements#show'
   resources :user_profile
   resources :element
+  resources :common_elements
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
