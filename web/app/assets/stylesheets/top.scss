@@ -1,3 +1,40 @@
-// Place all the styles related to the top controller here.
-// They will automatically be included in application.css.scss.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+body{
+  font-family: 'Comic Sans MS';
+  font-size: 16px;
+  line-height: 1.42857;
+
+  background-color: #2FCDB4;
+}
+
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6 {
+  font-weight: 300;
+  line-height: 1.2;
+}
+
+h1{
+  color: #FFFFFF;
+  font-family: 'Comic Sans MS';
+}
+
+div.blocka {
+  text-align: center;
+  float: left;
+  width: 50%;
+}
+
+div.blockb {
+  text-align: center;
+  float: right;
+  width: 50%;
+}
+
+div.blockc {
+  clear: both;
+}
+
+.btn-outline-warning {
+  color: #ff8c00;
+  background-image: none;
+  border-color: #ff8c00;
+}
