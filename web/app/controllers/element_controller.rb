@@ -1,4 +1,6 @@
 class ElementController < ApplicationController
+  before_action :logged_in_user
+  before_action :correct_user, only: [:edit, :update]
 
   def new
     @element = Element.new
@@ -64,4 +66,5 @@ class ElementController < ApplicationController
       flash[:success] = message
       redirect_to user_profile_path(id: @user.id)
     end
+
 end
