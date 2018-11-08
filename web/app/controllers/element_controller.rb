@@ -15,6 +15,10 @@ class ElementController < ApplicationController
     # @user = User.find(current_user.id)
     @user = User.find(params[:id])
     @element = Element.new
+
+    if @user.elements.size == 0
+      redirect_to new_element_path
+    end
     # 2.times { @user.elements.build }
     # @elements = User.find(current_user.id).elements
     # @elements = Element.find(user_elements.ids)
