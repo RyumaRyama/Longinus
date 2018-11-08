@@ -2,8 +2,13 @@ body{
   font-family: 'Comic Sans MS';
   font-size: 16px;
   line-height: 1.42857;
+  background: rgba(250, 165, 0, 0.2);
+}
 
-  background-color: #2FCDB4;
+header {
+  background: rgba(250, 165, 0, 0.4);
+  height: 100%;
+  width: 100%;
 }
 
 h1, h2, h3, h4, h5, h6,
@@ -15,22 +20,23 @@ h1, h2, h3, h4, h5, h6,
 h1{
   color: #FFFFFF;
   font-family: 'Comic Sans MS';
+  margin:0px;
 }
 
 div.blocka {
+  text-align: right;
+}
+
+div.blockb {
   text-align: center;
   float: left;
   width: 50%;
 }
 
-div.blockb {
+div.blockc {
   text-align: center;
   float: right;
   width: 50%;
-}
-
-div.blockc {
-  clear: both;
 }
 
 .btn-outline-warning {
