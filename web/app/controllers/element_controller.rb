@@ -1,4 +1,6 @@
 class ElementController < ApplicationController
+  before_action :logged_in_user
+  before_action :correct_user, only: [:edit, :update]
 
   def new
     @element = Element.new
@@ -13,6 +15,10 @@ class ElementController < ApplicationController
     # @user = User.find(current_user.id)
     @user = User.find(params[:id])
     @element = Element.new
+
+    if @user.elements.size == 0
+      redirect_to new_element_path
+    end
     # 2.times { @user.elements.build }
     # @elements = User.find(current_user.id).elements
     # @elements = Element.find(user_elements.ids)
@@ -64,4 +70,5 @@ class ElementController < ApplicationController
       flash[:success] = message
       redirect_to user_profile_path(id: @user.id)
     end
+
 end
