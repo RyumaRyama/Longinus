@@ -1,0 +1,5 @@
+<% 10.times do |times| %>
+  <%= fields_for "elements[]", @element do |fe| %>
+    <%= fe.text_field :name %>
+  <% end %>
+<% end %>
