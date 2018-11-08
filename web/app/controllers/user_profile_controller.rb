@@ -1,5 +1,8 @@
 # coding: utf-8
 class UserProfileController < ApplicationController
+  before_action :logged_in_user, only: [:edit, :update]
+  before_action :correct_user,   only: [:edit, :update]
+
   def home
   end
 
