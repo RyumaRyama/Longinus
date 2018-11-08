@@ -1,17 +1,145 @@
-<%= form_for @user, :url => { :controller => :user_profile, :action => yield(:action) } do |f| %>
-  <%= render 'shared/error_messages', object: @user %>
 
-  <%= f.label :name %>
-  <%= f.text_field :name, class: 'form-control' %>
+<!-- <%= form_for @user, :url => { :controller => :user_profile, :action => yield(:action) } do |f| %> -->
+  <!-- <%= render 'shared/error_messages', object: @user %> -->
+  <!-- <%= f.label :name %> -->
+  <!-- <%= f.text_field :name, :placeholder => "what's your name", class: 'form-control' %> -->
+  <!-- <%= f.label :email %> -->
+  <!-- <%= f.email_field :email, class: 'form-control', :placeholder => "example@hoge.com" %> -->
+	<!-- <%= f.label :password %> -->
+  <!-- <%= f.password_field :password, class: 'form-control', :placeholder => "********" %> -->
+	<!-- <%= f.label :password_confirmation %> -->
+  <!-- <%= f.password_field :password_confirmation, class: 'form-control',:placeholder => "********"  %> -->
+	<!-- <%= f.submit yield(:button_text), class: "btn btn-success" %>
+<% end %> -->
 
-  <%= f.label :email %>
-  <%= f.email_field :email, class: 'form-control' %>
 
-  <%= f.label :password %>
-  <%= f.password_field :password, class: 'form-control' %>
 
-  <%= f.label :password_confirmation %>
-  <%= f.password_field :password_confirmation, class: 'form-control' %>
 
-  <%= f.submit yield(:button_text), class: "btn btn-primary" %>
+
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Standard Meta -->
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+    <!-- Site Properties -->
+    <title>Bootstrap 4 Register Form</title>
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+</head>
+<body>
+  <div class="contents-bg">
+    <div class="contents">
+    <%= form_for @user, :url => { :controller => :user_profile, :action => yield(:action) } do |f| %>
+      <%= render 'shared/error_messages', object: @user %>
+      <div class="container py-5">
+          <form class="form-horizontal" role="form" method="POST" action="/register">
+              <div class="mb-2 row">
+                  <div class="col-md-3"></div>
+                  <div class="col-md-6" >
+                      <h2 class="font-weight-bold font-italic text-white">Register New Hobby-com</h2>
+                      <hr>
+                  </div>
+              </div>
+              <div class="row">
+                  <div class="col-md-3 field-label-responsive">
+                      <label for="name" class="text-white">Name</label>
+                  </div>
+                  <div class="col-md-6">
+                      <div class="form-group">
+                          <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                              <div class="input-group-addon" style="width: 2.6rem"><i class="fa fa-user fa-lg my-skyblue"></i></div>
+                              <!-- <input type="text" name="name" class="form-control" id="name" placeholder="John Doe" required autofocus> -->
+                              <!-- <%= f.label :name %> -->
+                              <%= f.text_field :name, :placeholder => "what's your name", class: 'form-control' %>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="col-md-3">
+                      <div class="form-control-feedback">
+                              <span class="text-danger align-middle">
+                                  <!-- Put name validation error messages here -->
+                              </span>
+                      </div>
+                  </div>
+              </div>
+              <div class="row">
+                  <div class="col-md-3 field-label-responsive">
+                      <label for="email" class="text-white">E-Mail Address</label>
+                  </div>
+                  <div class="col-md-6">
+                      <div class="form-group">
+                          <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                              <div class="input-group-addon" style="width: 2.6rem"><i class="fa fa-at fa-lg my-skyblue"></i></div>
+                                <%= f.email_field :email, class: 'form-control', :placeholder => "example@hoge.com" %>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="col-md-3">
+                      <div class="form-control-feedback">
+                              <span class="text-danger align-middle">
+                                  <!-- Put e-mail validation error messages here -->
+                              </span>
+                      </div>
+                  </div>
+              </div>
+              <div class="row">
+                  <div class="col-md-3 field-label-responsive">
+                      <label for="password" class="text-white">Password</label>
+                  </div>
+                  <div class="col-md-6">
+                      <div class="form-group has-danger">
+                          <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                              <div class="input-group-addon" style="width: 2.6rem"><i class="fa fa-key fa-lg my-skyblue"></i></div>
+                              <!-- <input type="password" name="password" class="form-control" id="password" -->
+                                     <!-- placeholder="Password" required> -->
+                                 <%= f.password_field :password, class: 'form-control', :placeholder => "********" %>
+                          </div>
+                      </div>
+                  </div>
+                  <!-- <div class="col-md-3">
+                      <div class="form-control-feedback">
+                              <span class="text-danger align-middle">
+                                  <i class="fa fa-close"> Example Error Message</i>
+                              </span>
+                      </div>
+                  </div> -->
+              </div>
+              <div class="row">
+                  <div class="col-md-3 field-label-responsive">
+                      <label for="password" class="text-white">Confirm Password</label>
+                  </div>
+                  <div class="col-md-6">
+                      <div class="form-group">
+                          <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                              <div class="input-group-addon" style="width: 2.6rem">
+                                  <i class="fa fa-repeat fa-spin fa-lg my-skyblue"></i>
+                              </div>
+                              <!-- <input type="password" name="password-confirmation" class="form-control" id="password-confirm" placeholder="Password" required> -->
+                              <%= f.password_field :password, class: 'form-control', :placeholder => "********" %>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              <div class="row">
+                  <div class="col-md-4"></div>
+                  <div class="col-md-6">
+                      <!-- <button type="submit" class="btn btn-success"><i class="fa fa-user-plus"></i> Register</button> -->
+                      <%= f.submit yield(:button_text), class: "btn btn-outline-success btn-lg" %>
+
+                  </div>
+              </div>
+          </form>
+      </div>
+    </div>
+  </div>
+</body>
 <% end %>
