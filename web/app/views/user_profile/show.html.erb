@@ -61,6 +61,8 @@
       <% end %>
     </div>
   </div>
+  
+  <%= render 'shared/stats' %>
 
   <% if @user != current_user and logged_in? %>
     <%=link_to 'MATCHING', common_element_path , { :class => "btn btn-primary" }%>

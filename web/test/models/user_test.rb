@@ -99,6 +99,7 @@ class UserTest < ActiveSupport::TestCase
     assert_not chris.following?(okabe)
     chris.follow(okabe)
     assert_not okabe.follow_exchange?(chris)
+    assert_not chris.follow_exchange?(okabe)
     okabe.follow(chris)
     assert chris.following?(okabe)
     assert okabe.followed_by?(chris)

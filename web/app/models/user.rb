@@ -58,6 +58,7 @@ class User < ApplicationRecord
     following.each do |user|
       follow_exchange << user if follow_exchange?(user)
     end
+    return follow_exchange
   end
 end
 

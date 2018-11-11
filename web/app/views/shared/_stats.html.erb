@@ -1,0 +1,10 @@
+<% @user ||= current_user %>
+<div class="stats">
+  <a href="<%= follow_exchange_user_profile_path(@user) %>">
+    <% follow_exchange_num = @user.find_follow_exchange.size %>
+    <strong id="followers" class="stat">
+      <%= follow_exchange_num %>
+    </strong>
+    <%= follow_exchange_num > 1 ? "friends" : "friend" %>
+  </a>
+</div>
