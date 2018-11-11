@@ -12,8 +12,13 @@ Rails.application.routes.draw do
   post   '/login',   to: 'sessions#create'
   delete '/logout',  to: 'sessions#destroy'
   get '/user_profile/:id/common_elements', to: 'common_elements#show'
-  resources :user_profile
+  resources :user_profile do
+    member do
+      get :follow_exchange
+    end
+  end
   resources :element
   resources :common_elements
+  resources :relationships, only: [:create, :destroy]
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

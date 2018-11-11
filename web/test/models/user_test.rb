@@ -91,4 +91,19 @@ class UserTest < ActiveSupport::TestCase
     @user.update! element_ids: Element.ids
     assert_equal 2, @user.elements.size
   end
+
+
+  test "should follow and unfollow a user" do
+    chris = users(:chris)
+    okabe  = users(:okabe)
+    assert_not chris.following?(okabe)
+    chris.follow(okabe)
+    assert_not okabe.follow_exchange?(chris)
+    okabe.follow(chris)
+    assert chris.following?(okabe)
+    assert okabe.followed_by?(chris)
+    assert okabe.follow_exchange?(chris)
+    chris.unfollow(okabe)
+    assert_not chris.following?(okabe)
+  end
 end
