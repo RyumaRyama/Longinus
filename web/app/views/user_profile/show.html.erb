@@ -62,14 +62,14 @@
     </div>
   </div>
   
-  <%= render 'shared/stats' %>
 
-  <% if @user != current_user and logged_in? %>
+  <% if @user == current_user and logged_in? %>
+    <%= render 'shared/stats' %>
+  <% elsif @user.friend?(current_user) and logged_in? %>
     <%=link_to 'MATCHING', common_element_path , { :class => "btn btn-primary" }%>
-    <br>
-    <br>
-    <%= render 'follow_form' %>
   <% end %>
+
+  <%= render 'follow_form' %>
 
 </body>
 
