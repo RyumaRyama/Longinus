@@ -14,7 +14,7 @@ Rails.application.routes.draw do
   get '/user_profile/:id/common_elements', to: 'common_elements#show'
   resources :user_profile do
     member do
-      get :follow_exchanges, :follow_requests
+      get :friends, :follow_requests
     end
   end
   resources :element

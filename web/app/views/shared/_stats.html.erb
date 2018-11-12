@@ -1,11 +1,11 @@
 <% @user ||= current_user %>
 <div class="stats">
-  <a href="<%= follow_exchanges_user_profile_path(@user) %>">
-    <% follow_exchanges = @user.find_follow_exchanges.size %>
+  <a href="<%= friends_user_profile_path(@user) %>">
+    <% friends = @user.find_friends.size %>
     <strong id="followers" class="stat">
-      <%= follow_exchanges %>
+      <%= friends %>
     </strong>
-    <%= follow_exchanges > 1 ? "friends" : "friend" %>
+    <%= friends > 1 ? "friends" : "friend" %>
   </a>
   <br>
   <a href="<%= follow_requests_user_profile_path(@user) %>">

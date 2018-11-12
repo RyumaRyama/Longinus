@@ -57,7 +57,7 @@ class User < ApplicationRecord
   def find_friends
     friends = []
     following.each do |user|
-      friends << user if follow_exchange?(user)
+      friends << user if friend?(user)
     end
     return friends
   end
@@ -66,7 +66,7 @@ class User < ApplicationRecord
   def find_friend_requests
     follow_requests = []
     following.each do |user|
-      follow_requests << user unless follow_exchange?(user)
+      follow_requests << user unless friend?(user)
     end
     return follow_requests
   end

@@ -1,15 +1,13 @@
 # coding: utf-8
 class UserProfileController < ApplicationController
   before_action :logged_in_user, only: [:edit, :update, :follow_requests, :friends]
-  before_action :correct_user,   only: [:edit, :update]
+  before_action :correct_user, only: [:edit, :update, :follow_requests, :friends]
 
   def home
   end
 
   def help
   end
-
-  
 
   def show
     @user = User.find(params[:id])
@@ -46,16 +44,18 @@ class UserProfileController < ApplicationController
   end
 
   def follow_requests
-    @title = "Request"
+    @title = "友達申請"
     @user = User.find(params[:id])
-    @users = @user.find_follow_requests.paginate(page: params[:page])
+    @paginate_array = @user.find_friend_requests
+    @paginates = Kaminari.paginate_array(@paginate_array).page(params[:page]).per(20)
     render 'show_follow'
   end
 
   def friends
-    @title = "Friends"
+    @title = "友達"
     @user = User.find(params[:id])
-    @users = @user.find_friends.paginate(page: params[:page])
+    @paginate_array = @user.find_friends
+    @paginates = Kaminari.paginate_array(@paginate_array).page(params[:page]).per(20)
     render 'show_follow'
   end
 
