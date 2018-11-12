@@ -1,6 +1,6 @@
 # coding: utf-8
 class UserProfileController < ApplicationController
-  before_action :logged_in_user, only: [:edit, :update]
+  before_action :logged_in_user, only: [:edit, :update, :follow_requests, :friends]
   before_action :correct_user,   only: [:edit, :update]
 
   def home
@@ -45,25 +45,19 @@ class UserProfileController < ApplicationController
     end
   end
 
-  # def elements_edit
-  #   # @user = User.find(current_user.id)
-  #   @user = User.find(params[:id])
-  #   # 2.times { @user.elements.build }
-  #   # @elements = User.find(current_user.id).elements
-  #   # @elements = Element.find(user_elements.ids)
-  #   # p @elements
-  #   # puts '*' * 100
-  # end
-  #
-  # def elements_update
-  #   @user = User.find(params[:id])
-  #   # @user.elements << Element.find_by(update_user_elements_params)
-  #   if @user.update_attributes(update_user_elements_params)
-  #     redirect_to root_path
-  #   else
-  #     render 'elements_edit'
-  #   end
-  # end
+  def follow_requests
+    @title = "Request"
+    @user = User.find(params[:id])
+    @users = @user.find_follow_requests.paginate(page: params[:page])
+    render 'show_follow'
+  end
+
+  def friends
+    @title = "Friends"
+    @user = User.find(params[:id])
+    @users = @user.find_friends.paginate(page: params[:page])
+    render 'show_follow'
+  end
 
   private
 

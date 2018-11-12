@@ -49,16 +49,26 @@ class User < ApplicationRecord
   end
 
   # 現在のユーザーと相互フォローの場合trueを返す
-  def follow_exchange?(other_user)
+  def friend?(other_user)
     following?(other_user) and followed_by?(other_user)
   end
 
-  def find_follow_exchange
-    follow_exchange = []
+  # 現在のユーザーのフレンドを返す
+  def find_friends
+    friends = []
     following.each do |user|
-      follow_exchange << user if follow_exchange?(user)
+      friends << user if follow_exchange?(user)
     end
-    return follow_exchange
+    return friends
+  end
+
+  # 現在のユーザーのフレンドリクエスト中ユーザーを返す
+  def find_friend_requests
+    follow_requests = []
+    following.each do |user|
+      follow_requests << user unless follow_exchange?(user)
+    end
+    return follow_requests
   end
 end
 

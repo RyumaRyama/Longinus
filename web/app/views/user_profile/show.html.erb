@@ -66,6 +66,9 @@
 
   <% if @user != current_user and logged_in? %>
     <%=link_to 'MATCHING', common_element_path , { :class => "btn btn-primary" }%>
+    <br>
+    <br>
+    <%= render 'follow_form' %>
   <% end %>
 
 </body>
