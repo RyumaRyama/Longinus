@@ -48,7 +48,7 @@ class UserProfileController < ApplicationController
   def follow_requests
     @title = "Request"
     @user = User.find(params[:id])
-    @users = @user.find_follow_requests.paginate(page: params[:page])
+    # @users = @user.find_follow_requests.paginate(page: params[:page])
     render 'show_follow'
   end
 

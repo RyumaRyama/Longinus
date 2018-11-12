@@ -81,3 +81,6 @@ gem 'mini_racer'
 gem 'nested_form_fields'
 
 gem 'rails-controller-testing'
+
+gem 'kaminari', '~> 0.17.0'
+
