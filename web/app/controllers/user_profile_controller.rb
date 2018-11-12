@@ -1,15 +1,13 @@
 # coding: utf-8
 class UserProfileController < ApplicationController
   before_action :logged_in_user, only: [:edit, :update, :follow_requests, :friends]
-  before_action :correct_user,   only: [:edit, :update]
+  before_action :correct_user, only: [:edit, :update, :follow_requests, :friends]
 
   def home
   end
 
   def help
   end
-
-  
 
   def show
     @user = User.find(params[:id])
