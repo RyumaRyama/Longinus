@@ -1,26 +1,24 @@
+<div class="page-header">
   <h3>友達一覧</h3>
+</div>
 
-  <% @user.find_friend_requests.each do |requests|  %>
-    <%= requests.name %>
+<div class="col-md-8">
+  <% if @requests.any? %>
+    <% @requests.each do |request| %>
+      <%= link_to request.name, user_profile_path(request), class: 'list-group-item'  %>
+    <% end %>
+    <%= paginate @requests %>
   <% end %>
+</div>
 
-  <br>
-  <br>
+<br>
+<br>
 
-  <aside class="col-md-4">
-    <section class="user_info">
-      <span><%= link_to "view my profile", user_profile_path %></span>
-    </section>
-    <section class="stats">
-      <%= render 'shared/stats' %>
-    </section>
-  </aside>
-
-<!--  <div class="col-md-8">-->
-    <%# if @users.any? %>
-<!--      <ul class="users follow">-->
-        <%#= render @users %>
-<!--      </ul>-->
-      <%#= paginate @users %>
-    <%# end %>
-<!--  </div>-->
+<aside class="col-md-4">
+  <section class="user_info">
+    <span><%= link_to "view my profile", user_profile_path %></span>
+  </section>
+  <section class="stats">
+    <%= render 'shared/stats' %>
+  </section>
+</aside>

@@ -49,6 +49,8 @@ class UserProfileController < ApplicationController
     @title = "Request"
     @user = User.find(params[:id])
     # @users = @user.find_follow_requests.paginate(page: params[:page])
+    @requests_array = @user.find_friend_requests
+    @requests = Kaminari.paginate_array(@requests_array).page(params[:page]).per(20)
     render 'show_follow'
   end
 
