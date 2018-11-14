@@ -1,5 +1,6 @@
 class User < ApplicationRecord
   # email最大255文字，password最低6文字のユーザー情報
+  # has_and_belongs_to_manyではprivate設定の実現が難しいのでは
   has_and_belongs_to_many :elements, :join_table => 'elements_users'
   accepts_nested_attributes_for :elements, allow_destroy: true
   before_save { self.email = self.email.downcase }
