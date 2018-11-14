@@ -3,6 +3,7 @@ var target = "elements[][name]";
 var value = [];
 var input = " ";
 var data=[];
+var form_max=10; 
 function CheckInputValue(counter) {
     for (let i = 0; i < counter; i++) {
         value[i] = area[i].value;
@@ -37,36 +38,11 @@ function add_button() {
     data=[];
     data=CheckInputValue(counter);
     //10個以上は使えないように制限
-    if (counter < 10) {
+    if (counter < form_max) {
         //counter変数を1追加
         counter++;
     }
     input="";
     Createbutton(counter,data);
-    ChangeFrom(input);
-}
-function RemoveInput(counter,data,num){
-  for (let i = 0; i < counter; i++) {
-        while(i!=num && i+1<counter){
-          data[i]=data[i+1];
-        }
-    }
-    return value;
-}
-function remove_button(num) {
- 
-    //counterが1より小さくならないようにする(フォームは最低でも1つ残す)
-    if (counter > 1) {
-        counter--;
-        value=[];
-    }
-    console.log(num);
-     area = document.getElementsByName(target);
-    area = Array.from(area);
-    data=[];
-    data=CheckInputValue(counter);
-    RemoveInput(counter,data,num);
-    input="";
-    Createbutton(counter);
     ChangeFrom(input);
 }
