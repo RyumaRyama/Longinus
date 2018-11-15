@@ -39,7 +39,7 @@ ActiveRecord::Schema.define(version: 2018_11_15_034937) do
   create_table "users_elements", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "user_id"
     t.bigint "element_id"
-    t.string "private"
+    t.boolean "private"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["element_id"], name: "index_users_elements_on_element_id"

@@ -1,6 +1,7 @@
 class User < ApplicationRecord
   # email最大255文字，password最低6文字のユーザー情報
   # has_and_belongs_to_manyではprivate設定の実現が難しいのでは
+  has_many :users_elements
   has_many :elements, through: :users_elements
 
   accepts_nested_attributes_for :elements, allow_destroy: true
