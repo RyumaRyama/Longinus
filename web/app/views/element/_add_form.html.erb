@@ -1,0 +1,7 @@
+<div id="input_area">
+<%= fields_for "elements[]", @element do |fe| %>
+  <%= fe.text_field :name %>
+  <br>
+  <button class="btn btn-outline-primary" onclick="add_button()">趣味をさらに追加</button>
+<% end %>
+</div>
