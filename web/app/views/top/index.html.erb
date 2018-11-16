@@ -4,9 +4,11 @@
 
 <body>
   <header>
-    <h1>Hobby-com</h1>
-    <div class="blocka">
-      <%=link_to 'ログイン', login_path , { :class => "btn btn-outline-warning bg-warning" }%>
+    <div class="container-fluid">
+      <h1>Hobby-com</h1>
+        <div class="blocka">
+          <%=link_to 'ログイン', login_path , { :class => "btn btn-outline-warning bg-warning" }%>
+        </div>
     </div>
   </header>
 
@@ -14,7 +16,7 @@
   <br>
 
   <div class="blockb">
-    <b>コンタクトが取りづらい</b><br>
+    <b>コンタクトを取りたい</b><br>
     <br>
     <b>会話の糸口がほしい</b><br>
     <br>
@@ -26,7 +28,9 @@
     <br>
     <b>さあ、Hobby-comをはじめよう！</b><br>
     <br>
-    <%=link_to '　　　新規登録　　　', signup_path , { :class => "btn btn-outline-warning bg-light" }%>
+    <div class="blockd">
+      <%=link_to '　　　新規登録　　　', signup_path , { :class => "btn btn-outline-warning bg-light" }%>
+    </div>
   </div>
 
   <br>

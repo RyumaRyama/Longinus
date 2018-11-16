@@ -23,20 +23,36 @@ h1{
   margin:0px;
 }
 
+h1, .h1 {
+  font-size: 3.0rem;
+}
+
+b, strong {
+  font-weight: bolder;
+  font-size: x-large;
+}
+
 div.blocka {
   text-align: right;
+  padding: 5px;
 }
 
 div.blockb {
-  text-align: center;
+  text-align: left;
   float: left;
   width: 50%;
+  padding: 75px;
 }
 
 div.blockc {
-  text-align: center;
+  text-align: left;
   float: right;
   width: 50%;
+  padding: 75px;
+}
+
+div.blockd {
+  text-align: center;
 }
 
 .btn-outline-warning {
