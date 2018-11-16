@@ -53,7 +53,7 @@ class ElementController < ApplicationController
     end
 
     def update_user_elements_params
-      params.require(:user).permit(elements_attributes: [:name, :id, :private, :_destroy])
+      params.require(:user).permit(elements_attributes: [:name, :id, :_destroy])
     end
 
     def add_elements(message)
