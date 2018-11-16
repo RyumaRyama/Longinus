@@ -60,3 +60,16 @@ div.blockd {
   background-image: none;
   border-color: #ff8c00;
 }
+
+@media screen and (max-width: 480px) {
+  div.blockb{
+    float: none;
+    width: 100%;
+    padding: 15px;
+  }
+  div.blockc{
+    float: none;
+    width: 100%;
+    padding: 15px;
+  }
+}
