@@ -29,6 +29,16 @@ class ElementController < ApplicationController
       end
     end
 
+    update_user_elements_params[:users_elements_attributes].each do |user_element_is_private|
+      # if user_element[1][:private] == (true or false)
+        puts user_element_is_private[1][:id]
+        puts "失敗した"*100
+        user_element = UsersElement.find_by(id: user_element_is_private[1][:id])
+        @user.users_elements.find_by(element_id: user_element.element_id
+        ).update!(private: user_element_is_private[1][:private])
+      # end
+    end
+
     add_elements("Update successfull")
   end
 
@@ -42,7 +52,7 @@ class ElementController < ApplicationController
 
     def update_user_elements_params
       params.require(:user).permit(
-          users_elements: [:private,:id],
+          users_elements_attributes: [:private,:id],
           elements_attributes: [:name, :id, :_destroy]
       )
     end
