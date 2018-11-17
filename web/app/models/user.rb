@@ -4,7 +4,7 @@ class User < ApplicationRecord
   has_many :users_elements
   has_many :elements, through: :users_elements
 
-  accepts_nested_attributes_for :elements, allow_destroy: true
+  accepts_nested_attributes_for :users_elements,:elements, allow_destroy: true
   before_save { self.email = self.email.downcase }
   validates :name, presence: true, length: { maximum: 50 }
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i

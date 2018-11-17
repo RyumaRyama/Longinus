@@ -14,13 +14,23 @@
           <span class="col-sm-10">
             <%= fe.check_box :_destroy %>
           </span>
-          <%= f.fields_for :users_elements do |ue| %>
-            <%= ue.label :private, class: "control-label col-sm-2" %>
-            <span class="col-sm-10">
-              <%= ue.check_box :private %>
-            </span>
-           <% end %>
+          <%#= f.fields_for :users_elements do |ue| %>
+            <%#= ue.label :private,"公開範囲", class: "control-label col-sm-2" %>
+<!--              <span class="col-sm-10">-->
+<!--                <%#= ue.radio_button :private ,"true" %>private-->
+<!--                <%#= ue.radio_button :private, "false" %>public-->
+<!--              </span>-->
+          <%# end %>
         </div>
+      <% end %>
+
+<!--      趣味のプライベート設定-->
+      <%= f.fields_for :users_elements do |ue| %>
+        <%= ue.label :private,"公開範囲", class: "control-label col-sm-2" %>
+        <span class="col-sm-10">
+          <%= ue.radio_button :private ,"true" %>private
+          <%= ue.radio_button :private, "false" %>public
+        </span>
       <% end %>
 
       <h2>趣味の追加</h2>
