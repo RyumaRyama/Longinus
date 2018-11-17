@@ -53,7 +53,17 @@
           <div class="card-body">
             <ul>
               <% @user.elements.each do |data| %>
-                <li><%= data.name %></li>
+                <!--自分のページで，プライベートの項目は(Private)と印が入る-->
+                <% if logged_in? and @user == current_user%>
+                  <% if @user.users_elements.find_by(element_id: data.id).private == true %>
+                    <li><%= data.name + "  (Private)" %></li>
+                  <% else %>
+                    <li><%= data.name %></li>
+                  <%end %>
+                <!--他人のページ-->
+                <%else %>
+                  <li><%= data.name %></li>
+                <% end %>
               <% end %>
             </ul>
           </div>
