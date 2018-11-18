@@ -87,3 +87,4 @@ gem 'kaminari', '~> 0.17.0'
 gem 'faker'
 gem 'faker-precure'
 
+gem "rack", ">= 2.0.6"
