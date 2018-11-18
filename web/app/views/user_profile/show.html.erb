@@ -60,9 +60,11 @@
                   <% else %>
                     <li><%= data.name %></li>
                   <%end %>
-                <!--他人のページ-->
+                <!--他人のページのパプリックな項目の表示-->
                 <%else %>
-                  <li><%= data.name %></li>
+                  <% if not @user.users_elements.find_by(element_id: data.id).private == true %>
+                    <li><%= data.name %></li>
+                  <% end %>
                 <% end %>
               <% end %>
             </ul>
