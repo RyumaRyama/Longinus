@@ -12,33 +12,31 @@ class ElementController < ApplicationController
   end
 
   def edit
-    # @user = User.find(current_user.id)
     @user = User.find(params[:id])
     @element = Element.new
 
     if @user.elements.size == 0
       redirect_to new_element_path
     end
-    # 2.times { @user.elements.build }
-    # @elements = User.find(current_user.id).elements
-    # @elements = Element.find(user_elements.ids)
-    # p @elements
-    # puts '*' * 100
   end
 
   def update
     @user = User.find(params[:id])
-    # @user.elements << Element.find_by(update_user_elements_params)
-    # if @user.update_attributes(update_user_elements_params)
-    #   redirect_to root_path
-    # else
-    #   render 'edit'
-    # end
-    
+
     update_user_elements_params[:elements_attributes].each do |element|
       if element[1][:_destroy] == "1"
         @user.elements.delete(Element.find_by(id: element[1][:id]))
       end
+    end
+
+    update_user_elements_params[:users_elements_attributes].each do |user_element_is_private|
+      # if user_element[1][:private] == (true or false)
+        puts user_element_is_private[1][:id]
+        puts "失敗した"*100
+        user_element = UsersElement.find_by(id: user_element_is_private[1][:id])
+        @user.users_elements.find_by(element_id: user_element.element_id
+        ).update!(private: user_element_is_private[1][:private])
+      # end
     end
 
     add_elements("Update successfull")
@@ -53,7 +51,10 @@ class ElementController < ApplicationController
     end
 
     def update_user_elements_params
-      params.require(:user).permit(elements_attributes: [:name,:id,:_destroy])
+      params.require(:user).permit(
+          users_elements_attributes: [:private,:id],
+          elements_attributes: [:name, :id, :_destroy]
+      )
     end
 
     def add_elements(message)
@@ -70,5 +71,4 @@ class ElementController < ApplicationController
       flash[:success] = message
       redirect_to user_profile_path(id: @user.id)
     end
-
 end
