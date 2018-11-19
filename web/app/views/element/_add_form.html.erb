@@ -2,6 +2,17 @@
 <%= fields_for "elements[]", @element do |fe| %>
   <%= fe.text_field :name %>
   <br>
-  <button class="btn btn-outline-primary" onclick="add_button()">趣味をさらに追加</button>
+  <button class="btn btn-outline" onclick="add_button()">趣味をさらに追加</button>
 <% end %>
 </div>
+
+<style type="text/css">
+body{
+    background: rgba(250, 165, 0, 0.2);
+}
+.btn-outline{
+    color: #ff8c00;
+    background:white;
+    border-color: #ff8c00;
+}
+</style>

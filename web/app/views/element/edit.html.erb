@@ -6,6 +6,7 @@
     <h2>趣味の編集</h2>
     <h3>趣味解答欄</h3>
     <%= form_for @user, :url => { :controller => :element, :action => :update } do |f| %>
+
       <%= f.fields_for :elements do |fe| %>
         <%= fe.text_field :name, readonly: true %>
         <div class="form-group">
@@ -13,12 +14,28 @@
           <span class="col-sm-10">
             <%= fe.check_box :_destroy %>
           </span>
+          <%#= f.fields_for :users_elements do |ue| %>
+            <%#= ue.label :private,"公開範囲", class: "control-label col-sm-2" %>
+<!--              <span class="col-sm-10">-->
+<!--                <%#= ue.radio_button :private ,"true" %>private-->
+<!--                <%#= ue.radio_button :private, "false" %>public-->
+<!--              </span>-->
+          <%# end %>
         </div>
+      <% end %>
+
+<!--      趣味のプライベート設定-->
+      <%= f.fields_for :users_elements do |ue| %>
+        <%= ue.label :private,"公開範囲", class: "control-label col-sm-2" %>
+        <span class="col-sm-10">
+          <%= ue.radio_button :private ,true %>private
+          <%= ue.radio_button :private, false %>public
+        </span>
       <% end %>
 
       <h2>趣味の追加</h2>
       <%= render 'add_form' %>
-      <%= f.submit "更新", class: "btn btn-primary" %>
+      <%= f.submit "更新", class: "btn btn-submit" %>
     <% end %>
 
     <br>
@@ -27,12 +44,10 @@
   </div>
 </div>
 <style type="text/css">
-  .obj-left{
-    display:inline-block;
-    float:left;
-  }
-  .obj-right{
-    margin-left:30%;
-    display:inline-block;
+  .btn-submit{
+    color: white;
+    font-weight:bold;
+    background:#ffc107;
+    border-color: #ff8c00;
   }
 </style>
