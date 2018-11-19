@@ -24,7 +24,7 @@ function Createbutton(counter,value) {
         }
         input = input + ">";
     }
-    input=input+"<br><button class=\"btn btn-outline-primary\" onclick=\"add_button()\">趣味をさらに追加</button>";
+    input=input+"<br><button class=\"btn btn-outline\" onclick=\"add_button()\">趣味をさらに追加</button>";
 }
 function ChangeFrom(input){
   //入力フォームを格納するエリアに追加
