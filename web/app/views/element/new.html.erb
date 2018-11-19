@@ -9,19 +9,20 @@
     <h3>趣味解答欄</h3>
     <%= form_for @element, :url => { :controller => :element } do |f| %>
       <%= render 'add_form' %>
-      <%= f.submit "送信", class: "btn btn-primary" %>
+      <%= f.submit "送信", class: "btn btn-submit" %>
     <% end %>
     <br>
     <br>
   </div>
 </div>
 <style type="text/css">
-  .obj-left{
-    display:inline-block;
-    float:left;
+  body{
+    background: rgba(250, 165, 0, 0.2);
   }
-  .obj-right{
-    margin-left:30%;
-    display:inline-block;
+  .btn-submit{
+    color: white;
+    font-weight:bold;
+    background:#ffc107;
+    border-color: #ff8c00;
   }
 </style>

@@ -18,7 +18,7 @@
 
       <h2>趣味の追加</h2>
       <%= render 'add_form' %>
-      <%= f.submit "更新", class: "btn btn-primary" %>
+      <%= f.submit "更新", class: "btn btn-submit" %>
     <% end %>
 
     <br>
@@ -27,12 +27,10 @@
   </div>
 </div>
 <style type="text/css">
-  .obj-left{
-    display:inline-block;
-    float:left;
-  }
-  .obj-right{
-    margin-left:30%;
-    display:inline-block;
+  .btn-submit{
+    color: white;
+    font-weight:bold;
+    background:#ffc107;
+    border-color: #ff8c00;
   }
 </style>
