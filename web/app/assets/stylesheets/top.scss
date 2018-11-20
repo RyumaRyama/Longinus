@@ -2,9 +2,9 @@ body {
   font-family: 'Comic Sans MS';
   font-size: 16px;
   line-height: 1.42857;
-  background: rgba(250, 165, 0, 0.2);
+  background: rgba(0,0,0,0.1);
 
-  background: image-url('european-fan.jpg');
+  background: image-url('wood-deck.jpg');
 }
 
 .container-fluid {
@@ -13,7 +13,7 @@ body {
 }
 
 header {
-  background: rgba(250, 165, 0, 0.5);
+  background: rgba(139, 69, 19, 0.6);
   height: 100%;
   width: 100%;
 }
@@ -33,7 +33,7 @@ h1 {
 }
 
 b {
-  color: #ffebcd;
+  color: #ffffff;
   font-weight: bolder;
   font-size: x-large;
 }
@@ -52,9 +52,9 @@ b {
 
 /*ボタンの枠線*/
 .btn-outline-warning {
-  color: #ff8c00;
+  color: #ffffff;
   background-image: none;
-  border-color: #ff8c00;
+  border-color: #ffffff;
 }
 
 /*ボタン背景色の無効化*/
