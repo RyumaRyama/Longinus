@@ -23,20 +23,22 @@ class ElementController < ApplicationController
   def update
     @user = User.find(params[:id])
 
+    # 趣味を削除
     update_user_elements_params[:elements_attributes].each do |element|
       if element[1][:_destroy] == "1"
         @user.elements.delete(Element.find_by(id: element[1][:id]))
       end
     end
 
+    # 趣味の公開設定の変更
     update_user_elements_params[:users_elements_attributes].each do |user_element_is_private|
-      # if user_element[1][:private] == (true or false)
-        puts user_element_is_private[1][:id]
-        puts "失敗した"*100
+      if not UsersElement.find_by(id: user_element_is_private[1][:id]).nil?
         user_element = UsersElement.find_by(id: user_element_is_private[1][:id])
+        puts "失敗した"*100
+        p user_element
         @user.users_elements.find_by(element_id: user_element.element_id
         ).update!(private: user_element_is_private[1][:private])
-      # end
+      end
     end
 
     add_elements("Update successfull")
