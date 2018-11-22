@@ -13,11 +13,21 @@
 
 <body>
   <div class="header text-center" style="font-family: 'Amatic SC', cursive;">
-    <h1><%= @user.name %> introduction</h1>
+    <h1><%= @user.name %></h1>
   </div>
-  
+
   <div class = "main">
     <div class="container main">
+
+      <% if logged_in? %>
+        <% if @user == current_user %>
+          <%= render 'shared/stats' %>
+        <% elsif @user.friend?(current_user) %>
+          <%= link_to 'MATCHING', common_element_path , { :class => "btn btn-primary" } %>
+        <% end %>
+        <%= render 'follow_form' %>
+      <% end %>
+  
       <div class="row">
         <div class="col-md-4 col-lg-4 col-xl-4">
         </div>
@@ -72,17 +82,9 @@
       </div>
       <br><br>
       <input type="button" value="レビューはこちら！" onClick="window.open('https://goo.gl/forms/41aZVzoTV5Jm4ztE3')">
+
     </div>
   </div>
-
-    <% if logged_in? %>
-      <% if @user == current_user %>
-        <%= render 'shared/stats' %>
-      <% elsif @user.friend?(current_user) %>
-        <%= link_to 'MATCHING', common_element_path , { :class => "btn btn-primary" } %>
-      <% end %>
-      <%= render 'follow_form' %>
-    <% end %>
 
 </body>
 

@@ -2,17 +2,17 @@
 <div class="stats">
   <a href="<%= friends_user_profile_path(@user) %>">
     <% friends = @user.find_friends.size %>
+    フレンド数：
     <strong id="followers" class="stat">
       <%= friends %>
     </strong>
-    <%= friends > 1 ? "friends" : "friend" %>
   </a>
   <br>
   <a href="<%= follow_requests_user_profile_path(@user) %>">
     <% requests = @user.find_friend_requests.size %>
+    リクエスト中：
     <strong id="followers" class="stat">
       <%= requests %>
     </strong>
-    <%= requests > 1 ? "requests" : "request" %>
   </a>
 </div>
