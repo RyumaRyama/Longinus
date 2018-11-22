@@ -1,12 +1,15 @@
 <% provide(:title, 'Sign up') %>
-<h1 class="title">ホビコム登録フォーム</h1>
+<h1 class="title">好きなことの追加</h1>
 <div class="container">
+  固有名詞でお願いします
+  <br>
+  <br>
+  例：<br>
+  本を読む→読書<br>
+  ラーメンを食べる→ラーメン<br>
+  <br>
   <div class="user_data">
 
-    <h2>趣味の追加</h2>
-    <p>趣味をご自由にご記入ください。趣味が複数ある場合は、「更に趣味を追加」ボタンをクリックして追加してください</p>
-
-    <h3>趣味解答欄</h3>
     <%= form_for @element, :url => { :controller => :element } do |f| %>
       <%= render 'add_form' %>
       <%= f.submit "送信", class: "btn btn-submit" %>
