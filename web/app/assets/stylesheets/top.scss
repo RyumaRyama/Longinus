@@ -4,7 +4,7 @@ body {
   line-height: 1.42857;
   background: rgba(0,0,0,0.1);
 
-  background: image-url('wood-deck.jpg');
+  background: image-url('p0502.png');
 }
 
 .container-fluid {
@@ -13,7 +13,7 @@ body {
 }
 
 header {
-  background: rgba(139, 69, 19, 0.6);
+  background: rgba(139, 69, 19, 0.4);
   height: 100%;
   width: 100%;
 }
@@ -55,15 +55,6 @@ b {
   color: #ffffff;
   background-image: none;
   border-color: #ffffff;
-}
-
-/*ボタン背景色の無効化*/
-.bg-light {
-  background-color: rgba(0,0,0,0) !important;
-}
-
-.bg-warning {
-  background-color: rgba(0,0,0,0) !important;
 }
 
 /*フッターのコンソールログ削除*/
