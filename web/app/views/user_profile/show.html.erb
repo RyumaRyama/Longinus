@@ -22,54 +22,52 @@
         <div class="col-md-4 col-lg-4 col-xl-4">
         </div>
 
-        <% if @user.elements.size > 0 %>
-          <!--自分のページ-->
-          <% if logged_in? and @user == current_user%>
-            <div class="card text-center">
-              <div class="card-header">
-                <h5 class="card-title">パブリック</h5>
-              </div>
-              <div class="card-body">
-                <ul><!--自分のページのパブリック項目-->
-                  <% @user.elements.each do |data| %>
-                    <% if not @user.users_elements.find_by(element_id: data.id).private == true %>
-                      <li><%= data.name  %></li>
-                    <% end %>
-                  <% end %>
-                </ul>
-              </div>
+        <!--自分のページ-->
+        <% if logged_in? and @user == current_user%>
+          <div class="card text-center">
+            <div class="card-header">
+              <h5 class="card-title">パブリック</h5>
             </div>
-            <div class="card text-center">
-              <div class="card-header">
-                <h5 class="card-title">プライベート</h5>
-              </div>
-              <div class="card-body">
-                <ul><!--自分のページのプライベート項目-->
-                  <% @user.elements.each do |data| %>
-                    <% if @user.users_elements.find_by(element_id: data.id).private == true %>
-                       <li><%= data.name  %></li>
-                    <%end %>
+            <div class="card-body">
+              <ul><!--自分のページのパブリック項目-->
+                <% @user.elements.each do |data| %>
+                  <% if not @user.users_elements.find_by(element_id: data.id).private == true %>
+                    <li><%= data.name  %></li>
                   <% end %>
-                </ul>
-              </div>
+                <% end %>
+              </ul>
             </div>
-          <!--他人のページのパプリック項目-->
-          <% else %>
-            <div class="card text-center">
-              <div class="card-header">
-                <h5 class="card-title">パブリック</h5>
-              </div>
-              <div class="card-body">
-                <ul>
-                  <% @user.elements.each do |data| %>
-                    <% if not @user.users_elements.find_by(element_id: data.id).private == true %>
-                      <li><%= data.name %></li>
-                    <% end %>
+          </div>
+          <div class="card text-center">
+            <div class="card-header">
+              <h5 class="card-title">プライベート</h5>
+            </div>
+            <div class="card-body">
+              <ul><!--自分のページのプライベート項目-->
+                <% @user.elements.each do |data| %>
+                  <% if @user.users_elements.find_by(element_id: data.id).private == true %>
+                     <li><%= data.name  %></li>
+                  <%end %>
+                <% end %>
+              </ul>
+            </div>
+          </div>
+        <!--他人のページのパプリック項目-->
+        <% else %>
+          <div class="card text-center">
+            <div class="card-header">
+              <h5 class="card-title">パブリック</h5>
+            </div>
+            <div class="card-body">
+              <ul>
+                <% @user.elements.each do |data| %>
+                  <% if not @user.users_elements.find_by(element_id: data.id).private == true %>
+                    <li><%= data.name %></li>
                   <% end %>
-                </ul>
-              </div>
+                <% end %>
+              </ul>
             </div>
-          <% end %>
+          </div>
         <% end %>
       </div>
     </div>
