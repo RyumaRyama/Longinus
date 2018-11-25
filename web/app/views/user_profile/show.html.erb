@@ -17,26 +17,17 @@
   </div>
 
   <div class = "main">
-    <div class="container main">
+    
+    <div class="container">
 
-      <% if logged_in? %>
-        <% if @user == current_user %>
-          <%= render 'shared/stats' %>
-        <% elsif @user.friend?(current_user) %>
-          <%= link_to 'MATCHING', common_element_path , { :class => "btn btn-primary" } %>
-        <% end %>
-        <%= render 'follow_form' %>
-      <% end %>
-  
       <div class="row">
-        <div class="col-md-4 col-lg-4 col-xl-4">
-        </div>
 
         <!--自分のページ-->
         <% if logged_in? and @user == current_user%>
-          <div class="card text-center">
-            <div class="card-header">
-              <h5 class="card-title">パブリック</h5>
+          
+          <div class="text-center hobbylist col-md-6">
+            <div class="card-head">
+              <h5 class="card-title title">パブリック</h5>
             </div>
             <div class="card-body">
               <ul><!--自分のページのパブリック項目-->
@@ -48,9 +39,11 @@
               </ul>
             </div>
           </div>
-          <div class="card text-center">
-            <div class="card-header">
-              <h5 class="card-title">プライベート</h5>
+
+
+          <div class="text-center hobbylist col-md-6">
+            <div class="card-head">
+              <h5 class="card-title title">プライベート</h5>
             </div>
             <div class="card-body">
               <ul><!--自分のページのプライベート項目-->
@@ -62,11 +55,13 @@
               </ul>
             </div>
           </div>
+
+
         <!--他人のページのパプリック項目-->
         <% else %>
-          <div class="card text-center">
-            <div class="card-header">
-              <h5 class="card-title">パブリック</h5>
+          <div class="text-center col-md-12">
+            <div class="card-head">
+              <h5 class="card-title title">パブリック</h5>
             </div>
             <div class="card-body">
               <ul>
@@ -79,10 +74,23 @@
             </div>
           </div>
         <% end %>
-      </div>
-      <br><br>
-      <input type="button" value="レビューはこちら！" onClick="window.open('https://goo.gl/forms/41aZVzoTV5Jm4ztE3')">
 
+      </div>
+      
+      <br>
+      <br>
+
+      <input type="button" value="レビューはこちらから" onClick="window.open('https://goo.gl/forms/41aZVzoTV5Jm4ztE3')">
+      <br>
+      <br>
+      <% if logged_in? %>
+        <% if @user == current_user %>
+          <%= render 'shared/stats' %>
+        <% elsif @user.friend?(current_user) %>
+          <%= link_to 'MATCHING', common_element_path , { :class => "btn btn-primary" } %>
+        <% end %>
+        <%= render 'follow_form' %>
+      <% end %>
     </div>
   </div>
 

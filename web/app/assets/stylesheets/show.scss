@@ -3,13 +3,6 @@
   height: 600px;
 }
 
-.header-name{
-  font-size:28px;
-  font-family: 'Amatic SC', cursive;
-  padding-right: 20px;
-  float: left;
-}
-
 .main{
   height:900px;
 }
@@ -20,27 +13,7 @@
   color:#FFF;
   background-color: #7B7329;
   border-bottom: 3px solid #404040;
-}
-
-.user-icon{        
-  border-radius:50%;
-  width:300px;
-  height:300px;
-}
-
-.user-info{
-  font-family: 'Amatic SC', cursive;
-  text-align:center;
-}
-         
-.user-sns dt{
-  font-size:30px;
-}
-         
-.user-sns dd{
-  font-size:26px;
-}
-         
+}        
 .card{
   margin:20px;
 }
@@ -58,5 +31,9 @@
 }
 
 .card-head{
-    padding-top:20px; 
- }
+  padding-top:20px; 
+}
+
+.hobbylist{
+ float:left; 
+}
