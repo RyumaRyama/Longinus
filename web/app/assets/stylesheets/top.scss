@@ -24,7 +24,7 @@ h1 {
 }
 
 b {
-  color: #ffffff;
+  color: #330000;
   font-weight: bolder;
   font-size: x-large;
 }
@@ -32,7 +32,7 @@ b {
 /*文字のmargin*/
 .col-sm {
   text-align: left;
-  margin: 80px;
+  margin: 60px;
 }
 
 /*ボタンのmargin*/
@@ -48,8 +48,17 @@ b {
   border-color: #ffffff;
 }
 
-/*フッターのコンソールログ削除
-pre {
-  color: rgba(0,0,0,0);
+.col-sm {
+  background: image-url('tag.png');
+  background-repeat : no-repeat;
+  background-size:cover;
 }
-*/
+
+.col-sm img {
+  opacity: 0.5;/*通常は半透明*/
+  transition: .3s;
+}
+
+.col-sm img:hover {
+  opacity: 1;/*ホバーで不透明*/
+}
