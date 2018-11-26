@@ -98,9 +98,7 @@
       <br>
       <br>
       <% if logged_in? %>
-        <% if @user == current_user %>
-          <%= render 'shared/stats' %>
-        <% elsif @user.friend?(current_user) %>
+        <% if @user.friend?(current_user) %>
           <%= link_to 'MATCHING', common_element_path , { :class => "btn btn-primary" } %>
         <% end %>
         <%= render 'follow_form' %>

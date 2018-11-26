@@ -1,10 +1,5 @@
 .main{
-  background-color: #FAFCE2;
   height: 600px;
-}
-
-.main{
-  height:900px;
 }
 
 .header{
@@ -28,10 +23,15 @@
   font-size:30px;
   color:#4B4300;
   border: 5px solid #7B7329;
+  background-color: #FAFCE2;
 }
 
 .card-head{
   padding-top:20px; 
+}
+
+.card-title{
+  background-color: #FAFCE2;  
 }
 
 .hobbylist{
