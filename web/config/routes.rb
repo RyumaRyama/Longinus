@@ -1,9 +1,6 @@
 Rails.application.routes.draw do
-  # get 'element/new'
-  # get 'element/create'
-  # post 'element/new', to: 'element#create'
-  # get 'element/update'
   root 'top#index'
+  get '/help', to:'user_profile#help'
   get '/user_profile/:id/elements_edit', to: 'element#edit'
   patch '/user_profile/:id/elements_update', to: 'element#update'
   get '/signup',  to: 'user_profile#new'
