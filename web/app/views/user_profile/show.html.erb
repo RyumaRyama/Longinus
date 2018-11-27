@@ -82,12 +82,14 @@
         <textarea id="txt_share" style="width:450px; height:100px;"></textarea>
         <button class="btn" id="cp" data-clipboard-action="copy" data-clipboard-target="#txt_share">リンクをコピー</button>
         <script type="application/javascript">
-          var link=location.href;
-          var messege="私はこんな趣味を持ってるよ！ "+link+" あなたもホビコムで大事な趣味を共有しよう!!";
-          document.getElementById('txt_share').value=messege;
-          var clipboard = new Clipboard('#cp');
-          clipboard.on('success', function(e) {
-              e.clearSelection();
+          $(document).on('turbolinks:load',function(){
+              var link=document.URL;
+              var messege="私はこんな趣味を持ってるよ！ "+link+" あなたもホビコムで大事な趣味を共有しよう!!";
+              document.getElementById('txt_share').value=messege;
+              var clipboard = new Clipboard('#cp');
+              clipboard.on('success', function(e) {
+                e.clearSelection();
+                });
           });
         </script>
       </div>
