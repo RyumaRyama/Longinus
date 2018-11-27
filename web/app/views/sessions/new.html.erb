@@ -1,19 +1,30 @@
-<% provide(:title, "Log in") %>
-<h1>Log in</h1>
+<link rel="stylesheet"  href="/assets/show.scss">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
 
-<div class="row">
-  <div class="col-md-6 col-md-offset-3">
-    <%= form_for(:session, url: login_path) do |f| %>
+<div class="container py-5 mb-10 mt-5 box8 shadow-lg　">
+  <div class="box22">
+    <% provide(:title, "Log in") %>
+    <h1><i class="fa fa-pinterest-p fa-fw"></i>ログイン</h1>
 
-      <%= f.label :email %>
-      <%= f.email_field :email, class: 'form-control' %>
 
-      <%= f.label :password %>
-      <%= f.password_field :password, class: 'form-control' %>
+    <div class="row">
+      <div class="col-md-6 col-md-offset-3">
+        <%= form_for(:session, url: login_path) do |f| %>
 
-      <%= f.submit "Log in", class: "btn btn-primary" %>
-    <% end %>
-
-    <p>New user? <%= link_to "Sign up now!", signup_path %></p>
+          <i class="fa fa-envelope"></i>
+          <%= f.label :メールアドレス %>
+          <%= f.email_field :email, class: 'form-control' %>
+          <br>
+          <i class="fa fa-unlock-alt"></i>
+          <%= f.label :パスワード %>
+          <%= f.password_field :password, class: 'form-control' %>
+          <br>
+          <%= f.submit "ログイン", class: "btn btn-primary" %>
+        <% end %>
+        <br>
+        <br>
+        <p>新規登録は<%= link_to "こちら", signup_path %>から</p>
+      </div>
+    </div>
   </div>
 </div>

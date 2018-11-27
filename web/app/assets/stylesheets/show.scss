@@ -8,7 +8,7 @@
   color:#FFF;
   background-color: #7B7329;
   border-bottom: 3px solid #404040;
-}        
+}
 .card{
   margin:20px;
 }
@@ -18,7 +18,7 @@
  color:#4B4300;
  border: 5px solid #7B7329;
 }
-         
+
 .card-body{
   font-size:30px;
   color:#4B4300;
@@ -27,13 +27,26 @@
 }
 
 .card-head{
-  padding-top:20px; 
+  padding-top:20px;
 }
 
 .card-title{
-  background-color: #FAFCE2;  
+  background-color: #FAFCE2;
 }
 
 .hobbylist{
- float:left; 
+ float:left;
+}
+
+
+.box22{
+    padding: 0.5em 1em;
+    margin: 1em 0;
+    background: #f4f4f4;
+    border-right: solid 100px #5bb7ae;
+    box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.33);
+}
+.box22 p {
+    margin: 0;
+    padding: 0;
 }
