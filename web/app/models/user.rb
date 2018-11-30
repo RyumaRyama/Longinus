@@ -6,7 +6,9 @@ class User < ApplicationRecord
 
   accepts_nested_attributes_for :users_elements,:elements, allow_destroy: true
 
+  before_create :set_default_bio
   before_save { self.email = self.email.downcase }
+
   validates :name, presence: true, length: { maximum: 50 }
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   validates :email, presence: true, length: { maximum: 255 },
@@ -14,7 +16,7 @@ class User < ApplicationRecord
                       uniqueness: { case_sensitive: false }
   has_secure_password
   validates :password, presence: true, length: { minimum: 6 }
-  validates :biography, length: { maximum: 150 }
+  validates :biography, length: { maximum: 150 }, :allow_nil => false
 
   # 渡された文字列のハッシュ値を返す
   def User.digest(string)
@@ -75,5 +77,14 @@ class User < ApplicationRecord
     end
     return follow_requests
   end
+
+  private
+
+    # ユーザーbioの初期設定をnilにしない
+    def set_default_bio
+      if self.biography.nil?
+        self.biography = none
+      end
+    end
 end
 
