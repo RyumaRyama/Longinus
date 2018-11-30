@@ -15,11 +15,14 @@
 
     <div class="col-sm">
       <br>
-      <b>　<%= image_tag 'pic1.png' , :size =>'65x65' %>　　コンタクトを取りたい</b><br>
+      <b>　<%= image_tag 'pic1.png' , :size =>'65x65' %>　　コンタクトを取りたい</b>
       <br>
-      <b>　<%= image_tag 'pic2.png' , :size =>'65x65' %>　　会話の糸口がほしい</b><br>
       <br>
-      <b>　<%= image_tag 'pic3.png' , :size =>'65x65' %>　　心の壁を取り払いたい</b><br>
+      <b>　<%= image_tag 'pic2.png' , :size =>'65x65' %>　　会話の糸口がほしい</b>
+      <br>
+      <br>
+      <b>　<%= image_tag 'pic3.png' , :size =>'65x65' %>　　心の壁を取り払いたい</b>
+      <br>
       <br>
     </div>
 
@@ -37,12 +40,15 @@
     </div>
 
   </div>
-
+  
 <!--  TODO:デザイン性の向上-->
-  <%= link_to "使い方ガイド", help_path %>
-
-  <div class="row">
-    <input type="button" value="　レビューはこちら！　" onClick="window.open('https://goo.gl/forms/41aZVzoTV5Jm4ztE3')">
+  <div class = "row">
+    <div class="help">
+      <%= link_to "使い方ガイド", help_path, { :class => "btn btn-primary btn-md" } %>
+      <br>
+      <br>
+      <%= link_to "レビューはこちら", 'https://goo.gl/forms/41aZVzoTV5Jm4ztE3', { :class => "btn btn-light btn-md" } %>
+    </div>
   </div>
 
 </div>

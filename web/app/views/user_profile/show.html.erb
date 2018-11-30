@@ -28,7 +28,7 @@
           
           <div class="text-center hobbylist col-md-6">
             <div class="card-head">
-              <h5 class="card-title title">パブリック</h5>
+              <h5 class="card-title title">公開</h5>
             </div>
             <div class="card-body">
               <ul><!--自分のページのパブリック項目-->
@@ -44,7 +44,7 @@
 
           <div class="text-center hobbylist col-md-6">
             <div class="card-head">
-              <h5 class="card-title title">プライベート</h5>
+              <h5 class="card-title title">非公開</h5>
             </div>
             <div class="card-body">
               <ul><!--自分のページのプライベート項目-->
@@ -62,7 +62,7 @@
         <% else %>
           <div class="text-center col-md-12">
             <div class="card-head">
-              <h5 class="card-title title">パブリック</h5>
+              <h5 class="card-title title">公開</h5>
             </div>
             <div class="card-body">
               <ul>
@@ -77,6 +77,10 @@
         <% end %>
         
       </div>
+
+      <br>
+      <br>
+
       <div class="share_mypage">
         <h4>あなたの趣味を共有しよう</h4>
         <textarea id="txt_share" style="width:450px; height:100px;"></textarea>
@@ -85,7 +89,8 @@
       <br>
       <br>
 
-      <input type="button" value="レビューはこちらから" onClick="window.open('https://goo.gl/forms/41aZVzoTV5Jm4ztE3')">
+      <%= link_to "レビューはこちら", 'https://goo.gl/forms/41aZVzoTV5Jm4ztE3', { :class => "btn btn-light btn-md" } %>
+
       <br>
       <br>
       <% if logged_in? %>
