@@ -1,12 +1,20 @@
-.container-fluid {
-  padding-right: 0px;
-  padding-left: 0px;
-}
-
 header {
   background: rgba(139, 69, 19, 0.4);
   height: 100%;
   width: 100%;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-right: 0px;
+  margin-left: 0px;
+}
+
+.container-fluid {
+  width: 100%;
+  padding-right: 0px;
+  padding-left: 0px;
 }
 
 /*headerの中央揃え*/
@@ -19,7 +27,6 @@ header {
 h1 {
   color: #ffebcd;
   font-size: 3.0rem;
-  font-family: 'Comic Sans MS';
   margin:0px;
 }
 
@@ -32,7 +39,7 @@ b {
 /*文字のmargin*/
 .col-sm {
   text-align: left;
-  margin: 60px;
+  margin: 30px;
 }
 
 /*ボタンのmargin*/
@@ -41,26 +48,10 @@ b {
   margin: 3px;
 }
 
-/*ボタンの枠線*/
-.btn-outline-warning {
-  color: #ffffff;
-  background-image: none;
-  border-color: #ffffff;
-}
-
 .col-sm {
   background: image-url('tag.png');
   background-repeat : no-repeat;
   background-size:cover;
-}
-
-.col-sm img {
-  opacity: 0.5;/*通常は半透明*/
-  transition: .3s;
-}
-
-.col-sm img:hover {
-  opacity: 1;/*ホバーで不透明*/
 }
 
 .help{
