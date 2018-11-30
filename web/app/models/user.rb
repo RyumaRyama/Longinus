@@ -5,6 +5,7 @@ class User < ApplicationRecord
   has_many :elements, through: :users_elements
 
   accepts_nested_attributes_for :users_elements,:elements, allow_destroy: true
+
   before_save { self.email = self.email.downcase }
   validates :name, presence: true, length: { maximum: 50 }
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
@@ -13,6 +14,7 @@ class User < ApplicationRecord
                       uniqueness: { case_sensitive: false }
   has_secure_password
   validates :password, presence: true, length: { minimum: 6 }
+  validates :biography, length: { maximum: 150 }
 
   # 渡された文字列のハッシュ値を返す
   def User.digest(string)

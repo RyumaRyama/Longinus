@@ -66,7 +66,8 @@ class UserProfileController < ApplicationController
           :name,
           :email,
           :password,
-          :password_confirmation
+          :password_confirmation,
+          :biography
       )
     end
 
