@@ -19,14 +19,12 @@ header {
 
 /*headerの中央揃え*/
 .center {
-  text-align: center;
   padding: 15px;
   box-shadow: 0px 3px 15px rgba(0,0,0,0.1);
 }
 
-h1 {
+h1, h2, h3, h4 {
   color: #ffebcd;
-  font-size: 3.0rem;
   margin:0px;
 }
 
