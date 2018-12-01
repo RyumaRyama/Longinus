@@ -9,6 +9,7 @@ class User < ApplicationRecord
   before_create :set_default_bio
   before_save { self.email = self.email.downcase }
 
+  validates :account, presence: true, length: { maximum: 50 }, uniqueness: true
   validates :name, presence: true, length: { maximum: 50 }
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   validates :email, presence: true, length: { maximum: 255 },
@@ -37,12 +38,16 @@ class User < ApplicationRecord
 
   # ユーザーをフォローする
   def follow(other_user)
+    puts other_user
+    puts "失敗した" * 100
     following << other_user
   end
 
   # ユーザーをフォロー解除する
   def unfollow(other_user)
-    active_relationships.find_by(followed_id: other_user.id).destroy
+    puts other_user
+    puts "失敗した" * 100
+    active_relationships.find_by(followed_id: other_user).destroy
   end
 
   # 現在のユーザーがフォローしてたらtrueを返す

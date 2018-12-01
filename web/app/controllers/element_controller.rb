@@ -12,7 +12,7 @@ class ElementController < ApplicationController
   end
 
   def edit
-    @user = User.find(params[:id])
+    @user = User.find_by(account: params[:account])
     @element = Element.new
 
     if @user.elements.size == 0
@@ -21,7 +21,7 @@ class ElementController < ApplicationController
   end
 
   def update
-    @user = User.find(params[:id])
+    @user = User.find_by(account: params[:account])
 
     # 趣味を削除
     update_user_elements_params[:elements_attributes].each do |element|
@@ -71,6 +71,6 @@ class ElementController < ApplicationController
         end
       end
       flash[:success] = message
-      redirect_to user_profile_path(id: @user.id)
+      redirect_to user_profile_path(account: @user.account)
     end
 end
