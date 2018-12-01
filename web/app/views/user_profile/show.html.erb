@@ -25,13 +25,24 @@
 
         <!--自分のページ-->
         <% if logged_in? and @user == current_user%>
-          
+
+          <div class="text-center hobbylist col-md-6">
+            <div class="card-head">
+              <h5 class="card-title title">プロフィール</h5>
+            </div>
+            <div class="card-body">
+              <ul><!--自己紹介欄-->
+                <%= text_url_to_link(h(simple_format(@user.biography))).html_safe %>
+              </ul>
+            </div>
+          </div>
+
           <div class="text-center hobbylist col-md-6">
             <div class="card-head">
               <h5 class="card-title title">公開</h5>
             </div>
             <div class="card-body">
-              <ul><!--自分のページのパブリック項目-->
+              <ul><!--パブリック項目-->
                 <% @user.elements.each do |data| %>
                   <% if not @user.users_elements.find_by(element_id: data.id).private == true %>
                     <li><%= data.name  %></li>
@@ -47,7 +58,7 @@
               <h5 class="card-title title">非公開</h5>
             </div>
             <div class="card-body">
-              <ul><!--自分のページのプライベート項目-->
+              <ul><!--プライベート項目-->
                 <% @user.elements.each do |data| %>
                   <% if @user.users_elements.find_by(element_id: data.id).private == true %>
                      <li><%= data.name  %></li>
@@ -58,8 +69,22 @@
           </div>
 
 
-        <!--他人のページのパプリック項目-->
+        <!--他人のページ-->
         <% else %>
+          <% if not @user.biography.size == 0 %>
+            <div class="text-center hobbylist col-md-6">
+              <div class="card-head">
+                <h5 class="card-title title">プロフィール</h5>
+              </div>
+                <div class="card-body">
+                  <ul><!--自己紹介欄-->
+                    <%= text_url_to_link(h(simple_format(@user.biography))).html_safe %>
+                  </ul>
+                </div>
+            </div>
+          <% end %>
+
+          <!--パプリック項目-->
           <div class="text-center col-md-12">
             <div class="card-head">
               <h5 class="card-title title">公開</h5>
