@@ -38,12 +38,16 @@ class User < ApplicationRecord
 
   # ユーザーをフォローする
   def follow(other_user)
+    puts other_user
+    puts "失敗した" * 100
     following << other_user
   end
 
   # ユーザーをフォロー解除する
   def unfollow(other_user)
-    active_relationships.find_by(followed_id: other_user.id).destroy
+    puts other_user
+    puts "失敗した" * 100
+    active_relationships.find_by(followed_id: other_user).destroy
   end
 
   # 現在のユーザーがフォローしてたらtrueを返す

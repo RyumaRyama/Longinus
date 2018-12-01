@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
 
       # ユーザーログイン後にユーザー情報のページにリダイレクトする
       log_in user
-      redirect_to user_profile_path(id: user.id)
+      redirect_to user_profile_path(account: user.account)
     else
       flash.now[:danger] = 'Invalid email/password combination'
       render 'new'
