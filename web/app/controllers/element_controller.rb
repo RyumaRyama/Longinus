@@ -4,6 +4,7 @@ class ElementController < ApplicationController
 
   def new
     @element = Element.new
+    @users_element = UsersElement.new
   end
 
   def create
@@ -14,6 +15,7 @@ class ElementController < ApplicationController
   def edit
     @user = User.find_by(account: params[:account])
     @element = Element.new
+    @users_element = UsersElement.new
 
     if @user.elements.size == 0
       redirect_to new_element_path
@@ -47,15 +49,19 @@ class ElementController < ApplicationController
   private
 
     def element_params
-      params.require(:elements).map do |param|
-        param.permit(:name)
-      end
+      params.require(:element).permit(
+        elements: [:name],
+        users_elements_attributes: [:private]
+      )
+      # params.require(:elements).map do |param|
+      #   param.permit(:name)
+      # end
     end
 
     def update_user_elements_params
       params.require(:user).permit(
-          users_elements_attributes: [:private,:id],
-          elements_attributes: [:name, :id, :_destroy]
+        users_elements_attributes: [:private,:id],
+        elements_attributes: [:name, :id, :_destroy]
       )
     end
 
