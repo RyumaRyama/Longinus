@@ -8,7 +8,8 @@ class User < ApplicationRecord
   before_create :set_default_bio
   before_save { self.email = self.email.downcase }
 
-  validates :account, presence: true, length: { maximum: 50 }, uniqueness: true
+  validates :account, presence: true, format:  { with: /\A[a-z0-9]+\z/i },
+                      length: { maximum: 50 }, uniqueness: true
   validates :name, presence: true, length: { maximum: 50 }
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   validates :email, presence: true, length: { maximum: 255 },
