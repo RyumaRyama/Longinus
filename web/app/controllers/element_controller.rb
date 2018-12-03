@@ -66,7 +66,12 @@ class ElementController < ApplicationController
     end
 
     def add_elements(message)
-      element_params.each do |ep|
+      puts "とぅっとぅる〜"*100
+      # p element_params[:elements]
+      p element_params
+      puts "とぅっとぅる〜"*100
+      
+      element_params[:elements].each do |ep|
         @element = Element.new(ep)
         if @element.save
           @user.elements << Element.find_by(ep)
