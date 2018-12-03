@@ -39,32 +39,34 @@
                 </div>
 
                 <!-- FIX: デザイン改良 -->
-                <div class="row">
-                  <div class="col-md-3 field-label-responsive">
-                    <label for="name" class="text-black" >アカウント名</label>
-                  </div>
-                  <div class="col-md-6">
-                    <div class="form-group">
-                      <div class="input-group mb-2 mr-sm-2 mb-sm-0">
-                        <div class="input-group-addon" style="width: 2.6rem"><i class="fa fa-user fa-lg my-skyblue"></i></div>
-                        <!-- <input type="text" name="name" class="form-control" id="name" placeholder="John Doe" required autofocus> -->
-                        <!-- <%= f.label :account %> -->
-                        <%= f.text_field :account, :placeholder => "taro", class: 'form-control' %>
+                <% if current_page?(signup_path) %>
+                  <div class="row">
+                    <div class="col-md-3 field-label-responsive">
+                      <label for="name" class="text-black" >アカウント名</label>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                          <div class="input-group-addon" style="width: 2.6rem"><i class="fa fa-user fa-lg my-skyblue"></i></div>
+                          <!-- <input type="text" name="name" class="form-control" id="name" placeholder="John Doe" required autofocus> -->
+                          <!-- <%= f.label :account %> -->
+                          <%= f.text_field :account, :placeholder => "変更不可，半角英数字のみ", class: 'form-control' %>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-3">
+                      <div class="form-control-feedback">
+                        <span class="text-danger align-middle">
+                          <!-- Put name validation error messages here -->
+                        </span>
                       </div>
                     </div>
                   </div>
-                  <div class="col-md-3">
-                    <div class="form-control-feedback">
-                      <span class="text-danger align-middle">
-                        <!-- Put name validation error messages here -->
-                      </span>
-                    </div>
-                  </div>
-                </div>
+                <% end %>
 
                 <div class="row">
                     <div class="col-md-3 field-label-responsive">
-                        <label for="name" class="text-black" >氏名</label>
+                        <label for="name" class="text-black" >ニックネーム</label>
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
@@ -108,13 +110,13 @@
 
               <div class="row">
                 <div class="col-md-3 field-label-responsive">
-                  <label for="email" class="test-black">経歴，プロフィール(任意)</label>
+                  <label for="email" class="test-black">経歴，プロフィール</label>
                 </div>
                 <div class="col-md-6">
                   <div class="form-group">
                     <div class="input-group mb-2 mr-sm-2 mb-sm-0">
                       <div class="input-group-addon" style="width: 2.6rem"><i class="fa fa-at fa-lg my-skyblue"></i></div>
-                      <%= f.text_area :biography, class: 'form-control', :placeholder => "経歴，プロフィール" ,:size=>"100×600"%>
+                      <%= f.text_area :biography, class: 'form-control', :placeholder => "任意，150文字まで" ,:size=>"100×600"%>
                     </div>
                   </div>
                 </div>
@@ -137,7 +139,7 @@
                                 <div class="input-group-addon" style="width: 2.6rem"><i class="fa fa-key fa-lg my-skyblue"></i></div>
                                 <!-- <input type="password" name="password" class="form-control" id="password" -->
                                        <!-- placeholder="Password" required> -->
-                                   <%= f.password_field :password, class: 'form-control', :placeholder => "********" %>
+                                   <%= f.password_field :password, class: 'form-control', :placeholder => "8文字以上" %>
                             </div>
                         </div>
                     </div>
@@ -160,7 +162,7 @@
                                     <i class="fa fa-repeat fa-spin fa-lg my-skyblue"></i>
                                 </div>
                                 <!-- <input type="password" name="password-confirmation" class="form-control" id="password-confirm" placeholder="Password" required> -->
-                                <%= f.password_field :password, class: 'form-control', :placeholder => "********" %>
+                                <%= f.password_field :password, class: 'form-control', :placeholder => "8文字以上" %>
                             </div>
                         </div>
                     </div>

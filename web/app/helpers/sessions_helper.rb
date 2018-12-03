@@ -38,6 +38,6 @@ module SessionsHelper
   # 正しいユーザーかどうか確認
   def correct_user
     @user = User.find_by(account: params[:account])
-    redirect_to(root_url) unless @user.account == current_user.account
+    redirect_to(root_url) unless @user == current_user
   end
 end

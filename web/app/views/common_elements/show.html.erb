@@ -35,7 +35,7 @@
 
 <body>
     <div class="header text-center" style="font-family: 'Amatic SC', cursive;">
-      <h1>You and <%= @friend_name %> have in common</h1>
+      <h1> <%= @friend_name %>との共通点 </h1>
         <%#= link_to "HOME", root_path, { :class => "btn btn-outline-primary" } %>
     </div>
     <hr class="my-4">
@@ -48,7 +48,7 @@
           <% if @friend_elements.size > 0 %> 
             <div class="card text-center">
                 <div class="card-header">
-                    <h5 class="card-title">HOBBY</h5>
+                    <h5 class="card-title">共通点</h5>
                 </div>
                 <div class="card-body">
                     <ul>
@@ -58,7 +58,18 @@
                     </ul>
                 </div>
             </div>
-	    <% end %>
+          <% else %>
+            <div class="card text-center">
+              <div class="card-header">
+                <h5 class="card-title">共通点</h5>
+              </div>
+              <div class="card-body">
+                一致する項目は見当たりませんでした<br>
+                <%= @friend_name%> にすきなことについて聞いてみましょう!<br>
+                ここにはない意外な共通点があるかも...?
+              </div>
+            </div>
+          <% end %>
 	</div>
     </div>
 
