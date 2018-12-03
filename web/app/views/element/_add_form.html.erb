@@ -1,14 +1,13 @@
 <div id="input_area">
 <%= fields_for :element, @element, :url => { :controller => :element } do |f| %>
-<% 10.times do %>
-  <%= f.fields_for "elements[]", @element do |fe| %>
-    <%= fe.text_field :name %>
-    <button class="btn btn-outline" onclick="add_button()">趣味をさらに追加</button>
+  <% 10.times do |i| %>
+    <%= f.fields_for "elements[]", @element do |fe| %>
+      <%= fe.text_field :name %>
+    <% end %>
+    <%= f.fields_for "users_elements_attributes[]", @users_element, {index: i} do |ue| %>
+      <%= ue.check_box :private, {selected: true}, true, false %>
+    <% end %>
+      <br>
   <% end %>
-  <%= f.fields_for "users_elements_attributes[]", @users_element do |ue| %>
-    <%= ue.text_field :private %>
-  <% end %>
-    <br>
-<% end %>
 <% end %>
 </div>
