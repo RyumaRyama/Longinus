@@ -39,7 +39,7 @@
                 </div>
 
                 <!-- FIX: デザイン改良 -->
-                <% if not logged_in? %>
+                <% if current_page?(signup_path) %>
                   <div class="row">
                     <div class="col-md-3 field-label-responsive">
                       <label for="name" class="text-black" >アカウント名</label>
