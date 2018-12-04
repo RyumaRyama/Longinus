@@ -106,11 +106,14 @@
       <br>
       <br>
 
-      <div class="share_mypage">
-        <h4>あなたの趣味を共有しよう</h4>
-        <textarea id="txt_share" style="width:450px; height:100px;"></textarea>
-        <button class="btn" id="cp" data-clipboard-action="copy" data-clipboard-target="#txt_share">リンクをコピー</button>
-      </div>
+      <!--自分のページのみ共有リンク生成-->
+      <% if logged_in? and @user == current_user%>
+        <div class="share_mypage">
+          <h4>あなたの趣味を共有しよう</h4>
+          <textarea id="txt_share" style="width:450px; height:100px;"></textarea>
+          <button class="btn" id="cp" data-clipboard-action="copy" data-clipboard-target="#txt_share">リンクをコピー</button>
+        </div>
+      <% end %>
       <br>
       <br>
 

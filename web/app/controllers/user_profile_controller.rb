@@ -35,7 +35,7 @@ class UserProfileController < ApplicationController
 
   def update
     @user = User.find_by(account: params[:account])
-    if @user.update_attributes(user_params)
+    if @user.update_attributes(user_update_params)
       # 更新に成功した場合を扱う。
       redirect_to user_profile_path(account: @user.account)
     else
@@ -64,6 +64,16 @@ class UserProfileController < ApplicationController
     def user_params
       params.require(:user).permit(
           :account,
+          :name,
+          :email,
+          :password,
+          :password_confirmation,
+          :biography
+      )
+    end
+
+    def user_update_params
+      params.require(:user).permit(
           :name,
           :email,
           :password,
