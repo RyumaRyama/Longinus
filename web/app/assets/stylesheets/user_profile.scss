@@ -76,17 +76,61 @@
     z-index: 1;
     position: relative;
   }
-  .box8 {
+
+  // .boxback{/*疑似要素*/
+  //   padding: 0.5em 1em;
+  //   margin: 2em 0;
+  //   z-index: -1;
+  //   position: relative;
+  //   // background: #fff8e8;
+  //   background: rgba(0,0,0,0.5);
+  //   width: 91%;
+  //   height: 100px;
+  //   box-shadow: 0 5px 5px rgba(0,0,0,0.3);
+  //   transform: rotate(2deg);
+  //   }
+
+  .box8{
     padding: 0.5em 1em;
     margin: 2em 0;
     color: #232323;
-    background: #fff8e8;
+    z-index: 2;
+
+    position: relative;
+    // background: #fff8e8;
+    background: linear-gradient(to right, #FDF8E6 0%, #F5ECDA 0.5%, #F5ECDA 13%, #FDF8E6 16%);
     border-right: solid 100px #5bb7ae;
+    // background: rgba(0,0,0,0.5);
+    box-shadow: 3px 5px 5px rgba(0,0,0,0.5);
+    transform: rotate(0.2deg);
   }
-  .box8 p {
-    margin: 0;
-    padding: 0;
-  }
+
+  // .box8::before{　/* ドロップシャドウを少し斜めに配置して、立体感を出す */
+  //   content:"ss";
+  //   display:block;
+  //   position: absolute;
+  //   z-index: -1;
+  //   bottom: 5px;
+  //   right: 0;
+  //   height: 15px;
+  //   width: 99%;
+  //   background: rgba(0,0,0,0.5);
+  //   box-shadow: 0 5px 5px rgba(0,0,0,0.3);
+  //   transform: rotate(1deg);
+  // }
+
+
+  // .box8::after{/*疑似要素*/
+  //   position: absolute;
+  //   content: 'Hobby-com';
+  //   top: 0;
+  //   left: 0;
+  //   color: white;/*文字色*/
+  //   padding: 0.2em;/*余白*/
+  //   background: #F89174;/*背景色*/
+  // }
+
+
   .container {
     max-width: 85%;
   }

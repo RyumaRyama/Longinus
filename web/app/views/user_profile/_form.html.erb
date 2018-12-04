@@ -28,7 +28,8 @@
       <div class="contents">
       <%= form_for @user, :url => { :controller => :user_profile, :action => yield(:action) } do |f| %>
         <%= render 'shared/error_messages', object: @user %>
-        <div class="container py-5 mb-10 mt-5 box8 shadow-lg　">
+        <div class="container py-5 mb-10 mt-5 box8">
+
             <form class="form-horizontal" role="form" method="POST" action="/register">
                 <div class="mb-2 row">
                     <div class="col-md-3"></div>
@@ -177,6 +178,7 @@
                 </div>
             </form>
         </div>
+        <div class="boxback">　</div>
       </div>
     </div>
     <!--
