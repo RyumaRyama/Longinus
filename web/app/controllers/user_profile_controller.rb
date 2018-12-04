@@ -10,7 +10,7 @@ class UserProfileController < ApplicationController
   end
 
   def show
-    @user = User.find(params[:id])
+    @user = User.find_by(account: params[:account])
   end
 
   def new
@@ -30,14 +30,14 @@ class UserProfileController < ApplicationController
   end
   
   def edit
-    @user = User.find(params[:id])
+    @user = User.find_by(account: params[:account])
   end
 
   def update
-    @user = User.find(params[:id])
-    if @user.update_attributes(user_params)
+    @user = User.find_by(account: params[:account])
+    if @user.update_attributes(user_update_params)
       # 更新に成功した場合を扱う。
-      redirect_to user_profile_path(id: @user.id)
+      redirect_to user_profile_path(account: @user.account)
     else
       render 'edit'
     end
@@ -45,7 +45,7 @@ class UserProfileController < ApplicationController
 
   def follow_requests
     @title = "友達申請"
-    @user = User.find(params[:id])
+    @user = User.find_by(account: params[:account])
     @paginate_array = @user.find_friend_requests
     @paginates = Kaminari.paginate_array(@paginate_array).page(params[:page]).per(20)
     render 'show_follow'
@@ -53,7 +53,7 @@ class UserProfileController < ApplicationController
 
   def friends
     @title = "友達"
-    @user = User.find(params[:id])
+    @user = User.find_by(account: params[:account])
     @paginate_array = @user.find_friends
     @paginates = Kaminari.paginate_array(@paginate_array).page(params[:page]).per(20)
     render 'show_follow'
@@ -63,10 +63,22 @@ class UserProfileController < ApplicationController
 
     def user_params
       params.require(:user).permit(
+          :account,
           :name,
           :email,
           :password,
-          :password_confirmation
+          :password_confirmation,
+          :biography
+      )
+    end
+
+    def user_update_params
+      params.require(:user).permit(
+          :name,
+          :email,
+          :password,
+          :password_confirmation,
+          :biography
       )
     end
 

@@ -1,13 +1,13 @@
 module SessionsHelper
   # 渡されたユーザーでログインする
   def log_in(user)
-    session[:user_id] = user.id
+    session[:user_account] = user.account
   end
 
   # 現在ログイン中のユーザーを返す (いる場合)
   def current_user
-    if session[:user_id]
-      @current_user ||= User.find_by(id: session[:user_id])
+    if session[:user_account]
+      @current_user ||= User.find_by(account: session[:user_account])
     end
   end
 
@@ -23,7 +23,7 @@ module SessionsHelper
 
   # 現在のユーザーをログアウトする
   def log_out
-    session.delete(:user_id)
+    session.delete(:user_account)
     @current_user = nil
   end
 
@@ -37,7 +37,7 @@ module SessionsHelper
 
   # 正しいユーザーかどうか確認
   def correct_user
-    @user = User.find_by(id: params[:id])
+    @user = User.find_by(account: params[:account])
     redirect_to(root_url) unless @user == current_user
   end
 end

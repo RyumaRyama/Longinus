@@ -1,6 +1,6 @@
 <% @user ||= current_user %>
 <div class="stats">
-  <a href="<%= friends_user_profile_path(@user) %>">
+  <a href="<%= friends_user_profile_path(account: @user.account) %>">
     <% friends = @user.find_friends.size%>
     <div class="text-light">
       フレンド数：
@@ -10,7 +10,7 @@
     </div>
   </a>
   <br>
-  <a href="<%= follow_requests_user_profile_path(@user) %>">
+  <a href="<%= follow_requests_user_profile_path(account: @user.account) %>">
     <% requests = @user.find_friend_requests.size%>
     <div class="text-light">
       リクエスト中：
