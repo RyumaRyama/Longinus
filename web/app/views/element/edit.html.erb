@@ -31,10 +31,9 @@
 
 <!--      趣味のプライベート設定-->
       <%= f.fields_for :users_elements do |ue| %>
-        <%= ue.label :private,"公開範囲", class: "control-label col-sm-2" %>
+        <%= ue.label :private,"非公開", class: "control-label col-sm-2" %>
         <span class="col-sm-10">
-          <%= ue.radio_button :private ,true %>private
-          <%= ue.radio_button :private, false %>public
+          <%= ue.check_box :private %>
         </span>
       <% end %>
 
