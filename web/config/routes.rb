@@ -17,5 +17,7 @@ Rails.application.routes.draw do
   resources :element, param: :account
   resources :common_elements, param: :account
   resources :relationships, only: [:create, :destroy], param: :account
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  get '*not_found' => 'application#routing_error'
+  post '*not_found' => 'application#routing_error'
+# For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
