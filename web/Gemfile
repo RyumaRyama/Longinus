@@ -88,3 +88,6 @@ gem 'faker'
 gem 'faker-precure'
 
 gem "rack", ">= 2.0.6"
+
+gem 'rails-i18n'
+
