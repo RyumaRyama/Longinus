@@ -79,17 +79,12 @@
       </div>
       <div class="share_mypage">
         <h4>あなたの趣味を共有しよう</h4>
-        <textarea id="txt_share" style="width:450px; height:100px;"></textarea>
-        <button class="btn" id="cp" data-clipboard-action="copy" data-clipboard-target="#txt_share">リンクをコピー</button>
-        <script type="application/javascript">
-          var link=location.href;
-          var messege="私はこんな趣味を持ってるよ！ "+link+" あなたもホビコムで大事な趣味を共有しよう!!";
-          document.getElementById('txt_share').value=messege;
-          var clipboard = new Clipboard('#cp');
-          clipboard.on('success', function(e) {
-              e.clearSelection();
-          });
-        </script>
+          <h5>あなたのページのURL</h5>
+          <textarea id="txt_share" style="width:450px; height:100px;"></textarea>
+          <button class="btn" id="cp" data-clipboard-action="copy" data-clipboard-target="#txt_share">リンクをコピー</button>
+          <h5>あなたのページのQRコード</h5>
+          <div class="qr-area" id="code">
+          </div>
       </div>
       <br>
       <br>
