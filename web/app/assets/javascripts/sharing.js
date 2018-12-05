@@ -1,10 +1,16 @@
 $(document).on('turbolinks:load',
 function create_link(){
   var link=document.URL;
-  //var messege="私はこんな趣味を持ってるよ！ "+link+" あなたもホビコムで大事な趣味を共有しよう!!";
   document.getElementById('txt_share').value=link;
   var clipboard = new Clipboard('#cp');
   clipboard.on('success', function(e) {
     e.clearSelection();
     });
+    $('#code').empty();
+    $('#code').qrcode({
+      width: 100,
+      height: 100,
+      text: link
+    });
+    $('canvas').attr('id', 'code');
 });
