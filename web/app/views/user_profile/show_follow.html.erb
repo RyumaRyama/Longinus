@@ -5,7 +5,7 @@
 <div class="col-md-8">
   <% if @paginates.any? %>
     <% @paginates.each do |paginate| %>
-      <%= link_to paginate.name, user_profile_path(paginate), class: 'list-group-item'  %>
+      <%= link_to paginate.name, user_profile_path(account: paginate.account), class: 'list-group-item'  %>
     <% end %>
     <%= paginate @paginates %>
   <% end %>

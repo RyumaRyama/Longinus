@@ -23,8 +23,8 @@
                 Account <b class="caret"></b>
               </a>
               <ul class="dropdown-menu bg-dark">
-                <li><%= link_to "アカウント設定", edit_user_profile_path(current_user),class:"text-light" %></li>
-                <li><%= link_to "趣味設定", edit_element_path(current_user),class:"text-light" %></li>
+                <li><%= link_to "アカウント設定", edit_user_profile_path(account: current_user.account),class:"text-light" %></li>
+                <li><%= link_to "趣味設定", edit_element_path(account: current_user.account),class:"text-light" %></li>
                 <li class="divider"></li>
                 <li>
                   <%= link_to "ログアウト", logout_path, method: :delete,class:"text-light" %>

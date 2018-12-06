@@ -60,6 +60,11 @@ class UserTest < ActiveSupport::TestCase
     assert_not @user.valid?
   end
 
+  test "biography should not be too long" do
+    @user.biography = "a" * 151
+    assert_not @user.valid?
+  end
+
   # test "associated user_introductions should be destroyed" do
   #   @user.save
   #   @user.user_introductions.create!(category_id: 1, element_id: 1)
