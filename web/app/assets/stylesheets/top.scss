@@ -50,11 +50,22 @@ h1 {
   font-family: 'Hiragino Maru Gothic Pro','ヒラギノ丸ゴ Pro W4', sans-serif;
 }
 
-
 h3 {
   text-align: center;
   color: #fff;
-  text-shadow: 0 0 15px #FF0000;
+  text-shadow: 0 0 15px #330000; // #FF0000
+  font-size: 50px;
+  font-family: 'Hiragino Maru Gothic Pro','ヒラギノ丸ゴ Pro W4', sans-serif;
+
+  // background: url(http://webcreatorbox.com/sample/images/check.png) repeat-x 0 25px;
+  // display: inline-block;
+  // padding: 0 10px;
+}
+
+strong {
+  text-align: center;
+  color: #fff;
+  text-shadow: 0 0 15px #CC0000;
   font-size: 50px;
   font-family: 'Hiragino Maru Gothic Pro','ヒラギノ丸ゴ Pro W4', sans-serif;
 }
