@@ -1,11 +1,21 @@
-.mt-2 {
-  margin-top: 0rem !important;
-}
+.top-main {
+  flex-direction: column;
+  background-size: cover;
+  min-height: 100vh;
 
-header {
   background: rgba(139, 69, 19, 0.4);
   height: 100%;
   width: 100%;
+}
+
+.text-center {
+  text-align: center !important;
+  margin: auto;
+  margin-top: 10vh;
+}
+
+.mt-2 {
+  margin-top: 0rem !important;
 }
 
 .row {
@@ -36,7 +46,7 @@ h1 {
   text-align: center;
   color: #fff;
   text-shadow: 0 0 15px #CD853F;
-  font-size: 45px;
+  font-size: 55px;
   font-family: 'Hiragino Maru Gothic Pro','ヒラギノ丸ゴ Pro W4', sans-serif;
 }
 
@@ -45,7 +55,7 @@ h3 {
   text-align: center;
   color: #fff;
   text-shadow: 0 0 15px #FF0000;
-  font-size: 40px;
+  font-size: 50px;
   font-family: 'Hiragino Maru Gothic Pro','ヒラギノ丸ゴ Pro W4', sans-serif;
 }
 
@@ -323,7 +333,7 @@ b {
 }
 
 
-section h3.section-subheading {
+section h4.section-subheading {
   font-size: 16px;
   font-weight: 400;
   font-style: italic;
@@ -457,5 +467,17 @@ section h3.section-subheading {
     text-shadow: 0 0 15px #FF0000;
     font-size: 30px;
     font-family: 'Hiragino Maru Gothic Pro','ヒラギノ丸ゴ Pro W4', sans-serif;
+  }
+
+  .masking-tape {
+    width: 0px;
+  }
+
+  .masking-tape2 {
+    width: 0px;
+  }
+
+  .masking-tape3 {
+    width: 0px;
   }
 }

@@ -1,76 +1,29 @@
-<%= render "layouts/header" %>
 <head>
   <link href="assets/top.scss" rel="stylesheet">
 </head>
 
 <body>
   <div class="container-fluid">
-
-    <header>
-      <div class="text-center">
-        <br>
-        <p>
-          <h3>人見知りのあなたも</h3>
-          <h3>初対面から熱く語ろう！</h3>
-        </p>
-        <p>
-          <h1>Hobby-com</h1>
-        </p>
-        <p>
-          <%=link_to '　新規登録　', signup_path , { :class => "btn btn-dark btn-lg" }%>
-          <%=link_to '　ログイン　', login_path , { :class => "btn btn-dark btn-lg" }%>
-        </p>
-        <br>
-      </div>
-    </header>
-
-    <div class="row">
-      <div class="col-sm">
+    <div class="top-main">
+      <%= render "layouts/header" %>
+      <header>
         <div class="text-center">
-          <div class="memo">
-          <span class="masking-tape">
-          </span>
-            <p>
-              <%= image_tag 'pic1.png' , :size =>'65x65' %>
-            </p>
-            <p>
-              <b>コンタクトを取りたい</b>
-            </p>
-          </div>
+          <br>
+          <p>
+            <h3>人見知りのあなたも</h3>
+            <h3>初対面から熱く語ろう！</h3>
+          </p>
+          <p>
+            <h1>Hobby-com</h1>
+          </p>
+          <p>
+            <%=link_to '　新規登録　', signup_path , { :class => "btn btn-dark btn-lg" }%>
+            <%=link_to '　ログイン　', login_path , { :class => "btn btn-dark btn-lg" }%>
+          </p>
+          <br>
         </div>
-      </div>
-
-      <div class="col-sm">
-        <div class="text-center">
-          <div class="memo">
-          <span class="masking-tape2">
-          </span>
-            <p>
-              <%= image_tag 'pic2.png' , :size =>'65x65' %>
-            </p>
-            <p>
-              <b>会話の糸口がほしい</b>
-            </p>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-sm">
-        <div class="text-center">
-          <div class="memo">
-          <span class="masking-tape3">
-          </span>
-            <p>
-              <%= image_tag 'pic3.png' , :size =>'65x65' %>
-            </p>
-            <p>
-              <b>心の壁を取り払いたい</b>
-            </p>
-          </div>
-        </div>
-      </div>
+      </header>
     </div>
-
   </div>
 
   <section>
@@ -79,7 +32,7 @@
           <div class="col-lg-12 text-center p-content">
             <div class="p-box">
               <h2 class="section-heading text-white font-weight: 700">「- つかいかた -」</h2>
-              <h3 class="section-subheading text-white">ホビコムってどうやって使えばいいの？？</h3>
+              <h4 class="section-subheading text-white">ホビコムってどうやって使えばいいの？？</h4>
             </div>
           </div>
         </div>
