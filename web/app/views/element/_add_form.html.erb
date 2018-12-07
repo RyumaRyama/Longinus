@@ -1,13 +1,34 @@
 <div id="input_area">
-<%= fields_for :element, @element, :url => { :controller => :element } do |f| %>
-  <% 10.times do |i| %>
-    <%= f.fields_for "elements[]", @element do |fe| %>
-      <%= fe.text_field :name %>
+  <table border="1">
+    <tr>
+      <th>内容</th><th>非公開</th>
+    </tr>
+    <%= fields_for :element, @element, :url => { :controller => :element } do |f| %>
+      <% 10.times do |i| %>
+        <tr>
+          <%= f.fields_for "elements[]", @element do |fe| %>
+            <td><%= fe.text_field :name %></td>
+          <% end %>
+          <%= f.fields_for "users_elements_attributes[]", @users_element, {index: i} do |ue| %>
+            <td><%= ue.check_box :private, {selected: true}, true, false %></td>
+          <% end %>
+        </tr>
+      <% end %>
     <% end %>
-    <%= f.fields_for "users_elements_attributes[]", @users_element, {index: i} do |ue| %>
-      <%= ue.check_box :private, {selected: true}, true, false %>
-    <% end %>
-      <br>
-  <% end %>
-<% end %>
+  </table>
+  <br>
 </div>
+
+<head>
+<style type="text/css">
+  table th {/*table内のthに対して*/
+    text-align: center;
+    padding: 10px;/*上下左右10pxずつ*/
+  }
+
+  table td {/*table内のtdに対して*/
+    text-align: center;
+    padding: 3px 10px;/*上下3pxで左右10px*/
+  }
+</style>
+</head>

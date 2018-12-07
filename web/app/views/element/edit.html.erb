@@ -4,48 +4,79 @@
   固有名詞でお願いします
   <br>
   <br>
-  例：<br>
-  本を読む→読書<br>
-  ラーメンを食べる→ラーメン<br>
-  <br>
-  <br>
   <div class="user_data">
+
     <%= form_for @user, :url => { :controller => :element, :action => :update } do |f| %>
+    <TABLE BORDER="1">
+      <TR>
+        <TD>
+          <table border="0">
+            <tr>
+              <th>内容</th>
+            </tr>
+            <%= f.fields_for :elements do |fe| %>
+              <tr>
+                <td><%= fe.text_field :name, readonly: true %></td>
+              </tr>
+            <% end %>
+          </table>
+        </TD>
+        <TD>
+          <table border="0">
+            <tr>
+              <th>非公開</th>
+            </tr>
+            <%= f.fields_for :users_elements do |ue| %>
+              <tr>
+                <td><%= ue.check_box :private %></td>
+              </tr>
+            <% end %>
+          </table>
+        </TD>
+        <TD>
+          <table border="0">
+            <tr>
+              <th>削除</th>
+            </tr>
+            <%= f.fields_for :elements do |fe| %>
+              <tr>
+                <td><%= fe.check_box :_destroy %></td>
+              </tr>
+            <% end %>
+          </table>
+        </TD>
+      </TR>
+    </TABLE>
 
-      <%= f.fields_for :elements do |fe| %>
-        <%= fe.text_field :name, readonly: true %>
-        <div class="form-group">
-          <%= fe.label :_destroy, class: "control-label col-sm-2" %>
-          <span class="col-sm-10">
-            <%= fe.check_box :_destroy %>
-          </span>
-          <%#= f.fields_for :users_elements do |ue| %>
-            <%#= ue.label :private,"公開範囲", class: "control-label col-sm-2" %>
-<!--              <span class="col-sm-10">-->
-<!--                <%#= ue.radio_button :private ,"true" %>private-->
-<!--                <%#= ue.radio_button :private, "false" %>public-->
-<!--              </span>-->
-          <%# end %>
-        </div>
-      <% end %>
-
-<!--      趣味のプライベート設定-->
-      <%= f.fields_for :users_elements do |ue| %>
-        <%= ue.label :private,"非公開", class: "control-label col-sm-2" %>
-        <span class="col-sm-10">
-          <%= ue.check_box :private %>
-        </span>
-      <% end %>
 
       <br>
       <br>
       <h2>好きなことの追加</h2>
+      例：<br>
+      本を読む→読書<br>
+      ラーメンを食べる→ラーメン<br>
       <%= render 'add_form' %>
       <%= f.submit "更新", class: "btn btn-submit" %>
     <% end %>
+
 
     <br>
     <br>
 
   </div>
 </div>
+
+<head>
+<style type="text/css">
+  table th {/*table内のthに対して*/
+    text-align: center;
+    padding: 10px;/*上下左右10pxずつ*/
+  }
+
+  table td {/*table内のtdに対して*/
+    text-align: center;
+    padding: 3px 10px;/*上下3pxで左右10px*/
+  }
+
+</style>
+</head>
