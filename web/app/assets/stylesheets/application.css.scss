@@ -17,6 +17,9 @@
 //@import "botstrap-sprockets";
 @import "bootstrap";
 @import 'element';
+@import url(https://fonts.googleapis.com/earlyaccess/roundedmplus1c.css);
+
 body {
   background: image-url('koruku.png');
+  font-family: 'Rounded Mplus 1c';
 }
