@@ -1,21 +1,23 @@
-<div class="page-header">
-  <h3><%= @title %>一覧 </h3>
+<%= render "layouts/header" %>
+<link rel="stylesheet"  href="/assets/show.scss">
+
+<div class="header1 text-center mb-4">
+  <h1><%= @title %>一覧 </h1>
 </div>
 
-<div class="col-md-8">
-  <% if @paginates.any? %>
-    <% @paginates.each do |paginate| %>
-      <%= link_to paginate.name, user_profile_path(account: paginate.account), class: 'list-group-item'  %>
-    <% end %>
-    <%= paginate @paginates %>
-  <% end %>
-</div>
+<body>
+  <div class="container applybg">
+    <div class="col-md-8">
+      <% if @paginates.any? %>
+        <% @paginates.each do |paginate| %>
+        <ol class="sample1">
+          <li><b><%= link_to paginate.name, user_profile_path(account: paginate.account),class:"text-dark" %></b></li>
+        </ol>
+        <% end %>
+        <%= paginate @paginates %>
+      <% end %>
+    </div>
+  </div>
 
-<br>
-<br>
-
-<aside class="col-md-4">
-  <section class="user_info">
-    <span><%= link_to "view my profile", user_profile_path %></span>
-  </section>
-</aside>
+  <br>
+  <br>

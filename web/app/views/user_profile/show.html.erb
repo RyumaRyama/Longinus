@@ -7,18 +7,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link href="https://fonts.googleapis.com/css?family=Amatic+SC:700" rel="stylesheet">
     <link rel="stylesheet"  href="/assets/show.scss">
-    
+
 </head>
 
 <%= render "layouts/header" %>
 
 <body>
-  <div class="header text-center" style="font-family: 'Amatic SC', cursive;">
+  <div class="header text-center">
     <h1><%= @user.name %></h1>
   </div>
 
   <div class = "main">
-    
+
     <div class="container">
 
       <div class="row">
@@ -36,6 +36,9 @@
               </ul>
             </div>
           </div>
+       </div>
+
+       <div class="row">
 
           <div class="text-center hobbylist col-md-6">
             <div class="card-head">
@@ -100,7 +103,7 @@
             </div>
           </div>
         <% end %>
-        
+
       </div>
 
       <br>
