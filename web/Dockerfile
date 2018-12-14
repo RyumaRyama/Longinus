@@ -7,8 +7,8 @@ RUN apt-get update -qq && apt-get -y install \
     libpq-dev 
 
 ## install nodejs
-RUN curl -s -L git.io/nodebrew | perl - setup
 ENV PATH /root/.nodebrew/current/bin:$PATH
+RUN curl -s -L git.io/nodebrew | perl - setup
 RUN nodebrew install-binary v8.7.0
 RUN nodebrew use v8.7.0
 
