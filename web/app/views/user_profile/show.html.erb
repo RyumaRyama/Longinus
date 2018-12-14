@@ -149,9 +149,6 @@
       <br>
       <br>
       <% if logged_in? %>
-        <% if @user.friend?(current_user) %>
-          <%= link_to 'MATCHING', common_element_path , { :class => "btn btn-primary" } %>
-        <% end %>
         <%= render 'follow_form' %>
       <% end %>
     </div>
