@@ -23,81 +23,66 @@
 
       <div class="row">
 
-        <!--自分のページ-->
-        <% if logged_in? and @user == current_user%>
-
-          <div class="text-center hobbylist col-md-6">
-            <div class="card-head">
-              <h5 class="card-title title">プロフィール</h5>
-            </div>
-            <div class="card-body">
-              <ul><!--自己紹介欄-->
-                <%= text_url_to_link(h(simple_format(@user.biography))).html_safe %>
-              </ul>
-            </div>
+        <!--ユーザープロフィール(共通)-->
+        <div class="text-center hobbylist col-md-6">
+          <div class="card-head">
+            <h5 class="card-title title">プロフィール</h5>
           </div>
-       </div>
+          <div class="card-body">
+            <ul><!--自己紹介欄-->
+              <%= text_url_to_link(h(simple_format(@user.biography))).html_safe %>
+            </ul>
+          </div>
+        </div>
 
-       <div class="row">
-
-          <div class="text-center hobbylist col-md-6">
+      <!--共通項目-->
+        <% if logged_in? and @user.friend?(current_user) %>
+          <div class="text-center col-md-12">
             <div class="card-head">
-              <h5 class="card-title title">公開</h5>
+              <h5 class="card-title title">共通点</h5>
             </div>
             <div class="card-body">
-              <ul><!--パブリック項目-->
-                <% @user.elements.each do |data| %>
-                  <% if not @user.users_elements.find_by(element_id: data.id).private == true %>
-                    <li><%= data.name  %></li>
-                  <% end %>
+              <ul>
+                <% @friend_elements.each do |data| %>
+                  <li><%= data.name %></li>
                 <% end %>
               </ul>
             </div>
           </div>
+        <% end %>
+      </div>
 
+      <div class="row">
 
+        <!--パブリック項目-->
+        <div class="text-center hobbylist col-md-6">
+          <div class="card-head">
+            <% (logged_in? and (@user == current_user)) ? title = "公開" : title = "すきなこと" %>
+            <h5 class="card-title title"><%= title %></h5>
+          </div>
+          <div class="card-body">
+            <ul>
+              <% @user.elements.each do |data| %>
+                <% if @user.users_elements.find_by(element_id: data.id).private == false %>
+                  <li><%= data.name  %></li>
+                <% end %>
+              <% end %>
+            </ul>
+          </div>
+        </div>
+
+        <!--プライベート項目-->
+        <% if @user == current_user %>
           <div class="text-center hobbylist col-md-6">
             <div class="card-head">
               <h5 class="card-title title">非公開</h5>
             </div>
             <div class="card-body">
-              <ul><!--プライベート項目-->
+              <ul>
                 <% @user.elements.each do |data| %>
                   <% if @user.users_elements.find_by(element_id: data.id).private == true %>
                      <li><%= data.name  %></li>
                   <%end %>
-                <% end %>
-              </ul>
-            </div>
-          </div>
-
-
-        <!--他人のページ-->
-        <% else %>
-          <% if not @user.biography.size == 0 %>
-            <div class="text-center hobbylist col-md-6">
-              <div class="card-head">
-                <h5 class="card-title title">プロフィール</h5>
-              </div>
-                <div class="card-body">
-                  <ul><!--自己紹介欄-->
-                    <%= text_url_to_link(h(simple_format(@user.biography))).html_safe %>
-                  </ul>
-                </div>
-            </div>
-          <% end %>
-
-          <!--パプリック項目-->
-          <div class="text-center col-md-12">
-            <div class="card-head">
-              <h5 class="card-title title">公開</h5>
-            </div>
-            <div class="card-body">
-              <ul>
-                <% @user.elements.each do |data| %>
-                  <% if not @user.users_elements.find_by(element_id: data.id).private == true %>
-                    <li><%= data.name %></li>
-                  <% end %>
                 <% end %>
               </ul>
             </div>
@@ -127,9 +112,6 @@
       <br>
       <br>
       <% if logged_in? %>
-        <% if @user.friend?(current_user) %>
-          <%= link_to 'MATCHING', common_element_path , { :class => "btn btn-primary" } %>
-        <% end %>
         <%= render 'follow_form' %>
       <% end %>
     </div>
