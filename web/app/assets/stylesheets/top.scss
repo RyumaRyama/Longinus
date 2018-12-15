@@ -1,3 +1,7 @@
+body {
+  letter-spacing: 0.1em;
+}
+
 .top-main {
   flex-direction: column;
   background-size: cover;
@@ -9,13 +13,8 @@
 }
 
 .text-center {
-  text-align: center !important;
   margin: auto;
   margin-top: 10vh;
-}
-
-.mt-2 {
-  margin-top: 0rem !important;
 }
 
 .row {
@@ -84,10 +83,31 @@ b {
   margin: 30px;
 }
 
-/*ボタンのmargin*/
-.btn:not(:disabled):not(.disabled) {
-  cursor: pointer;
-  margin: 3px;
+/*top上部分のスマホ対応*/
+@media screen and (max-width: 768px) {
+  h1 {
+    text-align: center;
+    color: #fff;
+    text-shadow: 0 0 15px #CD853F;
+    font-size: 50px;
+    font-family: 'Hiragino Maru Gothic Pro','ヒラギノ丸ゴ Pro W4', sans-serif;
+  }
+
+  h3 {
+    text-align: center;
+    color: #fff;
+    text-shadow: 0 0 15px #330000; // #FF0000
+    font-size: 35px;
+    font-family: 'Hiragino Maru Gothic Pro','ヒラギノ丸ゴ Pro W4', sans-serif;
+  }
+
+  strong {
+    text-align: center;
+    color: #fff;
+    text-shadow: 0 0 15px #CC0000;
+    font-size: 45px;
+    font-family: 'Hiragino Maru Gothic Pro','ヒラギノ丸ゴ Pro W4', sans-serif;
+  }
 }
 
 /*スクロールダウンボタン*/
@@ -482,22 +502,4 @@ section h4.section-subheading {
 .box10 span {
     display:block;
     border-bottom:2px dotted #908a60;
-}
-
-@media screen and (max-width: 480px) {
-  h1 {
-    text-align: center;
-    color: #fff;
-    text-shadow: 0 0 15px #CD853F;
-    font-size: 35px;
-    font-family: 'Hiragino Maru Gothic Pro','ヒラギノ丸ゴ Pro W4', sans-serif;
-  }
-
-  h3 {
-    text-align: center;
-    color: #fff;
-    text-shadow: 0 0 15px #FF0000;
-    font-size: 30px;
-    font-family: 'Hiragino Maru Gothic Pro','ヒラギノ丸ゴ Pro W4', sans-serif;
-  }
 }
