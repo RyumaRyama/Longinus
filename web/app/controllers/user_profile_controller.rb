@@ -11,6 +11,11 @@ class UserProfileController < ApplicationController
 
   def show
     @user = User.find_by(account: params[:account])
+
+    if logged_in? and (@user != current_user)
+      @friend_name = @user.name
+      @friend_elements = @user.elements.where(id: current_user.elements)
+    end
   end
 
   def new
