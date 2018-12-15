@@ -1,70 +1,71 @@
+<link rel="stylesheet"  href="/assets/show.scss">
+
+<%= render "layouts/header" %>
 <% provide(:title, 'Sign up') %>
-
-<body>
-  <div class="edit-header">
-    <h1>
-      好きなことの編集
-      <small>固有名詞でお願いします</small>
-    </h1>
-  </div>
-</body>
-
+<div class="header1 text-center mb-4">
+  <h1>好きなことの編集<small>固有名詞でお願いします</small></h1>
+</div>
 <div class="container">
-  <br>
-  <br>
-  <div class="user_data">
-    <h2>好きなことの非公開・削除</h2>
-    <%= form_for @user, :url => { :controller => :element, :action => :update } do |f| %>
-    <TABLE BORDER="1">
-      <TR>
-        <TD>
-          <table border="0">
-            <tr>
-              <th>内容</th>
-            </tr>
-            <%= f.fields_for :elements do |fe| %>
-              <tr>
-                <td><%= fe.text_field :name, readonly: true %></td>
-              </tr>
-            <% end %>
-          </table>
-        </TD>
-        <TD>
-          <table border="0">
-            <tr>
-              <th>非公開</th>
-            </tr>
-            <%= f.fields_for :users_elements do |ue| %>
-              <tr>
-                <td><%= ue.check_box :private %></td>
-              </tr>
-            <% end %>
-          </table>
-        </TD>
-        <TD>
-          <table border="0">
-            <tr>
-              <th>削除</th>
-            </tr>
-            <%= f.fields_for :elements do |fe| %>
-              <tr>
-                <td><%= fe.check_box :_destroy %></td>
-              </tr>
-            <% end %>
-          </table>
-        </TD>
-      </TR>
-    </TABLE>
-
-
+  <div class="row">
+    <div class="col-md-6">
+      <h2>好きな事の編集(固有名詞)</h2>
       <br>
       <br>
-      <h2>好きなことの追加</h2>
-      例：<br>
-      本を読む→読書<br>
-      ラーメンを食べる→ラーメン<br>
-      <%= render 'add_form' %>
-      <%= f.submit "更新", class: "btn btn-submit" %>
+      <br>
+      <div class="user_data">
+
+        <%= form_for @user, :url => { :controller => :element, :action => :update } do |f| %>
+        <TABLE BORDER="1">
+          <TR>
+            <TD>
+              <table border="0">
+                <tr>
+                  <th>内容</th>
+                </tr>
+                <%= f.fields_for :elements do |fe| %>
+                  <tr>
+                    <td><%= fe.text_field :name, readonly: true %></td>
+                  </tr>
+                <% end %>
+              </table>
+            </TD>
+            <TD>
+              <table border="0">
+                <tr>
+                  <th>非公開</th>
+                </tr>
+                <%= f.fields_for :users_elements do |ue| %>
+                  <tr>
+                    <td><%= ue.check_box :private %></td>
+                  </tr>
+                <% end %>
+              </table>
+            </TD>
+            <TD>
+              <table border="0">
+                <tr>
+                  <th>削除</th>
+                </tr>
+                <%= f.fields_for :elements do |fe| %>
+                  <tr>
+                    <td><%= fe.check_box :_destroy %></td>
+                  </tr>
+                <% end %>
+              </table>
+            </TD>
+          </TR>
+        </TABLE>
+      </div>
+    </div>
+
+      <div class="col-md-6">
+        <h2>好きなことの追加</h2>
+        例：<br>
+        本を読む→読書<br>
+        ラーメンを食べる→ラーメン<br>
+        <%= render 'add_form' %>
+        <%= f.submit "更新", class: "btn btn-submit" %>
+      </div>
     <% end %>
 
 
@@ -80,11 +81,9 @@
     text-align: center;
     padding: 10px;/*上下左右10pxずつ*/
   }
-
   table td {/*table内のtdに対して*/
     text-align: center;
     height:50px;
   }
-
 </style>
 </head>
