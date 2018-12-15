@@ -1,3 +1,7 @@
+body {
+  letter-spacing: 0.1em;
+}
+
 .top-main {
   flex-direction: column;
   background-size: cover;
@@ -85,7 +89,7 @@ b {
     text-align: center;
     color: #fff;
     text-shadow: 0 0 15px #CD853F;
-    font-size: 45px;
+    font-size: 50px;
     font-family: 'Hiragino Maru Gothic Pro','ヒラギノ丸ゴ Pro W4', sans-serif;
   }
 
@@ -93,7 +97,7 @@ b {
     text-align: center;
     color: #fff;
     text-shadow: 0 0 15px #330000; // #FF0000
-    font-size: 30px;
+    font-size: 35px;
     font-family: 'Hiragino Maru Gothic Pro','ヒラギノ丸ゴ Pro W4', sans-serif;
   }
 
@@ -101,7 +105,7 @@ b {
     text-align: center;
     color: #fff;
     text-shadow: 0 0 15px #CC0000;
-    font-size: 40px;
+    font-size: 45px;
     font-family: 'Hiragino Maru Gothic Pro','ヒラギノ丸ゴ Pro W4', sans-serif;
   }
 }
