@@ -1,11 +1,19 @@
 <% provide(:title, 'Sign up') %>
-<h1>好きなことの編集</h1>
+
+<body>
+  <div class="edit-header">
+    <h1>
+      好きなことの編集
+      <small>固有名詞でお願いします</small>
+    </h1>
+  </div>
+</body>
+
 <div class="container">
-  固有名詞でお願いします
   <br>
   <br>
   <div class="user_data">
-
+    <h2>好きなことの非公開・削除</h2>
     <%= form_for @user, :url => { :controller => :element, :action => :update } do |f| %>
     <TABLE BORDER="1">
       <TR>

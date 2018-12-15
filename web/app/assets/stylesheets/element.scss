@@ -11,4 +11,26 @@
     font-weight:bold;
     background:#ffc107;
     border-color: #ff8c00;
-  }
+}
+
+/*好きなことの編集*/
+.edit-header {
+    font-size: 40px;
+    padding: 20px;
+    color: #FFF;
+    background-color: rgba(139, 69, 19, 0.4);
+    border-bottom: 3px solid #404040;
+}
+
+/*固有名詞でお願いします*/
+small {
+    font-size: 50%;
+    font-weight: unset;
+}
+
+h2 {
+    padding: 0.25em 0.5em;/*上下 左右の余白*/
+    color: #000000;/*文字色*/
+    background: transparent;/*背景透明に*/
+    border-left: solid 5px #000000;/*左線*/
+}
