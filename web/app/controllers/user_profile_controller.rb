@@ -8,6 +8,7 @@ end
 
 class UserProfileController < ApplicationController
   include Levenshtein
+  include UserProfileHelper
 
   before_action :logged_in_user, only: [:edit, :update, :follow_requests, :friends]
   before_action :correct_user, only: [:edit, :update, :follow_requests, :friends]
@@ -20,7 +21,8 @@ class UserProfileController < ApplicationController
 
   def show
     @user = User.find_by(account: params[:account])
-    
+
+    # common_elementsの抽出
     if logged_in? and (@user != current_user)
       @friend_name = @user.name
       # elementの抽出（完全一致）
@@ -33,7 +35,8 @@ class UserProfileController < ApplicationController
         @user.elements.each do |friend_element|
           friend_element_name = friend_element.name.gsub(/(\s|　)+/, '').downcase
 
-          if my_element.id != friend_element.id
+          # 完全一致と非公開を除く，共通かもしれない項目を抽出
+          if my_element.id != friend_element.id and not is_private_element?(friend_element.id)
             if Levenshtein.similarity(my_element_name, friend_element_name) >= 0.3
               @maybe_common_elements << friend_element
             end
@@ -88,7 +91,6 @@ class UserProfileController < ApplicationController
     @paginates = Kaminari.paginate_array(@paginate_array).page(params[:page]).per(20)
     render 'show_follow'
   end
-
 
   private
     def user_params
