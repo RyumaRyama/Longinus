@@ -24,7 +24,7 @@
       <div class="row">
 
         <!--ユーザープロフィール(共通)-->
-        <div class="text-center hobbylist col-md-6">
+        <div class="text-center hobbylist col-md-12">
           <div class="card-head">
             <h5 class="card-title title">プロフィール</h5>
           </div>
@@ -35,37 +35,25 @@
           </div>
         </div>
 
-      <!--共通項目-->
-        <% if logged_in? and @user.friend?(current_user) %>
-          <div class="text-center col-md-12">
-            <div class="card-head">
-              <h5 class="card-title title">共通点</h5>
-            </div>
-            <div class="card-body">
-              <ul>
-                <% @common_elements.each do |data| %>
-                  <li><%= data.name %></li>
-                <% end %>
-              </ul>
-            </div>
-          </div>
-
-          <div class="text-center col-md-12">
-            <div class="card-head">
-              <h5 class="card-title title">共通かも</h5>
-            </div>
-            <div class="card-body">
-              <ul>
-                <% @maybe_common_elements.each do |data| %>
-                  <li><%= data.name %></li>
-                <% end %>
-              </ul>
-            </div>
-          </div>
-        <% end %>
       </div>
 
+      <!--共通項目-->
       <div class="row">
+
+        <% if logged_in? and @user.friend?(current_user) %>
+        <div class="text-center col-md-6">
+          <div class="card-head">
+            <h5 class="card-title title">共通点</h5>
+          </div>
+          <div class="card-body">
+            <ul>
+              <% @friend_elements.each do |data| %>
+                <li><%= data.name %></li>
+              <% end %>
+            </ul>
+          </div>
+        </div>
+        <% end %>
 
         <!--パブリック項目-->
         <div class="text-center hobbylist col-md-6">
@@ -83,26 +71,45 @@
             </ul>
           </div>
         </div>
-
+        
         <!--プライベート項目-->
         <% if @user == current_user %>
-          <div class="text-center hobbylist col-md-6">
-            <div class="card-head">
-              <h5 class="card-title title">非公開</h5>
-            </div>
-            <div class="card-body">
-              <ul>
-                <% @user.elements.each do |data| %>
-                  <% if is_private_element?(data.id) %>
-                     <li><%= data.name  %></li>
-                  <%end %>
-                <% end %>
-              </ul>
-            </div>
+        <div class="text-center hobbylist col-md-6">
+          <div class="card-head">
+            <h5 class="card-title title">非公開</h5>
           </div>
+          <div class="card-body">
+            <ul>
+              <% @user.elements.each do |data| %>
+                <% if is_private_element?(data.id) %>
+                  <li><%= data.name  %></li>
+                <%end %>
+              <% end %>
+            </ul>
+          </div>
+        </div>
         <% end %>
 
       </div>
+
+
+      
+      <% if logged_in? and @user.friend?(current_user) %>
+      <div class="raw">
+        <div class="text-center col-md-12">
+          <div class="card-head">
+            <h5 class="card-title title">共通かも</h5>
+          </div>
+          <div class="card-body">
+            <ul>
+              <% @maybe_common_elements.each do |data| %>
+                <li><%= data.name %></li>
+              <% end %>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <% end %>
 
       <br>
       <br>
