@@ -1,7 +1,3 @@
-body {
-  letter-spacing: 0.1em;
-}
-
 .top-main {
   flex-direction: column;
   background-size: cover;
@@ -39,6 +35,7 @@ body {
 h2, h4 {
   color: #ffebcd;
   margin:0px;
+  border-left: none;
 }
 
 .sita {
