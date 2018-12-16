@@ -1,5 +1,14 @@
 # coding: utf-8
+
+module Levenshtein
+  def self.similarity(str1, str2)
+    1 - normalized_distance(str1, str2)
+  end
+end
+
 class UserProfileController < ApplicationController
+  include Levenshtein
+
   before_action :logged_in_user, only: [:edit, :update, :follow_requests, :friends]
   before_action :correct_user, only: [:edit, :update, :follow_requests, :friends]
 
@@ -11,10 +20,26 @@ class UserProfileController < ApplicationController
 
   def show
     @user = User.find_by(account: params[:account])
-
+    
     if logged_in? and (@user != current_user)
       @friend_name = @user.name
-      @friend_elements = @user.elements.where(id: current_user.elements)
+      # elementの抽出（完全一致）
+      @common_elements = @user.elements.where(id: current_user.elements)
+
+      # elementの抽出（もしかして一致）
+      @maybe_common_elements = []
+      current_user.elements.each do |my_element|
+        my_element_name = my_element.name.gsub(/(\s|　)+/, '').downcase
+        @user.elements.each do |friend_element|
+          friend_element_name = friend_element.name.gsub(/(\s|　)+/, '').downcase
+
+          if my_element.id != friend_element.id
+            if Levenshtein.similarity(my_element_name, friend_element_name) >= 0.3
+              @maybe_common_elements << friend_element
+            end
+          end
+        end
+      end
     end
   end
 
@@ -64,8 +89,8 @@ class UserProfileController < ApplicationController
     render 'show_follow'
   end
 
-  private
 
+  private
     def user_params
       params.require(:user).permit(
           :account,
@@ -92,4 +117,5 @@ class UserProfileController < ApplicationController
         param.permit(:name)
       end
     end
+
 end
