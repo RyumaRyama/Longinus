@@ -35,24 +35,25 @@
           </div>
         </div>
 
-      <!--共通項目-->
-        <% if logged_in? and @user.friend?(current_user) %>
-          <div class="text-center col-md-12">
-            <div class="card-head">
-              <h5 class="card-title title">共通点</h5>
-            </div>
-            <div class="card-body">
-              <ul>
-                <% @friend_elements.each do |data| %>
-                  <li><%= data.name %></li>
-                <% end %>
-              </ul>
-            </div>
-          </div>
-        <% end %>
       </div>
 
+      <!--共通項目-->
       <div class="row">
+
+        <% if logged_in? and @user.friend?(current_user) %>
+        <div class="text-center col-md-6">
+          <div class="card-head">
+            <h5 class="card-title title">共通点</h5>
+          </div>
+          <div class="card-body">
+            <ul>
+              <% @friend_elements.each do |data| %>
+                <li><%= data.name %></li>
+              <% end %>
+            </ul>
+          </div>
+        </div>
+        <% end %>
 
         <!--パブリック項目-->
         <div class="text-center hobbylist col-md-6">
@@ -73,20 +74,20 @@
 
         <!--プライベート項目-->
         <% if @user == current_user %>
-          <div class="text-center hobbylist col-md-6">
-            <div class="card-head">
-              <h5 class="card-title title">非公開</h5>
-            </div>
-            <div class="card-body">
-              <ul>
-                <% @user.elements.each do |data| %>
-                  <% if @user.users_elements.find_by(element_id: data.id).private == true %>
-                     <li><%= data.name  %></li>
-                  <%end %>
-                <% end %>
-              </ul>
-            </div>
+        <div class="text-center hobbylist col-md-6">
+          <div class="card-head">
+            <h5 class="card-title title">非公開</h5>
           </div>
+          <div class="card-body">
+            <ul>
+              <% @user.elements.each do |data| %>
+                <% if @user.users_elements.find_by(element_id: data.id).private == true %>
+                   <li><%= data.name  %></li>
+                <%end %>
+              <% end %>
+            </ul>
+          </div>
+        </div>
         <% end %>
 
       </div>
