@@ -94,6 +94,9 @@
   // background: rgba(0,0,0,0.5);
   box-shadow: 3px 5px 5px rgba(0, 0, 0, 0.5);
   transform: rotate(0.2deg);
+  @media screen and (max-width: 768px){
+    border-right: solid 20px #5bb7ae;
+  }
 }
 
 
