@@ -13,9 +13,6 @@ class UserProfileController < ApplicationController
   before_action :logged_in_user, only: [:edit, :update, :follow_requests, :friends]
   before_action :correct_user, only: [:edit, :update, :follow_requests, :friends]
 
-  def home
-  end
-
   def help
   end
 
@@ -34,14 +31,18 @@ class UserProfileController < ApplicationController
         @user.elements.each do |friend_element|
           friend_element_name = remove_white_spaces(friend_element).downcase
 
-          # if not (my_element.id != friend_element.id) and (not @user.is_private_element?(friend_element.id))
           if my_element_name == friend_element_name
             # スペースと大小情報を潰して完全一致する項目を抽出
-              @common_elements << friend_element
-          elsif (my_element.id != friend_element.id) and (not @user.is_private_element?(friend_element.id))
-            # 完全一致と非公開を除く，共通かもしれない項目を抽出
-            if Levenshtein.similarity(my_element_name, friend_element_name) >= 0.3
-              @maybe_common_elements << friend_element
+            @common_elements << friend_element
+            # 共通かもにすでに入っている場合は共通かもから削除する
+            @maybe_common_elements.delete(friend_element)
+          elsif not @user.is_private_element?(friend_element.id)
+            # 完全一致に存在しないかを確認
+            if not @common_elements.include?(friend_element)
+              # 完全一致と非公開を除く，共通かもしれない項目を抽出
+              if Levenshtein.similarity(my_element_name, friend_element_name) >= 0.3
+                @maybe_common_elements << friend_element
+              end
             end
           end
         end
