@@ -105,31 +105,11 @@
     transform: rotate(0.2deg);
   }
 
-  // .box8::before{　/* ドロップシャドウを少し斜めに配置して、立体感を出す */
-  //   content:"ss";
-  //   display:block;
-  //   position: absolute;
-  //   z-index: -1;
-  //   bottom: 5px;
-  //   right: 0;
-  //   height: 15px;
-  //   width: 99%;
-  //   background: rgba(0,0,0,0.5);
-  //   box-shadow: 0 5px 5px rgba(0,0,0,0.3);
-  //   transform: rotate(1deg);
-  // }
-
-
-  // .box8::after{/*疑似要素*/
-  //   position: absolute;
-  //   content: 'Hobby-com';
-  //   top: 0;
-  //   left: 0;
-  //   color: white;/*文字色*/
-  //   padding: 0.2em;/*余白*/
-  //   background: #F89174;/*背景色*/
-  // }
-
+  @media screen and (max-width: 768px){
+    .box8{
+      border-right: solid 30px #5bb7ae;
+    }
+  }
 
   .container {
     max-width: 85%;

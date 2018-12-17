@@ -67,6 +67,12 @@
     padding: 0;
 }
 
+@media screen and (max-width: 768px){
+  .box22{
+    border-right: solid 30px #5bb7ae;
+  }
+}
+
 
 .heading1{
 	position:relative;
