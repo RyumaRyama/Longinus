@@ -25,18 +25,21 @@ class UserProfileController < ApplicationController
     # common_elementsの抽出
     if logged_in? and (@user != current_user)
       @friend_name = @user.name
-      # elementの抽出（完全一致）
-      @common_elements = @user.elements.where(id: current_user.elements)
 
-      # elementの抽出（もしかして一致）
+      # elementの抽出
       @maybe_common_elements = []
+      @common_elements = []
       current_user.elements.each do |my_element|
         my_element_name = remove_white_spaces(my_element).downcase
         @user.elements.each do |friend_element|
           friend_element_name = remove_white_spaces(friend_element).downcase
 
-          # 完全一致と非公開を除く，共通かもしれない項目を抽出
-          if (my_element.id != friend_element.id) and (not @user.is_private_element?(friend_element.id))
+          # if not (my_element.id != friend_element.id) and (not @user.is_private_element?(friend_element.id))
+          if my_element_name == friend_element_name
+            # スペースと大小情報を潰して完全一致する項目を抽出
+              @common_elements << friend_element
+          elsif (my_element.id != friend_element.id) and (not @user.is_private_element?(friend_element.id))
+            # 完全一致と非公開を除く，共通かもしれない項目を抽出
             if Levenshtein.similarity(my_element_name, friend_element_name) >= 0.3
               @maybe_common_elements << friend_element
             end
