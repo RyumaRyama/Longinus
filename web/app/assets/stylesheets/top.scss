@@ -1,7 +1,3 @@
-body {
-  letter-spacing: 0.1em;
-}
-
 .top-main {
   flex-direction: column;
   background-size: cover;
@@ -37,8 +33,8 @@ body {
 }
 
 h2, h4 {
-  color: #ffebcd;
   margin:0px;
+  border-left: none;
 }
 
 .sita {
@@ -46,7 +42,7 @@ border-bottom: double 5px rgba(230,230,230,0.8);
 /*線の種類（二重線）太さ 色*/
 }
 
-
+/*Hobby-com*/
 h1 {
   text-align: center;
   color: #fff;
@@ -55,6 +51,16 @@ h1 {
   font-family: 'Hiragino Maru Gothic Pro','ヒラギノ丸ゴ Pro W4', sans-serif;
 }
 
+/*つかいかた*/
+h2 {
+  text-align: center;
+  color: #fff;
+  text-shadow: 0 0 15px #330000;
+  font-size: 40px;
+  font-family: 'Hiragino Maru Gothic Pro','ヒラギノ丸ゴ Pro W4', sans-serif;
+}
+
+/*人見知り…*/
 h3 {
   text-align: center;
   color: #fff;
@@ -106,6 +112,14 @@ b {
     color: #fff;
     text-shadow: 0 0 15px #CC0000;
     font-size: 45px;
+    font-family: 'Hiragino Maru Gothic Pro','ヒラギノ丸ゴ Pro W4', sans-serif;
+  }
+
+  h2 {
+    text-align: center;
+    color: #fff;
+    text-shadow: 0 0 15px #330000;
+    font-size: 35px;
     font-family: 'Hiragino Maru Gothic Pro','ヒラギノ丸ゴ Pro W4', sans-serif;
   }
 }
@@ -358,10 +372,9 @@ html body [data-ca3_iconfont="ETmodules"]::before {
 }
 
 
-section h4.section-subheading {
+section .howtouse {
   font-size: 16px;
   font-weight: 400;
-  font-style: italic;
   margin-bottom: 75px;
   text-transform: none;
   font-family: 'Droid Serif', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
@@ -369,7 +382,7 @@ section h4.section-subheading {
 
 @media (min-width: 768px) {
   section {
-    padding: 150px 0;
+    padding: 50px;
   }
 }
 

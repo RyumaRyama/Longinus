@@ -22,9 +22,10 @@
 body {
   background: image-url('koruku.png');
   font-family: 'Rounded Mplus 1c';
+  letter-spacing: 0.1em;
 }
 
 /*ナビゲーションバーのズレ修正*/
-.mt-2 {
-  margin-top: 0rem !important;
+.mt-2, .my-2 {
+  margin-top: 0rem!important;
 }
