@@ -1,5 +1,6 @@
 module UserProfileHelper
-  def is_private_element?(element_id)
-    @user.users_elements.find_by(element_id: element_id).private
+  # 空白文字の削除
+  def remove_white_spaces(element)
+    element.name.gsub(/(\s|　)+/, '').downcase
   end
 end

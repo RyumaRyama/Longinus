@@ -29,7 +29,7 @@
             <h5 class="card-title title">プロフィール</h5>
           </div>
           <div class="card-body">
-            <ul><!--自己紹介欄-->
+            <ul class="orikaeshi"><!--自己紹介欄-->
               <%= text_url_to_link(h(simple_format(@user.biography))).html_safe %>
             </ul>
           </div>
@@ -64,7 +64,7 @@
           <div class="card-body">
             <ul>
               <% @user.elements.each do |data| %>
-                <% if not is_private_element?(data.id) %>
+                <% if not @user.is_private_element?(data.id) %>
                   <li><%= data.name  %></li>
                 <% end %>
               <% end %>
@@ -81,7 +81,7 @@
           <div class="card-body">
             <ul>
               <% @user.elements.each do |data| %>
-                <% if is_private_element?(data.id) %>
+                <% if @user.is_private_element?(data.id) %>
                   <li><%= data.name  %></li>
                 <%end %>
               <% end %>
