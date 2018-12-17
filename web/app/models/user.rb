@@ -83,6 +83,11 @@ class User < ApplicationRecord
     return follow_requests
   end
 
+  # 非公開の趣味ならtrueを返す
+  def is_private_element?(element_id)
+    self.users_elements.find_by(element_id: element_id).private
+  end
+
   private
 
     # ユーザーbioの初期設定をnilにしない

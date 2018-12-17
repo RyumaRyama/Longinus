@@ -64,7 +64,7 @@
           <div class="card-body">
             <ul>
               <% @user.elements.each do |data| %>
-                <% if not is_private_element?(data.id) %>
+                <% if not @user.is_private_element?(data.id) %>
                   <li><%= data.name  %></li>
                 <% end %>
               <% end %>
@@ -81,7 +81,7 @@
           <div class="card-body">
             <ul>
               <% @user.elements.each do |data| %>
-                <% if is_private_element?(data.id) %>
+                <% if @user.is_private_element?(data.id) %>
                   <li><%= data.name  %></li>
                 <%end %>
               <% end %>

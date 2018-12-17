@@ -31,12 +31,12 @@ class UserProfileController < ApplicationController
       # elementの抽出（もしかして一致）
       @maybe_common_elements = []
       current_user.elements.each do |my_element|
-        my_element_name = my_element.name.gsub(/(\s|　)+/, '').downcase
+        my_element_name = remove_white_spaces(my_element).downcase
         @user.elements.each do |friend_element|
-          friend_element_name = friend_element.name.gsub(/(\s|　)+/, '').downcase
+          friend_element_name = remove_white_spaces(friend_element).downcase
 
           # 完全一致と非公開を除く，共通かもしれない項目を抽出
-          if my_element.id != friend_element.id and not is_private_element?(friend_element.id)
+          if (my_element.id != friend_element.id) and (not @user.is_private_element?(friend_element.id))
             if Levenshtein.similarity(my_element_name, friend_element_name) >= 0.3
               @maybe_common_elements << friend_element
             end
