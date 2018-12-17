@@ -1,5 +1,12 @@
+
 .main{
   height: 600px;
+}
+
+html{
+  @media screen and (max-width: 768px){
+    font-size: 12px;
+  }
 }
 
 .header{
@@ -26,6 +33,9 @@
  font-size:40px;
  color:#4B4300;
  border: 5px solid #7B7329;
+ @media screen and (max-width: 768px){
+   font-size: 28px;
+ }
 }
 
 .card-body{
@@ -33,6 +43,9 @@
   color:#4B4300;
   border: 5px solid #7B7329;
   background-color: #FAFCE2;
+  @media screen and (max-width: 768px){
+    font-size: 18px;
+  }
 }
 
 .card-head{
@@ -168,4 +181,8 @@ ol.sample1 li:before{
   -o-transform: translateY(-50%);
   -ms-transform: translateY(-50%);
   transform: translateY(-50%);
+}
+
+.orikaeshi{
+  word-wrap: break-word;
 }
