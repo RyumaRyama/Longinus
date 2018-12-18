@@ -1,32 +1,31 @@
 <head>
   <link href="assets/top.scss" rel="stylesheet">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0">
 </head>
 
 <body>
-  <div class="container-fluid">
-    <div class="top-main">
+  <div class="top-main">
+    <header>
       <%= render "layouts/header" %>
-      <header>
-        <div class="text-center">
-          <br>
-          <p>
-            <h3>人見知りのあなたも</h3>
-          </p>
-          <p>
-            <h3>初対面から<strong>熱く</strong>語ろう！</h3>
-          </p>
-          <p>
-            <h1>Hobby-com</h1>
-          </p>
-          <br>
-          <p>
-            <%=link_to '　新規登録　', signup_path , { :class => "btn btn-dark btn-lg" }%>
-          </p>
-          <br>
-          <a class="ca3-scroll-down-link ca3-scroll-down-arrow" data-ca3_iconfont="ETmodules" data-ca3_icon=""></a>
-        </div>
-      </header>
-    </div>
+      <div class="text-center">
+        <br>
+        <p>
+          <h3>人見知りのあなたも</h3>
+        </p>
+        <p>
+          <h3>初対面から<strong>熱く</strong>語ろう！</h3>
+        </p>
+        <p>
+          <h1>Hobby-com</h1>
+        </p>
+        <br>
+        <p>
+          <%=link_to '　新規登録　', signup_path , { :class => "btn btn-dark btn-lg" }%>
+        </p>
+        <br>
+        <a class="ca3-scroll-down-link ca3-scroll-down-arrow" data-ca3_iconfont="ETmodules" data-ca3_icon=""></a>
+      </div>
+    </header>
   </div>
 
 

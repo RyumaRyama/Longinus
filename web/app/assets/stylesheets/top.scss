@@ -1,8 +1,10 @@
-.top-main {
-  flex-direction: column;
-  background-size: cover;
-  min-height: 100vh;
+body {
+  padding-right: 0px;
+  padding-left: 0px;
+}
 
+.top-main {
+  min-height: 100vh;
   background: rgba(139, 69, 19, 0.4);
   height: 100%;
   width: 100%;
@@ -18,12 +20,6 @@
   flex-wrap: wrap;
   margin-right: 0px;
   margin-left: 0px;
-}
-
-.container-fluid {
-  width: 100%;
-  padding-right: 0px;
-  padding-left: 0px;
 }
 
 /*headerの中央揃え*/
@@ -95,15 +91,15 @@ b {
     text-align: center;
     color: #fff;
     text-shadow: 0 0 15px #CD853F;
-    font-size: 50px;
+    font-size: 45px;
     font-family: 'Hiragino Maru Gothic Pro','ヒラギノ丸ゴ Pro W4', sans-serif;
   }
 
   h3 {
     text-align: center;
     color: #fff;
-    text-shadow: 0 0 15px #330000; // #FF0000
-    font-size: 35px;
+    text-shadow: 0 0 15px #330000;
+    font-size: 30px;
     font-family: 'Hiragino Maru Gothic Pro','ヒラギノ丸ゴ Pro W4', sans-serif;
   }
 
@@ -111,7 +107,7 @@ b {
     text-align: center;
     color: #fff;
     text-shadow: 0 0 15px #CC0000;
-    font-size: 45px;
+    font-size: 35px;
     font-family: 'Hiragino Maru Gothic Pro','ヒラギノ丸ゴ Pro W4', sans-serif;
   }
 
