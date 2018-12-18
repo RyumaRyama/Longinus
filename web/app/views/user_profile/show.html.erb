@@ -1,18 +1,5 @@
-<!DOCTYPE html>
-<html lang="ja">
-
-<head>
-    <meta charset="UTF-8">
-    <title><%= @user.name %></title>
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link href="https://fonts.googleapis.com/css?family=Amatic+SC:700" rel="stylesheet">
-    <link rel="stylesheet"  href="/assets/show.scss">
-
-</head>
-
 <%= render "layouts/header" %>
-
-<body>
+<%= stylesheet_link_tag "show", :media => "all" %>
   <div class="header text-center">
     <h1><%= @user.name %></h1>
   </div>
@@ -136,7 +123,3 @@
       <% end %>
     </div>
   </div>
-
-</body>
-
-</html>
