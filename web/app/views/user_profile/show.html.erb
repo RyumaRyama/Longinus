@@ -1,36 +1,36 @@
 <%= render "layouts/header" %>
 <%= stylesheet_link_tag "show", :media => "all" %>
-  <div class="header text-center">
-    <h1><%= @user.name %></h1>
-    <% if logged_in? %>
-        <%= render 'follow_form' %>
-      <% end %>
-  </div>
+<div class="header text-center">
+  <h1><%= @user.name %></h1>
+  <% if logged_in? %>
+    <%= render 'follow_form' %>
+  <% end %>
+</div>
 
-  <div class = "main">
+<div class="main">
 
-    <div class="container">
+  <div class="container">
 
-      <div class="row">
+    <div class="row">
 
-        <!--ユーザープロフィール(共通)-->
-        <div class="text-center hobbylist col-md-12">
-          <div class="card-head">
-            <h5 class="card-title title">プロフィール</h5>
-          </div>
-          <div class="card-body">
-            <ul class="orikaeshi"><!--自己紹介欄-->
-              <%= text_url_to_link(h(simple_format(@user.biography))).html_safe %>
-            </ul>
-          </div>
+      <!--ユーザープロフィール(共通)-->
+      <div class="text-center hobbylist col-md-12">
+        <div class="card-head">
+          <h5 class="card-title title">プロフィール</h5>
         </div>
-
+        <div class="card-body">
+          <ul class="orikaeshi"><!--自己紹介欄-->
+            <%= text_url_to_link(h(simple_format(@user.biography))).html_safe %>
+          </ul>
+        </div>
       </div>
 
-      <!--共通項目-->
-      <div class="row">
+    </div>
 
-        <% if logged_in? and @user.friend?(current_user) %>
+    <!--共通項目-->
+    <div class="row">
+
+      <% if logged_in? and @user.friend?(current_user) %>
         <div class="text-center col-md-6">
           <div class="card-head">
             <h5 class="card-title title">共通点</h5>
@@ -56,39 +56,38 @@
             </ul>
           </div>
         </div>
-        <% end %>
+      <% end %>
+    </div>
+
+    <div class="row">
+
+      <!--パブリック項目-->
+      <!--自身のページ-->
+      <% if logged_in? and (@user == current_user) %>
+        <% title = "公開" %>
+      <div class="text-center hobbylist col-md-6">
+      <!--他人のページ-->
+      <% else %>
+        <% title = "すきなこと" %>
+      <div class="text-center hobbylist col-md-12">
+      <% end %>
+
+        <div class="card-head">
+          <h5 class="card-title title"><%= title %></h5>
+        </div>
+        <div class="card-body">
+          <ul>
+            <% @user.elements.each do |data| %>
+              <% if not @user.is_private_element?(data.id) %>
+                <li><%= data.name %></li>
+              <% end %>
+            <% end %>
+          </ul>
+        </div>
       </div>
 
-      <div class="row">
-
-        <!--パブリック項目-->
-        <!--自身のページ-->
-        <% if (logged_in? and (@user == current_user)) %> 
-          <% title = "公開" %>
-           
-        <div class="text-center hobbylist col-md-6">
-        <!--他人のページ-->
-        <% else %> 
-          <% title = "すきなこと" %>
-        <div class="text-center hobbylist col-md-12">
-        <% end %>
-          
-          <div class="card-head">
-            <h5 class="card-title title"><%= title %></h5>
-          </div>
-          <div class="card-body">
-            <ul>
-              <% @user.elements.each do |data| %>
-                <% if not @user.is_private_element?(data.id) %>
-                  <li><%= data.name  %></li>
-                <% end %>
-              <% end %>
-            </ul>
-          </div>
-        </div>
-
-        <!--プライベート項目-->
-        <% if @user == current_user %>
+      <!--プライベート項目-->
+      <% if @user == current_user %>
         <div class="text-center hobbylist col-md-6">
           <div class="card-head">
             <h5 class="card-title title">非公開</h5>
@@ -97,20 +96,20 @@
             <ul>
               <% @user.elements.each do |data| %>
                 <% if @user.is_private_element?(data.id) %>
-                  <li><%= data.name  %></li>
-                <%end %>
+                  <li><%= data.name %></li>
+                <% end %>
               <% end %>
             </ul>
           </div>
         </div>
-        <% end %>
+      <% end %>
       </div>
 
       <br>
       <br>
 
       <!--自分のページのみ共有リンク生成-->
-      <% if logged_in? and @user == current_user%>
+      <% if logged_in? and @user == current_user %>
         <div class="share_mypage">
           <h4>あなたの趣味を共有しよう</h4>
           <h5>あなたのページのQRコード</h5>
@@ -122,9 +121,10 @@
       <br>
       <br>
 
-      <%= link_to "レビューはこちら", 'https://goo.gl/forms/41aZVzoTV5Jm4ztE3', { :class => "btn btn-light btn-md" } %>
+      <%= link_to "レビューはこちら", 'https://goo.gl/forms/41aZVzoTV5Jm4ztE3', {:class => "btn btn-light btn-md"} %>
 
       <br>
       <br>
     </div>
   </div>
+</div>
