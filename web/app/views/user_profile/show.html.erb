@@ -2,6 +2,9 @@
 <%= stylesheet_link_tag "show", :media => "all" %>
   <div class="header text-center">
     <h1><%= @user.name %></h1>
+    <% if logged_in? %>
+        <%= render 'follow_form' %>
+      <% end %>
   </div>
 
   <div class = "main">
@@ -40,12 +43,37 @@
             </ul>
           </div>
         </div>
+
+        <div class="text-center col-md-6">
+          <div class="card-head">
+            <h5 class="card-title title">共通かも</h5>
+          </div>
+          <div class="card-body">
+            <ul>
+              <% @maybe_common_elements.each do |data| %>
+                <li><%= data.name %></li>
+              <% end %>
+            </ul>
+          </div>
+        </div>
         <% end %>
+      </div>
+
+      <div class="row">
 
         <!--パブリック項目-->
+        <!--自身のページ-->
+        <% if (logged_in? and (@user == current_user)) %> 
+          <% title = "公開" %>
+           
         <div class="text-center hobbylist col-md-6">
+        <!--他人のページ-->
+        <% else %> 
+          <% title = "すきなこと" %>
+        <div class="text-center hobbylist col-md-12">
+        <% end %>
+          
           <div class="card-head">
-            <% (logged_in? and (@user == current_user)) ? title = "公開" : title = "すきなこと" %>
             <h5 class="card-title title"><%= title %></h5>
           </div>
           <div class="card-body">
@@ -58,7 +86,7 @@
             </ul>
           </div>
         </div>
-        
+
         <!--プライベート項目-->
         <% if @user == current_user %>
         <div class="text-center hobbylist col-md-6">
@@ -76,27 +104,7 @@
           </div>
         </div>
         <% end %>
-
       </div>
-
-
-      
-      <% if logged_in? and @user.friend?(current_user) %>
-      <div class="raw">
-        <div class="text-center col-md-12">
-          <div class="card-head">
-            <h5 class="card-title title">共通かも</h5>
-          </div>
-          <div class="card-body">
-            <ul>
-              <% @maybe_common_elements.each do |data| %>
-                <li><%= data.name %></li>
-              <% end %>
-            </ul>
-          </div>
-        </div>
-      </div>
-      <% end %>
 
       <br>
       <br>
@@ -118,8 +126,5 @@
 
       <br>
       <br>
-      <% if logged_in? %>
-        <%= render 'follow_form' %>
-      <% end %>
     </div>
   </div>
