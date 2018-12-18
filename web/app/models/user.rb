@@ -15,8 +15,15 @@ class User < ApplicationRecord
   validates :email, presence: true, length: { maximum: 255 },
                       format: { with: VALID_EMAIL_REGEX },
                       uniqueness: { case_sensitive: false }
+
   has_secure_password
-  validates :password, presence: true, length: { minimum: 6 }
+  # createのときはpasswordの空白を禁止に
+  validates :password, presence: true, length: { minimum: 6 },
+                      on: :create
+  # updateのときは空白を許可
+  validates :password, presence: true, length: { minimum: 6 },
+                      on: :update, allow_blank: true
+
   validates :biography, length: { maximum: 150 }, :allow_nil => false
 
   # 渡された文字列のハッシュ値を返す

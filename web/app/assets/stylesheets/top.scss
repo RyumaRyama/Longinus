@@ -56,6 +56,11 @@ h2 {
   font-family: 'Hiragino Maru Gothic Pro','ヒラギノ丸ゴ Pro W4', sans-serif;
 }
 
+.marker{
+  background:linear-gradient(transparent 60%, #ffbf7f 75%);
+  font-weight:bold;
+}
+
 /*人見知り…*/
 h3 {
   text-align: center;
@@ -115,7 +120,7 @@ b {
     text-align: center;
     color: #fff;
     text-shadow: 0 0 15px #330000;
-    font-size: 35px;
+    font-size: 25px;
     font-family: 'Hiragino Maru Gothic Pro','ヒラギノ丸ゴ Pro W4', sans-serif;
   }
 }
