@@ -20,7 +20,7 @@
             <!-- <li class="nav-item"><%= link_to "Users", '#',class: "nav-link"%></li> -->
             <li class="dropdown nav-item">
               <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
-                Account <b class="caret"></b>
+                アカウント <b class="caret"></b>
               </a>
               <ul class="dropdown-menu bg-dark">
                 <li><%= link_to "アカウント設定", edit_user_profile_path(account: current_user.account),class:"text-light" %></li>
@@ -31,18 +31,22 @@
                 </li>
               </ul>
             </li>
+
             <% if @user == current_user %>
               <li class="dropdown nav-item">
                 <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
-                  Friends <b class="caret"></b>
+                  フレンド <b class="caret"></b>
                 </a>
                 <ul class="dropdown-menu bg-dark">
                   <li class="nav-item">
-                    <a class="nav-link"><%= render 'shared/stats' %></a>
+                    <%= render 'shared/stats' %>
                   </li>
                   <li class="divider"></li>
                 </ul>
             <% end %>
+
+            <li class="nav-item"><%= link_to "使い方ガイド", help_path, { :class => "navbar-brand nav-link" } %></li>
+            <li class="nav-item"><%= link_to "レビューはこちら", 'https://goo.gl/forms/41aZVzoTV5Jm4ztE3', { :class => "navbar-brand nav-link" } %></li>
 
           <% else %>
 
