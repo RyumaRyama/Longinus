@@ -2,115 +2,102 @@
   <link href="assets/top.scss" rel="stylesheet">
 </head>
 
-<body>
-  <div class="top-main">
-    <header>
-      <%= render "layouts/header" %>
-      <div class="text-center">
-        <br>
-        <p>
-          <h3>人見知りのあなたも</h3>
-        </p>
-        <p>
-          <h3>初対面から<strong>熱く</strong>語ろう！</h3>
-        </p>
-        <p>
-          <h1>Hobby-com</h1>
-        </p>
-        <br>
-        <p>
-          <%=link_to '　新規登録　', signup_path , { :class => "btn btn-dark btn-lg" }%>
-        </p>
-        <br>
-        <a class="ca3-scroll-down-link ca3-scroll-down-arrow" data-ca3_iconfont="ETmodules" data-ca3_icon=""></a>
+<div class="top-main">
+  <header>
+    <%= render "layouts/header" %>
+    <div class="text-center">
+      <div class="consept-messege">
+        <h3>人見知りのあなたも</h3>
+        <h3>初対面から<strong>熱く</strong>語ろう！</h3>
       </div>
-    </header>
-  </div>
-
-
-  <section>
-    <div class="container">
-      <div class="row">
-          <div class="col-lg-12 text-center p-content">
-            <div class="p-box">
-              <div class="howtouse">
-                <h2>
-                  <span class="marker">　〜つかいかた〜　</span>
-                </h2>
-              </div>
-              <br>
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-lg-12">
-            <ul class="timeline">
-              <li>
-                <div class="timeline-image">
-                  <%= image_tag 'about/1.jpg' , class:"rounded-circle img-fluid" %>
-                </div>
-                <div class="timeline-panel box10">
-                  <span class="tape2"></span>
-                    <div class="timeline-heading">
-                      <h4><br><span>1st Step</span></h4>
-                      <h4 class="subheading">新規登録をしよう！</h4>
-                    </div>
-                    <div class="timeline-body">
-                      <p class="text-muted"><span>新規登録ボタンを押して、<br>アカウント名,ニックネーム,メールアドレス
-                        ,プロフィール,パスワードを記入しよう！！</span></p><br>
-                    </div>
-                </div>
-              </li>
-              <li class="timeline-inverted">
-                <div class="timeline-image">
-                  <%= image_tag 'about/2.jpg' , class:"rounded-circle img-fluid" %>
-                </div>
-                <div class="timeline-panel box10">
-                  <span class="tape2"></span>
-                  <div class="timeline-heading">
-                    <h4><br><span>2nd Step</span></h4>
-                    <h4 class="subheading">アカウントURLを送ろう！</h4>
-                  </div>
-                  <div class="timeline-body">
-                    <p class="text-muted"><span>自分のアカウントページからURLをコピーして、友達(仮)に送ってみよう！</span></p><br>
-                  </div>
-                </div>
-              </li>
-              <li>
-                <div class="timeline-image">
-                  <%= image_tag 'about/3.jpg' , class:"rounded-circle img-fluid" %>
-                </div>
-                <div class="timeline-panel box10">
-                  <span class="tape3"></span>
-                  <div class="timeline-heading">
-                    <h4><br><span>3rd Step</span></h4>
-                    <h4 class="subheading">他人から友達になろう！</h4>
-                  </div>
-                  <div class="timeline-body">
-                    <p class="text-muted"><span>友達と会話をする内容がたくさんできたら早速話してみよう！</span></p><br>
-                  </div>
-                </div>
-              </li>
-              <li>
-                <div class="timeline-image">
-                  <h4>Let's
-                    <br>go
-                    <br>Hobby-com!!!</h4>
-                </div>
-              </li>
-            </ul>
-          </div>
-        </div>
+        <h1>Hobby-com</h1>
+      <div class="sign-up">
+        <%=link_to '　新規登録　', signup_path , { :class => "btn btn-dark btn-lg" }%>
       </div>
-    </section>
-  </div>
-</body>
-<footer class="page-footer font-small blue pt-4">
-    <!-- Copyright -->
-    <div class="footer-copyright text-center py-3"> 2018 Hobby.com:
-      <p>Team gurukunzamurai</p>
+      <a class="ca3-scroll-down-link ca3-scroll-down-arrow" data-ca3_iconfont="ETmodules" data-ca3_icon=""></a>
     </div>
-    <!-- Copyright -->
+  </header>
+</div>
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+        <div class="text-center p-content p-box howtouse">
+          <h2>
+           <span class="marker">　〜つかいかた〜　</span>
+          </h2>
+        </div>
+        <br>
+        <ul class="timeline">
+          <li>
+            <div class="timeline-image">
+              <%= image_tag 'about/1.jpg' , class:"rounded-circle img-fluid" %>
+            </div>
+            <div class="timeline-panel box10">
+              <span class="tape2"></span>
+              <div class="timeline-heading">
+                <h4 class="title-panel"><span>1st Step</span></h4>
+                <h5 class="subheading">新規登録をしよう！</h5>
+              </div>
+              <div class="timeline-body">
+                <p class="text-muted">
+                  <span>新規登録ボタンを押して、アカウント名,ニックネーム,メールアドレス,プロフィール,パスワードを記入しよう！！</span>
+                </p>
+              </div>
+            </div>
+           </li>
+           <li class="timeline-inverted">
+            <div class="timeline-image">
+              <%= image_tag 'about/2.jpg' , class:"rounded-circle img-fluid" %>
+            </div>
+            <div class="timeline-panel box10">
+              <span class="tape2"></span>
+              <div class="timeline-heading">
+                <h4 class="title-panel"><span>2nd Step</span></h4>
+                <h5 class="subheading">アカウントを共有しよう！</h5>
+              </div>
+              <div class="timeline-body">
+                <p class="text-muted">
+                  <span>自分のQRコードを見せて、友達(仮)にあなたのことを紹介しよう！</span>
+                </p>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="timeline-image">
+              <%= image_tag 'about/3.jpg' , class:"rounded-circle img-fluid" %>
+            </div>
+            <div class="timeline-panel box10">
+              <span class="tape3"></span>
+               <div class="timeline-heading">
+                <h4 class="title-panel"><span>3rd Step</span></h4>
+                <h5 class="subheading">他人から友達になろう！</h5>
+              </div>
+              <div class="timeline-body">
+                <p class="text-muted">
+                  <span>友達と会話をする内容がたくさんできたら早速話してみよう！</span>
+                </p>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="timeline-image">
+                <h4>Let&lsquo;s<br>
+                make<br>
+                friends!</h4>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+<footer class="page-footer font-small blue pt-4">
+  <!-- Copyright -->
+  <div class="footer-copyright text-center py-3"> 2018 Hobby.com:
+    <p>Team gurukunzamurai</p>
+  </div>
+  <!-- Copyright -->
 
-  </footer>
-  <!-- Footer -->
+</footer>
+<!-- Footer -->
