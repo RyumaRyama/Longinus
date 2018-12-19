@@ -165,8 +165,14 @@
           </div>
 
           <div class="row">
-            <div class="col-md3 field-label-responsive">
-              <%= f.submit yield(:button_text), class: "square_btn" %>
+            <div class="col-md-6">
+              <div class="form-group">
+                <div class="mb-2 mr-sm-2 mb-sm-0">
+                  <div class="btn_position">
+                    <%= f.submit yield(:button_text), class: "square_btn" %>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
 
