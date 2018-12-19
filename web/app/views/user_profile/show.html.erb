@@ -12,9 +12,18 @@
   <div class="container">
 
     <div class="row">
-
       <!--ユーザープロフィール(共通)-->
       <div class="text-center hobbylist col-md-12">
+        <br>
+      <div class="box10">
+        <span class="tape3"></span>
+        <br>
+        <br>
+        <h4>プロフィール</h4>
+        <%= text_url_to_link(h(simple_format(@user.biography))).html_safe %>
+        <br>
+      </div>
+
         <div class="card-head">
           <h5 class="card-title title">プロフィール</h5>
         </div>
