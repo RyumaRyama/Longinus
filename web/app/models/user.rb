@@ -18,10 +18,10 @@ class User < ApplicationRecord
 
   has_secure_password
   # createのときはpasswordの空白を禁止に
-  validates :password, presence: true, length: { minimum: 6 },
+  validates :password, presence: true, length: { minimum: 8 },
                       on: :create
   # updateのときは空白を許可
-  validates :password, presence: true, length: { minimum: 6 },
+  validates :password, presence: true, length: { minimum: 8 },
                       on: :update, allow_blank: true
 
   validates :biography, length: { maximum: 150 }, :allow_nil => false
@@ -45,15 +45,11 @@ class User < ApplicationRecord
 
   # ユーザーをフォローする
   def follow(other_user)
-    puts other_user
-    puts "失敗した" * 100
     following << other_user
   end
 
   # ユーザーをフォロー解除する
   def unfollow(other_user)
-    puts other_user
-    puts "失敗した" * 100
     active_relationships.find_by(followed_id: other_user).destroy
   end
 

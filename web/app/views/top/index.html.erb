@@ -6,13 +6,15 @@
   <header>
     <%= render "layouts/header" %>
     <div class="text-center">
-      <div class="consept-messege">
-        <h3>人見知りのあなたも</h3>
-        <h3>初対面から<strong>熱く</strong>語ろう！</h3>
-      </div>
+      <div class="text-position">
+        <div class="consept-messege">
+          <h3>人見知りのあなたも</h3>
+          <h3>初対面から<strong>熱く</strong>語ろう</h3>
+        </div>
         <h1>Hobby-com</h1>
-      <div class="sign-up">
-        <%=link_to '　新規登録　', signup_path , { :class => "btn btn-dark btn-lg" }%>
+        <div class="sign-up">
+          <%= link_to '　新規登録　', signup_path, {:class => "btn btn-dark btn-lg"} %>
+        </div>
       </div>
       <a class="ca3-scroll-down-link ca3-scroll-down-arrow" data-ca3_iconfont="ETmodules" data-ca3_icon=""></a>
     </div>
@@ -24,14 +26,14 @@
       <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
         <div class="text-center p-content p-box howtouse">
           <h2>
-           <span class="marker">　〜つかいかた〜　</span>
+            <span class="marker">　〜つかいかた〜　</span>
           </h2>
         </div>
         <br>
         <ul class="timeline">
           <li>
             <div class="timeline-image">
-              <%= image_tag 'about/1.jpg' , class:"rounded-circle img-fluid" %>
+              <%= image_tag 'about/1.jpg', class: "rounded-circle img-fluid" %>
             </div>
             <div class="timeline-panel box10">
               <span class="tape2"></span>
@@ -45,10 +47,10 @@
                 </p>
               </div>
             </div>
-           </li>
-           <li class="timeline-inverted">
+          </li>
+          <li class="timeline-inverted">
             <div class="timeline-image">
-              <%= image_tag 'about/2.jpg' , class:"rounded-circle img-fluid" %>
+              <%= image_tag 'about/2.jpg', class: "rounded-circle img-fluid" %>
             </div>
             <div class="timeline-panel box10">
               <span class="tape2"></span>
@@ -65,11 +67,11 @@
           </li>
           <li>
             <div class="timeline-image">
-              <%= image_tag 'about/3.jpg' , class:"rounded-circle img-fluid" %>
+              <%= image_tag 'about/3.jpg', class: "rounded-circle img-fluid" %>
             </div>
             <div class="timeline-panel box10">
               <span class="tape3"></span>
-               <div class="timeline-heading">
+              <div class="timeline-heading">
                 <h4 class="title-panel"><span>3rd Step</span></h4>
                 <h5 class="subheading">他人から友達になろう！</h5>
               </div>
@@ -82,7 +84,7 @@
           </li>
           <li>
             <div class="timeline-image">
-                <h4>Let&lsquo;s<br>
+              <h4>Let&lsquo;s<br>
                 make<br>
                 friends!</h4>
             </div>

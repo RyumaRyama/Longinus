@@ -34,7 +34,7 @@
                     <tr>
                       <th>内容</th>
                     </tr>
-                    <%= f.fields_for :elements do |fe| %>
+                    <%= f.fields_for :elements, @user.elements.sort_by(&:id) do |fe| %>
                       <tr>
                         <td><%= fe.text_field :name, readonly: true %></td>
                       </tr>
@@ -46,7 +46,7 @@
                     <tr>
                       <th>非公開</th>
                     </tr>
-                    <%= f.fields_for :users_elements do |ue| %>
+                    <%= f.fields_for :users_elements, @user.users_elements.sort_by(&:element_id) do |ue| %>
                       <tr>
                         <td><%= ue.check_box :private %></td>
                       </tr>
@@ -58,7 +58,7 @@
                     <tr>
                       <th>削除</th>
                     </tr>
-                    <%= f.fields_for :elements do |fe| %>
+                    <%= f.fields_for :elements, @user.elements.sort_by(&:id) do |fe| %>
                       <tr>
                         <td><%= fe.check_box :_destroy %></td>
                       </tr>
