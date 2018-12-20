@@ -132,7 +132,9 @@ class UserProfileController < ApplicationController
       end
 
       if proportion < 0.25
-        Levenshtein.similarity(my_element, friend_element) >= 0.3
+        Levenshtein.similarity(my_element, friend_element) >= 0.2
+      elsif proportion > 0.8
+        Levenshtein.similarity(my_element, friend_element) >= 0.45
       else
         Levenshtein.similarity(my_element, friend_element) >= 0.3
       end
