@@ -52,6 +52,18 @@ html{
   padding-top:20px;
 }
 
+@media only screen and (max-device-width: 768px) {
+
+.card-head{
+  padding-top:30px;
+}
+
+.card-sumaho{
+  padding-top:40px;
+}
+
+}
+
 .card-title{
   background-color: #FAFCE2;
 }
@@ -191,7 +203,7 @@ ol.sample1 li:before{
     color: rgba(0,0,0,1);
     background: #faf7e0;/*背景色*/
     box-shadow:1px 1px 1px rgba(0,0,0,0.2),0 0 30px rgba(0,0,0,0.4) inset;
-    -webkit-transform: rotate(-2deg);
+   -webkit-transform: rotate(-1deg);
 }
 
 .tape2{
@@ -226,10 +238,10 @@ ol.sample1 li:before{
     // border-left:3px dotted rgba(0,0,0,0.1);
     // border-right:3px dotted rgba(0,0,0,0.1);
     box-shadow:0 0 6px rgba(0,0,0,0.2);
-    width:175px;
+    width:200px;
     height:38px;
     position:absolute;
     top:-10px;
     left:30%;
-    -webkit-transform:rotate(-4deg);
+    -webkit-transform:rotate(-3deg);
 }
