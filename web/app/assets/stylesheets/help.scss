@@ -1,22 +1,22 @@
-#scroll{
-    height: 800px;
-    overflow: auto;
-    padding: 32px;
-    background: rgba(255,255,247,0.7);
-    margin-top: 35px;
-    margin-bottom: 35px;
+#scroll {
+  height: 800px;
+  overflow: auto;
+  padding: 32px;
+  background: rgba(255, 255, 247, 0.7);
+  margin-top: 35px;
+  margin-bottom: 35px;
 }
 
-@media screen and (max-width: 768px){
-    h1, .h1 {
-        font-size: 2.25rem;
-    }
+@media screen and (max-width: 768px) {
+  h1, .h1 {
+    font-size: 2.25rem;
+  }
 
-    h3, .h3 {
-        font-size: 1.50rem;
-    }
+  h3, .h3 {
+    font-size: 1.50rem;
+  }
 
-    p {
-        letter-spacing: 0rem;
-    }
+  p {
+    letter-spacing: 0rem;
+  }
 }
