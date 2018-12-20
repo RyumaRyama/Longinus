@@ -11,7 +11,7 @@ class SessionsController < ApplicationController
       log_in user
       redirect_to user_profile_path(account: user.account)
     else
-      flash.now[:danger] = 'Invalid email/password combination'
+      flash.now[:danger] = 'メールアドレスまたはパスワードが正しくありません'
       render 'new'
     end
   end
