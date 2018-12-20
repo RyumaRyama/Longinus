@@ -36,12 +36,11 @@ h2 {
 }
 table th { /*table内のthに対して*/
     text-align: center;
-    //padding:0rem 0.5rem;
 }
 
 table td { /*table内のtdに対して*/
     text-align: center;
-    
+    //inputの中でもtype="text"についての調整
     input[type="text"]{
         width:10rem;
         margin:0.5rem;
