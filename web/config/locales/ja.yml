@@ -9,3 +9,4 @@ ja:
         email: Eメール
         biography: 経歴，プロフィール
         password: パスワード
+        password_confirmation: パスワード再入力

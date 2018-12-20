@@ -18,10 +18,10 @@ class User < ApplicationRecord
 
   has_secure_password
   # createのときはpasswordの空白を禁止に
-  validates :password, presence: true, length: { minimum: 6 },
+  validates :password, presence: true, length: { minimum: 8 },
                       on: :create
   # updateのときは空白を許可
-  validates :password, presence: true, length: { minimum: 6 },
+  validates :password, presence: true, length: { minimum: 8 },
                       on: :update, allow_blank: true
 
   validates :biography, length: { maximum: 150 }, :allow_nil => false
