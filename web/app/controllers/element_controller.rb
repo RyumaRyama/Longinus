@@ -39,7 +39,7 @@ class ElementController < ApplicationController
       end
     end
 
-    add_elements("Update successfull")
+    add_elements("更新に成功しました")
   end
 
   private
