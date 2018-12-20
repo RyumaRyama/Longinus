@@ -34,3 +34,31 @@ h2 {
     background: transparent;/*背景透明に*/
     border-left: solid 5px #000000;/*左線*/
 }
+table th { /*table内のthに対して*/
+    text-align: center;
+    padding: 10px; /*上下左右10pxずつ*/
+}
+
+table td { /*table内のtdに対して*/
+    text-align: center;
+    height: 50px;
+}
+.box-area{
+    padding-left:1rem;
+    padding-bottom:1rem;
+    margin-bottom: 1rem;
+    background: #faf7e0;
+    box-shadow: 1px 1px 1px rgba(0,0,0,0.2), 0 0 30px rgba(0,0,0,0.4) inset;
+}
+#edit_elements{
+    margin-bottom: 3rem;
+}
+#messege-box{
+    margin-bottom: 3rem;
+}
+@media (min-width:768px){
+    #messege-box{
+        height:648px;
+    }
+
+}

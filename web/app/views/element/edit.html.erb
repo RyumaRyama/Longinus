@@ -4,67 +4,78 @@
 <% provide(:title, 'Sign up') %>
 <div class="header1 text-center mb-4">
   <h1>好きなことの編集</h1>
-    <small>固有名詞でお願いします</small>
-  
 </div>
 <div class="container">
   <%= form_for @user, :url => {:controller => :element, :action => :update} do |f| %>
     <div class="row">
-      <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6"　 style="padding-bottom:3rem;">
-        <h2>好きなことの編集</h2>
-        <p><b>固有名詞</b>で記述してください</p>
-        <div class="user_data">
-
-          <%#= form_for @user, :url => {:controller => :element, :action => :update} do |f| %>
-          <TABLE BORDER="1">
-            <TR>
-              <TD>
-                <table border="0">
-                  <tr>
-                    <th>内容</th>
-                  </tr>
-                  <%= f.fields_for :elements do |fe| %>
-                    <tr>
-                      <td><%= fe.text_field :name, readonly: true %></td>
-                    </tr>
-                  <% end %>
-                </table>
-              </TD>
-              <TD>
-                <table border="0">
-                  <tr>
-                    <th>非公開</th>
-                  </tr>
-                  <%= f.fields_for :users_elements do |ue| %>
-                    <tr>
-                      <td><%= ue.check_box :private %></td>
-                    </tr>
-                  <% end %>
-                </table>
-              </TD>
-              <TD>
-                <table border="0">
-                  <tr>
-                    <th>削除</th>
-                  </tr>
-                  <%= f.fields_for :elements do |fe| %>
-                    <tr>
-                      <td><%= fe.check_box :_destroy %></td>
-                    </tr>
-                  <% end %>
-                </table>
-              </TD>
-            </TR>
-          </TABLE>
+      <div class="col-12 col-sm-12 col-md-2 col-lg-2 col-xl-2">
+        <div class="box-area" id="messege-box">
+          <h2>注意</h2>
+          <p>
+            <b>固有名詞</b>で<br>記述してください
+          </p>
+          <h3>例</h3>
+          <dl>
+            <dt>本を読む</dt><dd>読書</dd>
+            <dt>ラーメンを食べる</dt><dd>ラーメン</dd>
+          </dl>
         </div>
       </div>
-      <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
-        <h2>好きなことの追加</h2>
-        例：<br>
-        本を読む→読書<br>
-        ラーメンを食べる→ラーメン<br>
-        <%= render 'add_form' %>
-        <%= f.submit "更新", class: "btn btn-submit" %>
+      <div class="col-12 col-sm-12 col-md-5 col-lg-5 col-xl-5">
+        <div class="box-area" id="edit_elements">  
+          <h2>好きなことの編集</h2>
+          
+          <div class="user_data">
+            <%#= form_for @user, :url => {:controller => :element, :action => :update} do |f| %>
+            <TABLE BORDER="1">
+              <TR>
+                <TD>
+                  <table border="0">
+                    <tr>
+                      <th>内容</th>
+                    </tr>
+                    <%= f.fields_for :elements do |fe| %>
+                      <tr>
+                        <td><%= fe.text_field :name, readonly: true %></td>
+                      </tr>
+                    <% end %>
+                  </table>
+                </TD>
+                <TD>
+                  <table border="0">
+                    <tr>
+                      <th>非公開</th>
+                    </tr>
+                    <%= f.fields_for :users_elements do |ue| %>
+                      <tr>
+                        <td><%= ue.check_box :private %></td>
+                      </tr>
+                    <% end %>
+                  </table>
+                </TD>
+                <TD>
+                  <table border="0">
+                    <tr>
+                      <th>削除</th>
+                    </tr>
+                    <%= f.fields_for :elements do |fe| %>
+                      <tr>
+                        <td><%= fe.check_box :_destroy %></td>
+                      </tr>
+                    <% end %>
+                  </table>
+                </TD>
+              </TR>
+            </TABLE>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-sm-12 col-md-5 col-lg-5 col-xl-5">
+        <div class="box-area" id="add_elements">
+          <h2>好きなことの追加</h2>
+          <%= render 'add_form' %>
+        </div>
+          <%= f.submit "更新", class: "btn btn-submit" %>
       </div>
 
   <% end %>
@@ -75,17 +86,3 @@
 
   </div>
 </div>
-
-<head>
-  <style type="text/css">
-    table th { /*table内のthに対して*/
-      text-align: center;
-      padding: 10px; /*上下左右10pxずつ*/
-    }
-
-    table td { /*table内のtdに対して*/
-      text-align: center;
-      height: 50px;
-    }
-  </style>
-</head>
