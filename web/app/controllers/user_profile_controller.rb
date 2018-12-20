@@ -40,7 +40,7 @@ class UserProfileController < ApplicationController
             # 完全一致に存在しないかを確認
             if not @common_elements.include?(friend_element)
               # 完全一致と非公開を除く，共通かもしれない項目を抽出
-              if Levenshtein.similarity(my_element_name, friend_element_name) >= 0.3
+              if maybe_common_element?(my_element_name, friend_element_name)
                 @maybe_common_elements << friend_element
               end
             end
@@ -124,4 +124,17 @@ class UserProfileController < ApplicationController
       end
     end
 
+    def maybe_common_element?(my_element, friend_element)
+      if my_element.size < friend_element.size
+        proportion = my_element.size.to_f / friend_element.size.to_f
+      else
+        proportion = friend_element.size.to_f / my_element.size.to_f
+      end
+
+      if proportion < 0.25
+        Levenshtein.similarity(my_element, friend_element) >= 0.3
+      else
+        Levenshtein.similarity(my_element, friend_element) >= 0.3
+      end
+    end
 end
