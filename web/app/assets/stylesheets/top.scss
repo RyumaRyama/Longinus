@@ -1,7 +1,7 @@
 body {
-  padding-right: 0px;
-  padding-left: 0px;
-}
+   padding-right: 0px;
+   padding-left: 0px;
+ }
 
 .top-main {
   min-height: 100vh;
@@ -13,6 +13,10 @@ body {
 .text-center {
   margin: auto;
   margin-top: 10vh;
+}
+
+.text-position {
+  margin-top: 120px;
 }
 
 .row {
@@ -45,6 +49,7 @@ h1 {
   text-shadow: 0 0 15px #CD853F;
   font-size: 55px;
   font-family: 'Hiragino Maru Gothic Pro','ヒラギノ丸ゴ Pro W4', sans-serif;
+  margin-bottom: 30px;
 }
 
 /*つかいかた*/
@@ -68,6 +73,7 @@ h3 {
   text-shadow: 0 0 15px #330000; // #FF0000
   font-size: 40px;
   font-family: 'Hiragino Maru Gothic Pro','ヒラギノ丸ゴ Pro W4', sans-serif;
+  margin-bottom: 15px;
 }
 
 strong {
@@ -98,6 +104,7 @@ b {
     text-shadow: 0 0 15px #CD853F;
     font-size: 45px;
     font-family: 'Hiragino Maru Gothic Pro','ヒラギノ丸ゴ Pro W4', sans-serif;
+    margin-bottom: 35px;
   }
 
   h3 {
@@ -106,6 +113,7 @@ b {
     text-shadow: 0 0 15px #330000;
     font-size: 28px;
     font-family: 'Hiragino Maru Gothic Pro','ヒラギノ丸ゴ Pro W4', sans-serif;
+    margin-bottom: 20px;
   }
 
   strong {
@@ -122,6 +130,10 @@ b {
     text-shadow: 0 0 15px #330000;
     font-size: 25px;
     font-family: 'Hiragino Maru Gothic Pro','ヒラギノ丸ゴ Pro W4', sans-serif;
+  }
+
+  .text-position {
+    margin-top: 150px;
   }
 }
 
