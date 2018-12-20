@@ -17,6 +17,9 @@ class UserProfileController < ApplicationController
   end
 
   def show
+    p "失敗した"*100
+    p Levenshtein.similarity("遠藤ゆりか", "ゆるゆり")
+    p "失敗した"*100
     @user = User.find_by(account: params[:account])
 
     # common_elementsの抽出
@@ -132,9 +135,11 @@ class UserProfileController < ApplicationController
         proportion = friend_element.size.to_f / my_element.size.to_f
       end
 
-      if proportion < 0.25
+      if proportion <= 0.25
         Levenshtein.similarity(my_element, friend_element) >= 0.2
-      elsif proportion > 0.8
+      elsif proportion >= 0.9
+        Levenshtein.similarity(my_element, friend_element) >= 0.85
+      elsif proportion >= 0.8
         Levenshtein.similarity(my_element, friend_element) >= 0.45
       else
         Levenshtein.similarity(my_element, friend_element) >= 0.3
