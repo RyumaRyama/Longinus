@@ -3,7 +3,6 @@
     overflow: auto;
     padding: 32px;
     background: rgba(255,255,247,0.7);
-    border-radius: 6px;
     margin-top: 35px;
     margin-bottom: 35px;
 }
@@ -15,5 +14,9 @@
 
     h3, .h3 {
         font-size: 1.50rem;
+    }
+
+    p {
+        letter-spacing: 0rem;
     }
 }
