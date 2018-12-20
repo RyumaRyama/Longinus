@@ -1,4 +1,8 @@
 <%= form_for(current_user.active_relationships.find_by(followed_id: @user.id),
              html: { method: :delete }) do |f| %>
-  <%= f.submit "申請中", class: "btn" %>
+  <% if current_user.friend?(@user) %>
+    <%= f.submit "友達", class: "btn btn-light" %>
+  <% else %>
+    <%= f.submit "申請中", class: "btn btn-light" %>
+  <% end %>
 <% end %>
