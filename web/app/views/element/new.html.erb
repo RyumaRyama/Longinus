@@ -10,12 +10,12 @@
 <div class="container">
   <div class="row">
     <div class="col-12 col-sm-12 col-md-2 col-lg-2 col-xl-2">
-      <div class="box-area" id="messege-box">
+      <div class="box-area" id="messege-box" style="margin-top: 50px; padding-top: 20px">
         <h2>注意</h2>
         <p>
           <b>固有名詞</b>で<br>記述してください
         </p>
-        <h3>例</h3>
+        <h5>例</h5>
         <dl>
           <dt>本を読む</dt>
           <dd>読書</dd>
@@ -26,7 +26,7 @@
     </div>
 
     <div class="col-12 col-sm-12 col-md-5 col-lg-5 col-xl-5">
-      <div class="box-area" id="add_elements">
+      <div class="box-area" id="add_elements" style="padding-top: 20px; margin-top: 50px">
         <h2>好きなことの登録</h2>
         <div class="user_data">
           <%= form_for @element, :url => {:controller => :element} do |f| %>
