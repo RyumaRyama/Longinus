@@ -9,7 +9,7 @@ class ElementController < ApplicationController
 
   def create
     @user = current_user
-    add_elements("Welcome to Hobbycom!")
+    add_elements
   end
 
   def edit
@@ -39,7 +39,7 @@ class ElementController < ApplicationController
       end
     end
 
-    add_elements("更新に成功しました")
+    add_elements
   end
 
   private
@@ -58,7 +58,7 @@ class ElementController < ApplicationController
       )
     end
 
-    def add_elements(message)
+    def add_elements
       private_list = [] # privateにするelement
       if element_params[:users_elements_attributes] != nil
         element_params[:users_elements_attributes].each do |private|
@@ -95,8 +95,6 @@ class ElementController < ApplicationController
         end
       end
 
-
-      flash[:success] = message
       redirect_to user_profile_path(account: @user.account)
     end
 end
