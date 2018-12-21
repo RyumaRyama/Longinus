@@ -36,12 +36,18 @@ h2 {
 }
 table th { /*table内のthに対して*/
     text-align: center;
-    padding: 10px; /*上下左右10pxずつ*/
 }
 
 table td { /*table内のtdに対して*/
     text-align: center;
-    height: 50px;
+    //inputの中でもtype="text"についての調整
+    input[type="text"]{
+        width:10rem;
+        margin:0.5rem;
+    }
+    input[type="checkbox"]{
+        margin :1rem 0rem;
+    }
 }
 .box-area{
     padding-left:1rem;
@@ -58,7 +64,7 @@ table td { /*table内のtdに対して*/
 }
 @media (min-width:768px){
     #messege-box{
-        height:648px;
+        height:38.625rem;
     }
 
 }
