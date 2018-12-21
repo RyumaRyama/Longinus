@@ -32,18 +32,16 @@
               </ul>
             </li>
 
-            <% if @user == current_user %>
-              <li class="dropdown nav-item">
-                <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
-                  フレンド <b class="caret"></b>
-                </a>
-                <ul class="dropdown-menu bg-dark">
-                  <li class="nav-item">
-                    <%= render 'shared/stats' %>
-                  </li>
-                  <li class="divider"></li>
-                </ul>
-            <% end %>
+            <li class="dropdown nav-item">
+              <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
+                フレンド <b class="caret"></b>
+              </a>
+              <ul class="dropdown-menu bg-dark">
+                <li class="nav-item">
+                  <%= render 'shared/stats' %>
+                </li>
+                <li class="divider"></li>
+              </ul>
 
             <li class="nav-item"><%= link_to "使い方ガイド", help_path, { :class => "navbar-brand nav-link" } %></li>
             <li class="nav-item"><%= link_to "レビューはこちら", 'https://goo.gl/forms/41aZVzoTV5Jm4ztE3', { :class => "navbar-brand nav-link" } %></li>
