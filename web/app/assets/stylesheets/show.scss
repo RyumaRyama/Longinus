@@ -163,7 +163,14 @@ ol.sample1{
   -webkit-box-shadow: 0 0 40px rgba(0, 0, 0, 0.2) inset,0 0 4px rgba(0, 0, 0, 0.2) ;
   -moz-box-shadow: 0 0 40px rgba(0, 0, 0, 0.2) inset,0 0 4px rgba(0, 0, 0, 0.2) ;
   box-shadow: 0 0 40px rgba(0, 0, 0, 0.2) inset,0 0 4px rgba(0, 0, 0, 0.2) ;
-  width:340px;
+}
+//友人情報表示サイズ調整
+@media (min-width:768px){
+  //PCクラスのディスプレイはサイズ指定
+  ol.sample1{
+    width:21.25rem;
+  }
+  //PCより小さいディスプレイにはディスプレイフル表示
 }
 ol.sample1:after{
   content:"Hobby-com";  /* 右下の文字 */
