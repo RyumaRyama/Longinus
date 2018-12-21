@@ -211,6 +211,7 @@ html body [data-ca3_iconfont="ETmodules"]::before {
   left: 40px;
   width: 4px;
   margin-left: -1.5px;
+  margin-top: 10px;
   content: '';
   background-color: #e9ecef;
 }
@@ -255,13 +256,14 @@ html body [data-ca3_iconfont="ETmodules"]::before {
 .timeline > li .timeline-image {
   position: absolute;
   z-index: 100;
-  left: 0;
-  width: 100px;
-  height: 100px;
+  left: 8px;
+  top: 6px;
+  width: 80px;
+  height: 80px;
   margin-left: 0;
   text-align: center;
   color: white;
-  border: 7px solid #e9ecef;
+  border: 8px solid #e9ecef;
   border-radius: 100%;
   background-color: #fed136;
 }
@@ -269,7 +271,7 @@ html body [data-ca3_iconfont="ETmodules"]::before {
 .timeline > li .timeline-image h4 {
   font-size: 10px;
   line-height: 14px;
-  margin-top: 12px;
+  margin-top: 14px;
 }
 
 .timeline > li.timeline-inverted > .timeline-panel {
@@ -329,6 +331,7 @@ html body [data-ca3_iconfont="ETmodules"]::before {
     width: 100px;
     height: 100px;
     margin-left: -50px;
+    border: 12px solid #e9ecef;
   }
   .timeline > li .timeline-image h4 {
     font-size: 13px;
@@ -353,6 +356,7 @@ html body [data-ca3_iconfont="ETmodules"]::before {
     width: 150px;
     height: 150px;
     margin-left: -75px;
+    border: 15px solid #e9ecef;
   }
   .timeline > li .timeline-image h4 {
     font-size: 18px;
@@ -375,9 +379,10 @@ html body [data-ca3_iconfont="ETmodules"]::before {
     width: 170px;
     height: 170px;
     margin-left: -85px;
+    border: 21px solid #e9ecef;
   }
   .timeline > li .timeline-image h4 {
-    margin-top: 40px;
+    margin-top: 25px;
   }
   .timeline > li.timeline-inverted > .timeline-panel {
     padding: 0 100px 20px 20px;
@@ -452,7 +457,53 @@ section .howtouse {
     position:absolute;
     top:-25px;
     left:30%;
-    -webkit-transform:rotate(-4deg);
+    -webkit-transform:rotate(-1deg);
+}
+
+
+.tape4{
+    background: #66CCCC;
+    background-image: radial-gradient(#fff 20%, transparent 0), radial-gradient(#fff 20%, transparent 0);
+    background-position: 0 0, 10px 10px;
+    background-size: 20px 20px;
+    padding: 1em;
+    color: #593869;
+    box-shadow:0 0 6px rgba(0,0,0,0.2);
+    width:175px;
+    height:38px;
+    position:absolute;
+    top:-25px;
+    left:30%;
+    -webkit-transform:rotate(-1deg);
+}
+
+
+.tape5{
+    background:
+    linear-gradient(324deg, #232927 4%,   transparent 4%) -35px 21px,
+    linear-gradient( 36deg, #232927 4%,   transparent 4%) 15px 21px,
+    linear-gradient( 72deg, #e3d7bf 8.5%, transparent 8.5%) 15px 21px,
+    linear-gradient(288deg, #e3d7bf 8.5%, transparent 8.5%) -35px 21px,
+    linear-gradient(216deg, #e3d7bf 7.5%, transparent 7.5%) -35px 11px,
+    linear-gradient(144deg, #e3d7bf 7.5%, transparent 7.5%) 15px 11px,
+
+    linear-gradient(324deg, #232927 4%,   transparent 4%) -10px 46px,
+    linear-gradient( 36deg, #232927 4%,   transparent 4%) 40px 46px,
+    linear-gradient( 72deg, #e3d7bf 8.5%, transparent 8.5%) 40px 46px,
+    linear-gradient(288deg, #e3d7bf 8.5%, transparent 8.5%) -10px 46px,
+    linear-gradient(216deg, #e3d7bf 7.5%, transparent 7.5%) -10px 36px,
+    linear-gradient(144deg, #e3d7bf 7.5%, transparent 7.5%) 40px 36px;
+    background-color: #232927;
+    background-size: 50px 50px;
+    padding: 1em;
+    color: #593869;
+    box-shadow:0 0 6px rgba(0,0,0,0.2);
+    width:175px;
+    height:38px;
+    position:absolute;
+    top:-25px;
+    left:30%;
+    -webkit-transform:rotate(-1deg);
 }
 
 .box10 span {
