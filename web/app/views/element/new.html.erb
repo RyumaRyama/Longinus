@@ -1,22 +1,43 @@
+<link rel="stylesheet" href="/assets/show.scss">
+<%= render "layouts/header" %>
+
 <% provide(:title, 'Sign up') %>
 
-<h1 class="title">好きなことの追加</h1>
-<div class="container">
-  固有名詞でお願いします
-  <br>
-  <br>
-  例：<br>
-  本を読む→読書<br>
-  ラーメンを食べる→ラーメン<br>
-  <br>
-  <div class="user_data">
+<div class="header1 text-center md-4">
+  <h1>好きなことの登録</h1>
+</div>
 
-    <%= form_for @element, :url => { :controller => :element } do |f| %>
-      <%= render 'add_form' %>
-      <%= f.submit "送信", class: "btn btn-submit" %>
-    <% end %>
-    <br>
-    <br>
+<div class="container">
+  <div class="row">
+    <div class="col-12 col-sm-12 col-md-2 col-lg-2 col-xl-2">
+      <div class="box-area" id="messege-box" style="margin-top: 50px; padding-top: 20px">
+        <h2>注意</h2>
+        <p>
+          <b>固有名詞</b>で<br>記述してください
+        </p>
+        <h5>例</h5>
+        <dl>
+          <dt>本を読む</dt>
+          <dd>読書</dd>
+          <dt>ラーメンを食べる</dt>
+          <dd>ラーメン</dd>
+        </dl>
+      </div>
+    </div>
+
+    <div class="col-12 col-sm-12 col-md-5 col-lg-5 col-xl-5">
+      <div class="box-area" id="add_elements" style="padding-top: 20px; margin-top: 50px">
+        <h2>好きなことの登録</h2>
+        <div class="user_data">
+          <%= form_for @element, :url => {:controller => :element} do |f| %>
+            <%= render 'add_form' %>
+            <%= f.submit "送信", class: "btn btn-submit" %>
+          <% end %>
+          <br>
+          <br>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 
